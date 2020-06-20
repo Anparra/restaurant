@@ -122,4 +122,54 @@ b 5 5 5 1 1 5 d d d d 5 5 d 5 4 4 e e d e . . . . . . . . . . .
 4 1 d 4 5 5 5 d 4 e e . . . . . . . . 4 4 . . . . . . . . . . . 
 4 1 5 5 4 e e d e . . . . . . . . . . . . . . . . . . . . . . . 
 4 4 e e . . . 4 e . . . . . . . . . . . . . . . . . . . . . . . 
+`</field></block><block type="screen_image_picker" id="8.gS+Z-Sgp80x`n[Ad04" disabled="true" x="550" y="270"><field name="img">img`
+. c c c c c c c c c c c c c c c c c c c c c c . 
+c b d d d d d d d d d d d d d d d d d d d d b c 
+c d d d d d d d d d d d d d d d d d d d d d d c 
+c d d d d d d d d d d d d d d d d d d d d d d c 
+c d d d d d d d d d d d d d d d d d d d d d d c 
+c d d d d d d d d d d d d d d d d d d d d d d c 
+c d d d d d d d d d d d d d d d d d d d d d d c 
+c b d d d d d d d d d d d d d d d d d d d d b c 
+c c b b b b b b b b b b b b b b b b b b b b c c 
+c c f f f f f f f f f f f f f f f f f f f f c c 
+c b f d b f f d b f f f f f f d b f f d b f b c 
+c b f b b f f b b f f f f f f b b f f b b f b c 
+f b f f f f f f f f f f f f f f f f f f f f b f 
+f d d d d d d d d d d d d d d d d d d d d d d f 
+f d f f f f f f f f f f f f f f f f f f f f d f 
+f d f f f f f f f f f f f f f f f f f f f f d f 
+f d f f f f f f f f f f f f f f f f f f f f d f 
+f d f f f f f f f f f f f f f f f f f f f f d f 
+f d f f f f f f f f f f f f f f f f f f f f d f 
+f d f f f f f f f f f f f f f f f f f f f f d f 
+f d f f f f f f f f f f f f f f f f f f f f d f 
+f d c b b d d d d d d d d d d d d d d b b c d f 
+f d f f f f f f f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f f f f f f f f f f f 
+`</field></block><block type="screen_image_picker" id="-PwHttuqv^IsZ4M(ZbQo" disabled="true" x="550" y="350"><field name="img">img`
+. . b b b b b b b b b b b b b b b b b b b b b b b b b b b b . . 
+. b b b d d d d d d d d d d d d d d d d d d d d d d d d b b b . 
+b b b d d f f f f f f f f f f f f f f f f f f f f f f d d b b b 
+b b d d f f f f f f f f f f f f f f f f f f f f f f f f d d b b 
+b b d f f f f f f f f f f f f f f f f f f f f f f f f f f d b b 
+b b d f f f f f d 1 1 d f f f f f f f d 1 1 d f f f d b f d b b 
+b b d f f f f d 1 4 4 1 d f f f f f d 1 4 4 1 d f f b b f d b b 
+b b d f f f f 1 4 f f 4 1 f f f f f 1 4 f f 4 1 f f f f f d b b 
+b b d f f f f 1 4 f f 4 1 f f f f f 1 4 f f 4 1 f f f f f d b b 
+b b d f f f f d 1 4 4 1 d f f f f f d 1 4 4 1 d f f d b f d b b 
+b b d f f f f f d 1 1 d f f f f f f f d 1 1 d f f f b b f d b b 
+b b d f f f f f f f f f f f f f f f f f f f f f f f f f f d b b 
+b b d f f f f f f f f f f f f f f f f f f f f f f f f f f d b b 
+b b d f f f f f d 1 1 d f f f f f f f d 1 1 d f f f d b f d b b 
+b b d f f f f d 1 4 4 1 d f f f f f d 1 4 4 1 d f f b b f d b b 
+b b d f f f f 1 4 f f 4 1 f f f f f 1 4 f f 4 1 f f f f f d b b 
+b b d f f f f 1 4 f f 4 1 f f f f f 1 4 f f 4 1 f f f f f d b b 
+b b d f f f f d 1 4 4 1 d f f f f f d 1 4 4 1 d f f d b f d b b 
+b b d f f f f f d 1 1 d f f f f f f f d 1 1 d f f f b b f d b b 
+b b d d f f f f f f f f f f f f f f f f f f f f f f f f d d b b 
+b b c d d f f f f f f f f f f f f f f f f f f f f f f d d c b b 
+b b b c d d d d d d d d d d d d d d d d d d d d d d d d c b b b 
+. b b b c c c c c c c c c c c c c c c c c c c c c c c c b b b . 
+. . . b b b b b b b b b b b b b b b b b b b b b b b b b b b . . 
 `</field></block></xml>
