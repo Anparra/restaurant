@@ -1,3 +1,12 @@
+enum ActionKind {
+    Walking,
+    Idle,
+    Jumping
+}
+namespace SpriteKind {
+    export const oven = SpriteKind.create()
+    export const kitchen = SpriteKind.create()
+}
 namespace myTiles {
     //% blockIdentity=images._tile
     export const tile0 = img`
@@ -19,6 +28,177 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `
 }
+function placeOven () {
+    oven1 = sprites.create(img`
+. . c c c c c c c c c c c c c c 
+. . c b d d d d d d d d d d d d 
+c c c b d d d d d d d d d d d d 
+c b b b d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c b d d d d d d d d d d d d d d 
+c c b b b b b b b b b b b b b b 
+c c f f f f f f f f f f f f f f 
+c c f f f f f f f f f f f f f f 
+`, SpriteKind.oven)
+    tiles.placeOnTile(oven1, tiles.getTileLocation(15, 0))
+    oven2 = sprites.create(img`
+c c c c c c c c c c c c c c . . 
+d d d d d d d d d d d d b c . . 
+d d d d d d d d d d d d b c c c 
+d d d d d d d d d d d d b b b c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d b c 
+b b b b b b b b b b b b b b c c 
+f f f f f f f f f f f f f f c c 
+f f f f f f f f f f f f f f c c 
+`, SpriteKind.oven)
+    tiles.placeOnTile(oven2, tiles.getTileLocation(16, 0))
+    oven3 = sprites.create(img`
+c b f f d d b b f f d d b b f f 
+c b f f d d b b f f d d b b f f 
+f b f f b b b b f f b b b b f f 
+f b f f b b b b f f b b b b f f 
+f b f f f f f f f f f f f f f f 
+f b f f f f f f f f f f f f f f 
+f d d d d d d d d d d d d d d d 
+f d f f f f f f f f f f f f f f 
+f d f f f f f f f f f f f f f f 
+f d f f f f f f f f f f f f f f 
+f d f f f f f f f f f f f f f f 
+f d f f f f f f f f f f f f f f 
+f d f f f f f f f f f f f f f f 
+f d c c b b b b d d d d d d d d 
+f d f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f 
+`, SpriteKind.oven)
+    tiles.placeOnTile(oven3, tiles.getTileLocation(15, 1))
+    oven4 = sprites.create(img`
+f f d d b b f f d d b b f f b c 
+f f d d b b f f d d b b f f b c 
+f f b b b b f f b b b b f f b f 
+f f b b b b f f b b b b f f b f 
+f f f f f f f f f f f f f f b f 
+f f f f f f f f f f f f f f b f 
+d d d d d d d d d d d d d d d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f d f 
+d d d d d d d d b b b b c c d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f f f 
+`, SpriteKind.oven)
+    tiles.placeOnTile(oven4, tiles.getTileLocation(16, 1))
+}
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    monkey,
+    [img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f . . . . . 
+. c d f d d f d e e f f . . . . 
+. c d f d d f d e e d d f . . . 
+c d e e d d d d e e b d c . . . 
+c d d d d c d d e e b d c . f f 
+c c c c c d d d e e f c . f e f 
+. f d d d d d e e f f . . f e f 
+. . f f f f f e e e e f . f e f 
+. . . . f e e e e e e e f f e f 
+. . . f e f f e f e e e e f f . 
+. . . f e f f e f e e e e f . . 
+. . . f d b f d b f f e f . . . 
+. . . f d d c d d b b d f . . . 
+. . . . f f f f f f f f f . . . 
+`,img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f . . . . . 
+. c d f d d f d e e f . . . . . 
+. c d f d d f d e e f f . . . . 
+c d e e d d d d e e d d f . . . 
+c d d d d c d d e e b d c . . . 
+c c c c c d d e e e b d c . f f 
+. f d d d d e e e f f c . f e f 
+. f f f f f f e e e e f . f e f 
+. f f f f e e e e e e e f f e f 
+f d d f d d f e f e e e e f f . 
+f d b f d b f e f e e e e f . . 
+f f f f f f f f f f f f e f . . 
+. . . . . . . . . f c d d f . . 
+. . . . . . . . . . f f f f . . 
+`,img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f f . . . . 
+. c d d d d d d e e d d f . . . 
+. c d f d d f d e e b d c . . . 
+c d d f d d f d e e b d c . f f 
+c d e e d d d d e e f c . f e f 
+c d d d d c d e e e f . . f e f 
+. f c c c d e e e f f . . f e f 
+. . f f f f f e e e e f . f e f 
+. . . . f e e e e e e e f f f . 
+. . f f e f e e f e e e e f . . 
+. f e f f e e f f f e e e f . . 
+f d d b d d c f f f f f f b f . 
+f d d c d d d f . . f c d d f . 
+. f f f f f f f . . . f f f . . 
+`,img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f f f . . . . 
+. . f d d d e e e e d d f . . . 
+. c d d d d d e e e b d c . . . 
+. c d d d d d d e e b d c . . . 
+c d d f d d f d e e f c . f f . 
+c d d f d d f d e e f . . f e f 
+c d e e d d d d e e f . . f e f 
+. f d d d c d e e f f . . f e f 
+. . f f f d e e e e e f . f e f 
+. . . . f e e e e e e e f f f . 
+. . . . f f e e e e e b f f . . 
+. . . f e f f e e c d d f f . . 
+. . f d d b d d c f f f . . . . 
+. . f d d c d d d f f . . . . . 
+. . . f f f f f f f . . . . . . 
+`,img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f . . . . . 
+. c d f d d f d e e f f . . . . 
+. c d f d d f d e e d d f . . . 
+c d e e d d d d e e b d c . . . 
+c d d d d c d d e e b d c . . . 
+c c c c c d d e e e f c . . . . 
+. f d d d d e e e f f . . . . . 
+. . f f f f f e e e e f . . . . 
+. . . . f f e e e e e e f . f f 
+. . . f e e f e e f e e f . e f 
+. . f e e f e e f e e e f . e f 
+. f b d f d b f b b f e f f e f 
+. f d d f d d f d d b e f f f f 
+. . f f f f f f f f f f f f f . 
+`],
+    200,
+    true
+    )
+})
 function background () {
     scene.setTile(4, img`
 d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 b 
@@ -218,26 +398,158 @@ d 1 b b b b b b b b b b b b b b
 d b b b b b b b b b b b b b b b 
 d b d d d d d d d d d d d d d d 
 `, true)
-    scene.setTile(6, img`
-. . d d d d d d d d d d d d d d 
-. . d 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d d d 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 b b b b b b b b b b b b b b 
-d b b b b b b b b b b b b b b b 
-d b d d d d d d d d d d d d d d 
+    scene.setTile(1, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
 `, true)
+    placeOven()
+    placeKitchen()
 }
-let mySprite = sprites.create(img`
+function walking_monkey () {
+    controller.moveSprite(monkey)
+}
+function placeKitchen () {
+    kitchen1 = sprites.create(img`
+. . b b b b b b b b b b b b b b 
+. b b b b b b b b b b b b b b b 
+. b b c d d d d d d d d d d d d 
+b b c d d f f f f f f f f f f f 
+b c d d f f f f f f f f f f f f 
+b c d f f f f f f f f f f f f f 
+b c d f f f f f f f f f f f f f 
+b c d f f f f f d d d d f f f f 
+b c d f f f f d 1 1 1 1 d f f f 
+b c d f f f d 1 4 4 4 4 1 d f f 
+b c d f f d 1 4 f f f f 4 1 d f 
+b c d f f d 1 4 f f f f 4 1 d f 
+b c d f f d 1 4 f f f f 4 1 d f 
+b c d f f f d 1 4 4 4 4 1 d f f 
+b c d f f f f d 1 1 1 1 d f f f 
+b c d f f f f f d d d d f f f f 
+`, SpriteKind.kitchen)
+    tiles.placeOnTile(kitchen1, tiles.getTileLocation(19, 4))
+    kitchen2 = sprites.create(img`
+b b b b b b b b b b b b b b . . 
+b b b b b b b b b b b b b b b . 
+d d d d d d d d d d d d d b b . 
+f f f f f f f f f f f f d d b b 
+f f f f f f f f f f f f f d d b 
+f f f f f f f f f f f f f f d b 
+f f f f f f f f f f f f f f d b 
+f f f f f d d d d f f f f f d b 
+f f f f d 1 1 1 1 d f f f f d b 
+f f f d 1 4 4 4 4 1 d f f f d b 
+f f d 1 4 f f f f 4 1 d f f d b 
+f f d 1 4 f f f f 4 1 d f f d b 
+f f d 1 4 f f f f 4 1 d f f d b 
+f f f d 1 4 4 4 4 1 d f f f d b 
+f f f f d 1 1 1 1 d f f f f d b 
+f f f f f d d d d f f f f f d b 
+`, SpriteKind.kitchen)
+    tiles.placeOnTile(kitchen2, tiles.getTileLocation(20, 4))
+    kitchen3 = sprites.create(img`
+b c d f f f f f f f f f f f f f 
+b c d f f f f f f f f f f f f f 
+b c d f f f f f f f f f f f f f 
+b c d f f f f f f f f f f f f f 
+b c d f f f f f d d d d f f f f 
+b c d f f f f d 1 1 1 1 d f f f 
+b c d f f f d 1 4 4 4 4 1 d f f 
+b c d f f d 1 4 f f f f 4 1 d f 
+b c d f f d 1 4 f f f f 4 1 d f 
+b c d f f d 1 4 f f f f 4 1 d f 
+b c d f f f d 1 4 4 4 4 1 d f f 
+b c d f f f f d 1 1 1 1 d f f f 
+b c d f f f f f d d d d f f f f 
+b c d f f f f f f f f f f f f f 
+b c d f f f f f f f f f f f f f 
+b c d f f f f f f f f f f f f f 
+`, SpriteKind.kitchen)
+    tiles.placeOnTile(kitchen3, tiles.getTileLocation(19, 5))
+    kitchen4 = sprites.create(img`
+b c d f f f f f f f f f f f f f 
+b c d f f f f f f f f f f f f f 
+b c d f f b b d d f f b b d d f 
+b c d f f b b d d f f b b d d f 
+b c d f f b b b b f f b b b b f 
+b c d f f b b b b f f b b b b f 
+b c d f f f f f f f f f f f f f 
+b c d f f f f f f f f f f f f f 
+b c d d f f f f f f f f f f f f 
+b b c d d f f f f f f f f f f f 
+b b b c d d d d d d d d d d d d 
+. b b b b b b b b b b b b b b b 
+. . b b b b b b b b b b b b b b 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.kitchen)
+    tiles.placeOnTile(kitchen4, tiles.getTileLocation(19, 6))
+    kitchen5 = sprites.create(img`
+f f f f f f f f f f f f f f d b 
+f f f f f f f f f f f f f f d b 
+f f f f f f f f f f f f f f d b 
+f f f f f f f f f f f f f f d b 
+f f f f f d d d d f f f f f d b 
+f f f f d 1 1 1 1 d f f f f d b 
+f f f d 1 4 4 4 4 1 d f f f d b 
+f f d 1 4 f f f f 4 1 d f f d b 
+f f d 1 4 f f f f 4 1 d f f d b 
+f f d 1 4 f f f f 4 1 d f f d b 
+f f f d 1 4 4 4 4 1 d f f f d b 
+f f f f d 1 1 1 1 d f f f f d b 
+f f f f f d d d d f f f f f d b 
+f f f f f f f f f f f f f f d b 
+f f f f f f f f f f f f f f d b 
+f f f f f f f f f f f f f f d b 
+`, SpriteKind.kitchen)
+    tiles.placeOnTile(kitchen5, tiles.getTileLocation(20, 5))
+    kitchen6 = sprites.create(img`
+f f f f f f f f f f f f f f d b 
+f f f f f f f f f f f f f f d b 
+f f b b d d f f b b d d f f d b 
+f f b b d d f f b b d d f f d b 
+f f b b b b f f b b b b f f d b 
+f f b b b b f f b b b b f f d b 
+f f f f f f f f f f f f f f d b 
+f f f f f f f f f f f f f f d b 
+f f f f f f f f f f f f f d d b 
+f f f f f f f f f f f f d d b b 
+d d d d d d d d d d d d d b b b 
+b b b b b b b b b b b b b b b . 
+b b b b b b b b b b b b b b . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.kitchen)
+    tiles.placeOnTile(kitchen6, tiles.getTileLocation(20, 6))
+}
+let kitchen6: Sprite = null
+let kitchen5: Sprite = null
+let kitchen4: Sprite = null
+let kitchen3: Sprite = null
+let kitchen2: Sprite = null
+let kitchen1: Sprite = null
+let oven4: Sprite = null
+let oven3: Sprite = null
+let oven2: Sprite = null
+let oven1: Sprite = null
+let monkey: Sprite = null
+monkey = sprites.create(img`
 . . . . f f f f f . . . . . . . 
 . . . f e e e e e f . . . . . . 
 . . f d d d d e e e f . . . . . 
@@ -255,18 +567,18 @@ c c c c c d d e e e f c . . . .
 . f d d f d d f d d b e f f f f 
 . . f f f f f f f f f f f f f . 
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-scene.cameraFollowSprite(mySprite)
+scene.cameraFollowSprite(monkey)
 scene.setTileMap(img`
-4 4 4 4 4 4 4 4 4 4 2 3 e e e f f e 6 8 e 
-4 4 4 4 4 4 4 4 4 4 5 7 e e e f f e a c e 
+4 4 4 4 4 4 4 4 4 4 2 3 e e e 1 1 e 6 8 e 
+4 4 4 4 4 4 4 4 4 4 5 7 e e e 1 1 e a c e 
 4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
 4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e e e 
-4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e f f 
-4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e f f 
-4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e f f 
+4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
+4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
+4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e 1 1 
 4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e e e 
 4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
 4 4 4 4 4 4 4 4 4 4 f f e e e e e e e e e 
 `)
 background()
+walking_monkey()
