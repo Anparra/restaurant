@@ -106,99 +106,6 @@ f f f f f f f f f f f f f f f f
 `, SpriteKind.oven)
     tiles.placeOnTile(oven4, tiles.getTileLocation(16, 1))
 }
-controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    animation.runImageAnimation(
-    monkey,
-    [img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f . . . . . 
-. c d f d d f d e e f f . . . . 
-. c d f d d f d e e d d f . . . 
-c d e e d d d d e e b d c . . . 
-c d d d d c d d e e b d c . f f 
-c c c c c d d d e e f c . f e f 
-. f d d d d d e e f f . . f e f 
-. . f f f f f e e e e f . f e f 
-. . . . f e e e e e e e f f e f 
-. . . f e f f e f e e e e f f . 
-. . . f e f f e f e e e e f . . 
-. . . f d b f d b f f e f . . . 
-. . . f d d c d d b b d f . . . 
-. . . . f f f f f f f f f . . . 
-`,img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f . . . . . 
-. c d f d d f d e e f . . . . . 
-. c d f d d f d e e f f . . . . 
-c d e e d d d d e e d d f . . . 
-c d d d d c d d e e b d c . . . 
-c c c c c d d e e e b d c . f f 
-. f d d d d e e e f f c . f e f 
-. f f f f f f e e e e f . f e f 
-. f f f f e e e e e e e f f e f 
-f d d f d d f e f e e e e f f . 
-f d b f d b f e f e e e e f . . 
-f f f f f f f f f f f f e f . . 
-. . . . . . . . . f c d d f . . 
-. . . . . . . . . . f f f f . . 
-`,img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f f . . . . 
-. c d d d d d d e e d d f . . . 
-. c d f d d f d e e b d c . . . 
-c d d f d d f d e e b d c . f f 
-c d e e d d d d e e f c . f e f 
-c d d d d c d e e e f . . f e f 
-. f c c c d e e e f f . . f e f 
-. . f f f f f e e e e f . f e f 
-. . . . f e e e e e e e f f f . 
-. . f f e f e e f e e e e f . . 
-. f e f f e e f f f e e e f . . 
-f d d b d d c f f f f f f b f . 
-f d d c d d d f . . f c d d f . 
-. f f f f f f f . . . f f f . . 
-`,img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f f f . . . . 
-. . f d d d e e e e d d f . . . 
-. c d d d d d e e e b d c . . . 
-. c d d d d d d e e b d c . . . 
-c d d f d d f d e e f c . f f . 
-c d d f d d f d e e f . . f e f 
-c d e e d d d d e e f . . f e f 
-. f d d d c d e e f f . . f e f 
-. . f f f d e e e e e f . f e f 
-. . . . f e e e e e e e f f f . 
-. . . . f f e e e e e b f f . . 
-. . . f e f f e e c d d f f . . 
-. . f d d b d d c f f f . . . . 
-. . f d d c d d d f f . . . . . 
-. . . f f f f f f f . . . . . . 
-`,img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f . . . . . 
-. c d f d d f d e e f f . . . . 
-. c d f d d f d e e d d f . . . 
-c d e e d d d d e e b d c . . . 
-c d d d d c d d e e b d c . . . 
-c c c c c d d e e e f c . . . . 
-. f d d d d e e e f f . . . . . 
-. . f f f f f e e e e f . . . . 
-. . . . f f e e e e e e f . f f 
-. . . f e e f e e f e e f . e f 
-. . f e e f e e f e e e f . e f 
-. f b d f d b f b b f e f f e f 
-. f d d f d d f d d b e f f f f 
-. . f f f f f f f f f f f f f . 
-`],
-    200,
-    true
-    )
-})
 function background () {
     scene.setTile(4, img`
 d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 b 
@@ -419,9 +326,6 @@ d b d d d d d d d d d d d d d d
     placeOven()
     placeKitchen()
 }
-function walking_monkey () {
-    controller.moveSprite(monkey)
-}
 function placeKitchen () {
     kitchen1 = sprites.create(img`
 . . b b b b b b b b b b b b b b 
@@ -548,8 +452,7 @@ let oven4: Sprite = null
 let oven3: Sprite = null
 let oven2: Sprite = null
 let oven1: Sprite = null
-let monkey: Sprite = null
-monkey = sprites.create(img`
+let monkey = sprites.create(img`
 . . . . f f f f f . . . . . . . 
 . . . f e e e e e f . . . . . . 
 . . f d d d d e e e f . . . . . 
@@ -567,7 +470,26 @@ c c c c c d d e e e f c . . . .
 . f d d f d d f d d b e f f f f 
 . . f f f f f f f f f f f f f . 
 `, SpriteKind.Player)
+let monkey2 = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . b 5 b . . . 
+. . . . . . . . . b 5 b . . . . 
+. . . . . . b b b b b b . . . . 
+. . . . . b b 5 5 5 5 5 b . . . 
+. b b b b b 5 5 5 5 5 5 5 b . . 
+. b d 5 b 5 5 5 5 5 5 5 5 b . . 
+. . b 5 5 b 5 d 1 f 5 d 4 f . . 
+. . b d 5 5 b 1 f f 5 4 4 c . . 
+b b d b 5 5 5 d f b 4 4 4 4 4 b 
+b d d c d 5 5 b 5 4 4 4 4 4 b . 
+c d d d c c b 5 5 5 5 5 5 5 b . 
+c b d d d d d 5 5 5 5 5 5 5 b . 
+. c d d d d d d 5 5 5 5 5 d b . 
+. . c b d d d d d 5 5 5 b b . . 
+. . . c c c c c c c c b b . . . 
+`, SpriteKind.Player)
 scene.cameraFollowSprite(monkey)
+scene.cameraFollowSprite(monkey2)
 scene.setTileMap(img`
 4 4 4 4 4 4 4 4 4 4 2 3 e e e 1 1 e 6 8 e 
 4 4 4 4 4 4 4 4 4 4 5 7 e e e 1 1 e a c e 
@@ -580,5 +502,138 @@ scene.setTileMap(img`
 4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
 4 4 4 4 4 4 4 4 4 4 f f e e e e e e e e e 
 `)
+controller.moveSprite(monkey)
+controller.player2.moveSprite(monkey2)
 background()
-walking_monkey()
+game.onUpdate(function () {
+    monkey.setImage(img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f . . . . . 
+. c d f d d f d e e f f . . . . 
+. c d f d d f d e e d d f . . . 
+c d e e d d d d e e b d c . . . 
+c d d d d c d d e e b d c . . . 
+c c c c c d d e e e f c . . . . 
+. f d d d d e e e f f . . . . . 
+. . f f f f f e e e e f . . . . 
+. . . . f f e e e e e e f . f f 
+. . . f e e f e e f e e f . e f 
+. . f e e f e e f e e e f . e f 
+. f b d f d b f b b f e f f e f 
+. f d d f d d f d d b e f f f f 
+. . f f f f f f f f f f f f f . 
+`)
+    if (monkey.vx < 0) {
+        animation.runImageAnimation(
+        monkey,
+        [img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f . . . . . 
+. c d f d d f d e e f f . . . . 
+. c d f d d f d e e d d f . . . 
+c d e e d d d d e e b d c . . . 
+c d d d d c d d e e b d c . f f 
+c c c c c d d d e e f c . f e f 
+. f d d d d d e e f f . . f e f 
+. . f f f f f e e e e f . f e f 
+. . . . f e e e e e e e f f e f 
+. . . f e f f e f e e e e f f . 
+. . . f e f f e f e e e e f . . 
+. . . f d b f d b f f e f . . . 
+. . . f d d c d d b b d f . . . 
+. . . . f f f f f f f f f . . . 
+`,img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f . . . . . 
+. c d f d d f d e e f . . . . . 
+. c d f d d f d e e f f . . . . 
+c d e e d d d d e e d d f . . . 
+c d d d d c d d e e b d c . . . 
+c c c c c d d e e e b d c . f f 
+. f d d d d e e e f f c . f e f 
+. f f f f f f e e e e f . f e f 
+. f f f f e e e e e e e f f e f 
+f d d f d d f e f e e e e f f . 
+f d b f d b f e f e e e e f . . 
+f f f f f f f f f f f f e f . . 
+. . . . . . . . . f c d d f . . 
+. . . . . . . . . . f f f f . . 
+`,img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f f . . . . 
+. c d d d d d d e e d d f . . . 
+. c d f d d f d e e b d c . . . 
+c d d f d d f d e e b d c . f f 
+c d e e d d d d e e f c . f e f 
+c d d d d c d e e e f . . f e f 
+. f c c c d e e e f f . . f e f 
+. . f f f f f e e e e f . f e f 
+. . . . f e e e e e e e f f f . 
+. . f f e f e e f e e e e f . . 
+. f e f f e e f f f e e e f . . 
+f d d b d d c f f f f f f b f . 
+f d d c d d d f . . f c d d f . 
+. f f f f f f f . . . f f f . . 
+`,img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f f f . . . . 
+. . f d d d e e e e d d f . . . 
+. c d d d d d e e e b d c . . . 
+. c d d d d d d e e b d c . . . 
+c d d f d d f d e e f c . f f . 
+c d d f d d f d e e f . . f e f 
+c d e e d d d d e e f . . f e f 
+. f d d d c d e e f f . . f e f 
+. . f f f d e e e e e f . f e f 
+. . . . f e e e e e e e f f f . 
+. . . . f f e e e e e b f f . . 
+. . . f e f f e e c d d f f . . 
+. . f d d b d d c f f f . . . . 
+. . f d d c d d d f f . . . . . 
+. . . f f f f f f f . . . . . . 
+`,img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f . . . . . 
+. c d f d d f d e e f f . . . . 
+. c d f d d f d e e d d f . . . 
+c d e e d d d d e e b d c . . . 
+c d d d d c d d e e b d c . . . 
+c c c c c d d e e e f c . . . . 
+. f d d d d e e e f f . . . . . 
+. . f f f f f e e e e f . . . . 
+. . . . f f e e e e e e f . f f 
+. . . f e e f e e f e e f . e f 
+. . f e e f e e f e e e f . e f 
+. f b d f d b f b b f e f f e f 
+. f d d f d d f d d b e f f f f 
+. . f f f f f f f f f f f f f . 
+`],
+        200,
+        true
+        )
+    } else {
+        monkey.setImage(img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f . . . . . 
+. c d f d d f d e e f f . . . . 
+. c d f d d f d e e d d f . . . 
+c d e e d d d d e e b d c . . . 
+c d d d d c d d e e b d c . . . 
+c c c c c d d e e e f c . . . . 
+. f d d d d e e e f f . . . . . 
+. . f f f f f e e e e f . . . . 
+. . . . f f e e e e e e f . f f 
+. . . f e e f e e f e e f . e f 
+. . f e e f e e f e e e f . e f 
+. f b d f d b f b b f e f f e f 
+. f d d f d d f d d b e f f f f 
+. . f f f f f f f f f f f f f . 
+`)
+    }
+})

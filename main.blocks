@@ -1,32 +1,4 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable type="BLOCKLY_TILESET_TYPE" id="C=q5:}`w,Hn(AypT@FEV">0;16;16;0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</variable><variable type="KIND_SpriteKind" id="+)**f.RV]B/`V1[^-:Sf">Player</variable><variable type="KIND_SpriteKind" id="GE@(cWst:yV)n6aw6!YA">Projectile</variable><variable type="KIND_SpriteKind" id="9]ILQg8hB2pL(m69H#E|">Food</variable><variable type="KIND_SpriteKind" id="rA|{g/**i;5J3RCmr[~A">Enemy</variable><variable type="KIND_SpriteKind" id="Lw90plbD_nv#S$:$Rx,X">oven</variable><variable type="KIND_SpriteKind" id="cK[8MMeCQn0C|0mura?}">kitchen</variable><variable id="Xm=MP.9Hhu:yO@/P3]4|">mySprite</variable><variable id="/_6VBJv=d1G5SG[|sHT8">mySprite2</variable><variable id="$Et[QwOyHcl6;i,B_CDi">oven1</variable><variable id="{3*8.-hnV8+u_Q6[#o/O">oven2</variable><variable id="2q8/@Lpc|r6UH#p*rl=`">oven3</variable><variable id=")OTT0~;p}o-DC)AIi4HG">oven4</variable><variable id=",~S|tlT|hD_d=pE(?JYh">kitchen1</variable><variable id="W3YFL(2Xg6`k4.5rTjW4">kitchen2</variable><variable id=")YmdiDgLD)#VgW]5#3n.">kitchen3</variable><variable id="cgr{[W6!n]FE+#R#[|p`">kitchen4</variable><variable id="Mz3L|fokR+E5n$]I/KVE">kitchen5</variable><variable id="%]fvERm@+_OIdZa`^@*y">kitchen6</variable><variable id="Ff)KrU_Vo}i9`u{q,c]-">monkey</variable><variable type="ActionKind" id="bgPG1l.YK_+22^QA|@;Y">0Walking</variable><variable type="ActionKind" id="7LJE_w_l13$geRiA1t|y">1Idle</variable><variable type="ActionKind" id="0xoA9Ca=-sp}!L0eu8(H">2Jumping</variable></variables><block type="pxt-on-start" id="y.XcUlgZaTEENXxfZ5qo" x="-310" y="-10"><statement name="HANDLER"><block type="variables_set" id="OEZ?xzN[4=%T$W3zyU;["><field name="VAR" id="Ff)KrU_Vo}i9`u{q,c]-">monkey</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="tRLzGe7FmfG3bCwZ[`Mv"><value name="img"><shadow type="screen_image_picker" id="zu]|U`^rISu(YKk`7m!Y"><field name="img">img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f . . . . . 
-. c d f d d f d e e f f . . . . 
-. c d f d d f d e e d d f . . . 
-c d e e d d d d e e b d c . . . 
-c d d d d c d d e e b d c . . . 
-c c c c c d d e e e f c . . . . 
-. f d d d d e e e f f . . . . . 
-. . f f f f f e e e e f . . . . 
-. . . . f f e e e e e e f . f f 
-. . . f e e f e e f e e f . e f 
-. . f e e f e e f e e e f . e f 
-. f b d f d b f b b f e f f e f 
-. f d d f d d f d d b e f f f f 
-. . f f f f f f f f f f f f f . 
-`</field></shadow></value><value name="kind"><shadow type="spritekind" id="2}7TAQ5L(OUDff^#(t]j"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="camerafollow" id="_A]8R7kf)NKji#;p(1d)"><value name="sprite"><shadow type="variables_get" id="f?;ySuPp#S7}Lv{FL9L{"><field name="VAR" id="Ff)KrU_Vo}i9`u{q,c]-">monkey</field></shadow></value><next><block type="gamesettilemap" id="u=rgib8kcaiPzNw!-lX."><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="map"><shadow type="tilemap_image_picker" id="KeB28bXUE{w}5:3|.^zt"><field name="img">img`
-4 4 4 4 4 4 4 4 4 4 2 3 e e e 1 1 e 6 8 e 
-4 4 4 4 4 4 4 4 4 4 5 7 e e e 1 1 e a c e 
-4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
-4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e e e 
-4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e e e 
-4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
-4 4 4 4 4 4 4 4 4 4 f f e e e e e e e e e 
-`</field></shadow></value><next><block type="function_call" id="M^;()lr=6-r$034p$.D+"><mutation name="background" functionid=")mo%eU%$1ywmzW2l7IB{"/><next><block type="function_call" id="I@F@`X6W|GGU*cbUh,b%"><mutation name="walking_monkey" functionid="h[6FAS|89$8:uR(wnhz?"/></block></next></block></next></block></next></block></next></block></statement></block><block type="screen_image_picker" id="w|1p5$Jmw.([!*wxogX|" disabled="true" x="960" y="10"><field name="img">img`
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable type="ActionKind" id="PGHKk9ZWJ5*:g+0=T:sZ">0Walking</variable><variable type="ActionKind" id="gO6rn;bF_KB.$gcC5ety">1Idle</variable><variable type="ActionKind" id="twK3:r?aWi;yhdAnv,(N">2Jumping</variable><variable type="BLOCKLY_TILESET_TYPE" id="s$V%Mh];Sc1i,R/r]06`">0;16;16;0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</variable><variable type="KIND_SpriteKind" id="gmQU{A(l@95;ADQ$2LOU">oven</variable><variable type="KIND_SpriteKind" id="oB9Hbe5*3AT2kt3x[G$3">kitchen</variable><variable type="KIND_SpriteKind" id="/Bd$/4rz^*cnaZN7wAL/">Player</variable><variable type="KIND_SpriteKind" id="a++dFaVV`cvpkKM]/]qb">Projectile</variable><variable type="KIND_SpriteKind" id="cQDTQ=/JboKQkZi9a_+G">Food</variable><variable type="KIND_SpriteKind" id="Fce?NlfPscGN0%s8FZ):">Enemy</variable><variable id="Z$ZzHLqQg1EMP1p$n%0x">oven1</variable><variable id="/]+6fCG^M7i![/+]M]7`">oven2</variable><variable id="A$#:40|!2i}r!``9iR$4">oven3</variable><variable id="_=QQfux5M-:f9eQO)%2;">oven4</variable><variable id="{beD8l*h@k50pKEB)4#v">monkey</variable><variable id="fclsESXUCUKGM!zQQN([">kitchen1</variable><variable id="-`?PTKj7G}*D]M.*yXNy">kitchen2</variable><variable id="@Nv#TeCnRBssy:x)ZK1W">kitchen3</variable><variable id="3|Z.tS:9/5*H;vR;6XRW">kitchen4</variable><variable id="MEx34$Q9jR8.h}@}R%9j">kitchen5</variable><variable id="|(=l|$(43]dpS]%QtfA{">kitchen6</variable><variable id="5gyaWjY1=?giu]zivJU4">mySprite</variable><variable id="M0p9Hc3L3:o_Pbv#nBBR">monkey2</variable></variables><block type="screen_image_picker" id="y.+*j3{eN;4hUx^ye(,G" disabled="true" x="1170" y="10"><field name="img">img`
 . c c c c c c c c c c c c c c c c c c c c c c . 
 c b d d d d d d d d d d d d d d d d d d d d b c 
 c d d d d d d d d d d d d d d d d d d d d d d c 
@@ -51,7 +23,7 @@ f d f f f f f f f f f f f f f f f f f f f f d f
 f d c b b d d d d d d d d d d d d d d b b c d f 
 f d f f f f f f f f f f f f f f f f f f f f d f 
 f f f f f f f f f f f f f f f f f f f f f f f f 
-`</field></block><block type="screen_image_picker" id="UFht2K2YQnW-+BxMFNNY" disabled="true" x="860" y="20"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="I.pVDMSdP9c61sXO#9M3" disabled="true" x="1070" y="20"><field name="img">img`
 . d d d d d d d d d d d d d d . 
 d d 1 1 1 1 1 1 1 1 1 1 1 1 d d 
 d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 
@@ -76,7 +48,7 @@ f b f 1 1 1 1 1 1 1 1 1 1 d b f
 f b b b b b b b b b b b b b b f 
 f b f f f f f f f f f f f f b f 
 f f f f f f f f f f f f f f f f 
-`</field></block><block type="screen_image_picker" id="j;w4:2R1s9Nil;Gz.^:r" disabled="true" x="1160" y="10"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="]Uwv3I1/4fB:sQ1oH[/0" disabled="true" x="1370" y="10"><field name="img">img`
 . . c c c c c c c c c c c c c c 
 . b 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 3 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -93,7 +65,7 @@ c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-`</field></block><block type="screen_image_picker" id="gtU$_/qSra4(=f37()66" disabled="true" x="1240" y="10"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="klz,}9I)852Pt*|CnqnR" disabled="true" x="1450" y="10"><field name="img">img`
 c c c c c c c c c c c c c c . . 
 3 3 3 3 3 3 3 3 3 3 3 3 3 3 b . 
 1 1 1 1 1 1 1 1 1 1 1 1 3 3 3 c 
@@ -110,7 +82,7 @@ c c c c c c c c c c c c c c . .
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-`</field></block><block type="screen_image_picker" id=";S[E6gI;S?gS7_L^%WTX" disabled="true" x="1060" y="20"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="q$W?5-|:*JQHIk[hqhoO" disabled="true" x="1270" y="20"><field name="img">img`
 . . b b b b b b b b b b b b b b b b b b b b b b b b b b b b . . 
 . b b b d d d d d d d d d d d d d d d d d d d d d d d d b b b . 
 b b b d d f f f f f f f f f f f f f f f f f f f f f f d d b b b 
@@ -135,7 +107,7 @@ b b c d d f f f f f f f f f f f f f f f f f f f f f f d d c b b
 b b b c d d d d d d d d d d d d d d d d d d d d d d d d c b b b 
 . b b b c c c c c c c c c c c c c c c c c c c c c c c c b b b . 
 . . . b b b b b b b b b b b b b b b b b b b b b b b b b b b . . 
-`</field></block><block type="screen_image_picker" id="Vxxvd|-1#H,;_^UfRC@5" disabled="true" x="1510" y="0"><field name="img">img`
+`</field></block><block type="screen_image_picker" id=";-^r[g(r9F0`=ZAtpZ[6" disabled="true" x="1720" y="0"><field name="img">img`
 . . c c c c c c c c c c c c c c 
 . . c b d d d d d d d d d d d d 
 c c c b d d d d d d d d d d d d 
@@ -152,7 +124,7 @@ c b d d d d d d d d d d d d d d
 c c b b b b b b b b b b b b b b 
 c c f f f f f f f f f f f f f f 
 c c f f f f f f f f f f f f f f 
-`</field></block><block type="screen_image_picker" id="Rm|2q~ilN^3|r*iDz3V^" disabled="true" x="1340" y="10"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="HLQ-ZYf.%|@YHhiI+4[C" disabled="true" x="1550" y="10"><field name="img">img`
 . . d d d d d d d d d d d d d d 
 . . d 1 1 1 1 1 1 1 1 1 1 1 1 1 
 d d d 1 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -169,7 +141,7 @@ d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 d 1 b b b b b b b b b b b b b b 
 d b b b b b b b b b b b b b b b 
 d b d d d d d d d d d d d d d d 
-`</field></block><block type="screen_image_picker" id=".VCmb#qjAxis7%lqWA4i" disabled="true" x="1590" y="0"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="tj6~J3y~QYu?$]Cz24bU" disabled="true" x="1800" y="0"><field name="img">img`
 c c c c c c c c c c c c c c . . 
 d d d d d d d d d d d d b c . . 
 d d d d d d d d d d d d b c c c 
@@ -186,7 +158,7 @@ d d d d d d d d d d d d d d b c
 b b b b b b b b b b b b b b c c 
 f f f f f f f f f f f f f f c c 
 f f f f f f f f f f f f f f c c 
-`</field></block><block type="screen_image_picker" id="MN4A5^z:seBjsfX`.wrh" disabled="true" x="1420" y="10"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="vp{4aNekvuqwpxS?u7!j" disabled="true" x="1630" y="10"><field name="img">img`
 d d d d d d d d d d d d d d . . 
 1 1 1 1 1 1 1 1 1 1 1 1 1 d . . 
 1 1 1 1 1 1 1 1 1 1 1 1 1 d d d 
@@ -203,7 +175,7 @@ d d d d d d d d d d d d d d . .
 b b b b b b b b b b b b b b 1 d 
 b b b b b b b b b b b b b b b d 
 d d d d d d d d d d d d d d b d 
-`</field></block><block type="screen_image_picker" id="X5z*$I2biS8?{l`})[D8" disabled="true" x="1670" y="0"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="@a{m7w^4B|hE1Q,JfC,U" disabled="true" x="1880" y="0"><field name="img">img`
 . . b b b b b b b b b b b b b b 
 . b b b b b b b b b b b b b b b 
 . b b c d d d d d d d d d d d d 
@@ -220,7 +192,7 @@ b c d f f d 1 4 f f f f 4 1 d f
 b c d f f f d 1 4 4 4 4 1 d f f 
 b c d f f f f d 1 1 1 1 d f f f 
 b c d f f f f f d d d d f f f f 
-`</field></block><block type="screen_image_picker" id="K=iHO4xMlfJv?u3b!nwM" disabled="true" x="1750" y="0"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="lFIk9G:]Q03)?3meM6#`" disabled="true" x="1960" y="0"><field name="img">img`
 b b b b b b b b b b b b b b . . 
 b b b b b b b b b b b b b b b . 
 d d d d d d d d d d d d d b b . 
@@ -237,7 +209,7 @@ f f d 1 4 f f f f 4 1 d f f d b
 f f f d 1 4 4 4 4 1 d f f f d b 
 f f f f d 1 1 1 1 d f f f f d b 
 f f f f f d d d d f f f f f d b 
-`</field></block><block type="screen_image_picker" id="PcBc%jSA8!3@,5LrFu`^" disabled="true" x="860" y="80"><field name="img">img`
+`</field></block><block type="screen_image_picker" id=")b}g+;eYUCB5rp3l-FCY" disabled="true" x="1070" y="80"><field name="img">img`
 . . . . . . . . . . . . . b e e b b b b . . . . . . . . . . . . 
 . . . . . . . . . . . . e e b b b b 4 b b . . . . . . . . . . . 
 . . . . . . . . . . . . e b 3 4 4 b b 4 b b . . . . . . . . . . 
@@ -270,7 +242,7 @@ b 5 5 5 1 1 5 d d d d 5 5 d 5 4 4 e e d e . . . . . . . . . . .
 4 1 d 4 5 5 5 d 4 e e . . . . . . . . 4 4 . . . . . . . . . . . 
 4 1 5 5 4 e e d e . . . . . . . . . . . . . . . . . . . . . . . 
 4 4 e e . . . 4 e . . . . . . . . . . . . . . . . . . . . . . . 
-`</field></block><block type="screen_image_picker" id="??TSl2)B6kbyxd@Nbyt+" disabled="true" x="950" y="80"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="fjPya|9l_YC,ME9E#7S!" disabled="true" x="1160" y="80"><field name="img">img`
 . . . . . . . . . . . . . . e e e e e e e . . . . . . . . . . . 
 . . . . . . . . . . . . e e 4 5 5 6 6 2 e 2 e . . . . . . . . . 
 . . . . . . . . . . e e 4 5 5 5 6 7 2 3 e 2 6 8 8 . . . . . . . 
@@ -303,7 +275,7 @@ e 4 e f e f f f 5 d 5 d 5 5 5 5 5 d 4 e . . . . . . . . . . . .
 . . . e e 5 5 4 4 d d d e e . . . . . . . . . . . . . . . . . . 
 . . . . . e e e e e e e . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-`</field></block><block type="screen_image_picker" id="QlM}oy]tR}*F#[NzrUXI" disabled="true" x="1160" y="70"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="DTVASb`Q5@{{T[1ke8-8" disabled="true" x="1370" y="70"><field name="img">img`
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
@@ -320,7 +292,7 @@ c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-`</field></block><block type="screen_image_picker" id="P[Lqm|2L^zpQTMTgb4?U" disabled="true" x="1240" y="70"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="-/H}+AV+5b{o;Ag=^wpc" disabled="true" x="1450" y="70"><field name="img">img`
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
@@ -337,7 +309,7 @@ c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-`</field></block><block type="screen_image_picker" id="q3cuG~nV2Jy@1RkQGr2G" disabled="true" x="1060" y="80"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="K{5=`Jdd6Q6^YY{V=80," disabled="true" x="1270" y="80"><field name="img">img`
 . . . . . . . . . . . . 3 3 3 3 b b . . b b 3 3 3 3 3 . . . . . 
 . . . . . . . . 3 b b 3 1 1 1 1 d 3 b 3 1 1 d 1 1 1 d 3 3 . . . 
 . . . . . . . 3 b d d 1 1 1 1 1 d b d 1 1 d 1 1 1 1 1 1 1 3 . . 
@@ -370,7 +342,7 @@ c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3
 . . 4 5 d d 5 5 d d d d 4 4 4 4 . . . . . . . . . . . . . . . . 
 . . . 4 5 d d 5 5 4 4 4 . . . . . . . . . . . . . . . . . . . . 
 . . . . 4 4 4 4 4 . . . . . . . . . . . . . . . . . . . . . . . 
-`</field></block><block type="screen_image_picker" id=")=_zyg}IuR?%qEfK:mO#" disabled="true" x="1510" y="60"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="rlH[Hu0CZiDPk9Uuy22_" disabled="true" x="1720" y="60"><field name="img">img`
 c b f f d d b b f f d d b b f f 
 c b f f d d b b f f d d b b f f 
 f b f f b b b b f f b b b b f f 
@@ -387,7 +359,7 @@ f d f f f f f f f f f f f f f f
 f d c c b b b b d d d d d d d d 
 f d f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
-`</field></block><block type="screen_image_picker" id="2Yg5GFmv;)~t65(_uCeU" disabled="true" x="1340" y="70"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="AMv4ztW=#bqQ|C0yY#tt" disabled="true" x="1550" y="70"><field name="img">img`
 d b d 1 1 1 1 1 1 1 1 1 1 1 1 1 
 d b d 1 1 1 1 1 1 1 1 1 1 1 1 1 
 f b f 1 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -404,7 +376,7 @@ f b f 1 1 1 1 1 1 1 1 1 1 1 1 1
 f b b b b b b b b b b b b b b b 
 f b f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
-`</field></block><block type="screen_image_picker" id="4KOP}yY{6VVF{lrW,H^4" disabled="true" x="1590" y="60"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="Kw!YTZ)?1AEl_RWP*GvH" disabled="true" x="1800" y="60"><field name="img">img`
 f f d d b b f f d d b b f f b c 
 f f d d b b f f d d b b f f b c 
 f f b b b b f f b b b b f f b f 
@@ -421,7 +393,7 @@ f f f f f f f f f f f f f f d f
 d d d d d d d d b b b b c c d f 
 f f f f f f f f f f f f f f d f 
 f f f f f f f f f f f f f f f f 
-`</field></block><block type="screen_image_picker" id="l$/04YJje+o{`gJg[WgB" disabled="true" x="1420" y="70"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="J0KetDaIKL|?7)(3BObJ" disabled="true" x="1630" y="70"><field name="img">img`
 1 1 1 1 1 1 1 1 1 1 1 1 1 d b d 
 1 1 1 1 1 1 1 1 1 1 1 1 1 d b d 
 1 1 1 1 1 1 1 1 1 1 1 1 1 d b f 
@@ -438,7 +410,7 @@ d d d d d d d d d d d d d d b f
 b b b b b b b b b b b b b b b f 
 f f f f f f f f f f f f f f b f 
 f f f f f f f f f f f f f f f f 
-`</field></block><block type="screen_image_picker" id="+f`8;G~3(37r2NF?kK,b" disabled="true" x="1670" y="60"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="%~(.IFHOf?jB5L-Q1$2^" disabled="true" x="1880" y="60"><field name="img">img`
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
@@ -455,7 +427,7 @@ b c d f f f f f d d d d f f f f
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
-`</field></block><block type="screen_image_picker" id=")D#6P5~?6oi%3f]M]Fs%" disabled="true" x="1750" y="60"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="tz,p(I.KWiPKSfus2e2_" disabled="true" x="1960" y="60"><field name="img">img`
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
@@ -472,7 +444,7 @@ f f f f f d d d d f f f f f d b
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
-`</field></block><block type="screen_image_picker" id="81*s$|ZnUu:%?M31l4n(" disabled="true" x="1160" y="130"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="*,qh9p@9,i(l.S4|)jLA" disabled="true" x="1370" y="130"><field name="img">img`
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
@@ -489,7 +461,7 @@ c 3 b b 3 3 b b b b 3 3 b b b b
 . . c b b b b b c . . . . . . . 
 . . c 3 3 3 3 3 c . . . . . . . 
 . . . c c c c c . . . . . . . . 
-`</field></block><block type="screen_image_picker" id="}pv|tthp#m1gosAr9kka" disabled="true" x="1240" y="130"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="IS]HuoH(mR[n#G)uUt+J" disabled="true" x="1450" y="130"><field name="img">img`
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
@@ -506,7 +478,52 @@ c c c c c c c c c c c c c c . .
 . . . . . . . . c b b b b c . . 
 . . . . . . . . c 3 3 3 3 c . . 
 . . . . . . . . . c c c c . . . 
-`</field></block><block type="screen_image_picker" id="Z)7!C)9/Z7U#8X49i=*Y" disabled="true" x="1670" y="120"><field name="img">img`
+`</field></block><block type="pxt-on-start" id="p)oxh0-DR}`Hdmr+JF/e" x="0" y="214"><statement name="HANDLER"><block type="variables_set" id="Awv~C3gjl=oY0*#s1F?S"><field name="VAR" id="{beD8l*h@k50pKEB)4#v">monkey</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id=",6J:,:ki6RTLJexs|.D_"><value name="img"><shadow type="screen_image_picker" id="[E_i@)@GDKi1Agz/%g-k"><field name="img">img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f . . . . . 
+. c d f d d f d e e f f . . . . 
+. c d f d d f d e e d d f . . . 
+c d e e d d d d e e b d c . . . 
+c d d d d c d d e e b d c . . . 
+c c c c c d d e e e f c . . . . 
+. f d d d d e e e f f . . . . . 
+. . f f f f f e e e e f . . . . 
+. . . . f f e e e e e e f . f f 
+. . . f e e f e e f e e f . e f 
+. . f e e f e e f e e e f . e f 
+. f b d f d b f b b f e f f e f 
+. f d d f d d f d d b e f f f f 
+. . f f f f f f f f f f f f f . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="csqh17N?8%v9ZiieXTih"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="variables_set" id="7#pY~t;o7LG]7FiI.e:w"><field name="VAR" id="M0p9Hc3L3:o_Pbv#nBBR">monkey2</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="YtzHv9.LYU,?z`c2gp-%"><value name="img"><shadow type="screen_image_picker" id="@F/b-aOq1/`%5%DEy`|V"><field name="img">img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . b 5 b . . . 
+. . . . . . . . . b 5 b . . . . 
+. . . . . . b b b b b b . . . . 
+. . . . . b b 5 5 5 5 5 b . . . 
+. b b b b b 5 5 5 5 5 5 5 b . . 
+. b d 5 b 5 5 5 5 5 5 5 5 b . . 
+. . b 5 5 b 5 d 1 f 5 d 4 f . . 
+. . b d 5 5 b 1 f f 5 4 4 c . . 
+b b d b 5 5 5 d f b 4 4 4 4 4 b 
+b d d c d 5 5 b 5 4 4 4 4 4 b . 
+c d d d c c b 5 5 5 5 5 5 5 b . 
+c b d d d d d 5 5 5 5 5 5 5 b . 
+. c d d d d d d 5 5 5 5 5 d b . 
+. . c b d d d d d 5 5 5 b b . . 
+. . . c c c c c c c c b b . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="4(A$UM5}/..Kq2z.l+uK"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="camerafollow" id="/b],-O`)0Lq/^gYItva*"><value name="sprite"><shadow type="variables_get" id="~kC:2h9n;mz8bNbLjD3w"><field name="VAR" id="{beD8l*h@k50pKEB)4#v">monkey</field></shadow></value><next><block type="camerafollow" id="NAk:nx9cM%^0l^^U;=66"><value name="sprite"><shadow type="variables_get" id="yMN/Ugy4d2|;QEa7loRM"><field name="VAR" id="M0p9Hc3L3:o_Pbv#nBBR">monkey2</field></shadow></value><next><block type="gamesettilemap" id="8?n_m97ROP:dMedda(];"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="map"><shadow type="tilemap_image_picker" id="@bagD$65+E~_y:6V%hB?"><field name="img">img`
+4 4 4 4 4 4 4 4 4 4 2 3 e e e 1 1 e 6 8 e 
+4 4 4 4 4 4 4 4 4 4 5 7 e e e 1 1 e a c e 
+4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
+4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e e e 
+4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
+4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
+4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e 1 1 
+4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e e e 
+4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
+4 4 4 4 4 4 4 4 4 4 f f e e e e e e e e e 
+`</field></shadow></value><next><block type="game_control_sprite" id=":Jpwj,`{)Mv%e!uvxYC!"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="sprite"><shadow type="variables_get" id="m^3D#uLJ$*;.7t4lCJ^!"><field name="VAR" id="{beD8l*h@k50pKEB)4#v">monkey</field></shadow></value><next><block type="ctrlgame_control_sprite" id="X%lxHzbL.k~OG1#^wmZw"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><field name="controller">controller.player2</field><value name="sprite"><block type="variables_get" id="5wFMp_nd,vfS*}:lNz0u"><field name="VAR" id="M0p9Hc3L3:o_Pbv#nBBR">monkey2</field></block></value><next><block type="function_call" id="pVE`/M$l]LSO*/otpY1:"><mutation name="background" functionid="D06mAU-}Mj|^_$g7xPCM"/></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="screen_image_picker" id="]a(VZ;@VHxDdF}^7o[;Q" disabled="true" x="1880" y="120"><field name="img">img`
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
 b c d f f b b d d f f b b d d f 
@@ -523,7 +540,7 @@ b b b c d d d d d d d d d d d d
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`</field></block><block type="screen_image_picker" id="rv$L_T_NE(tqwW/ByxLI" disabled="true" x="1750" y="120"><field name="img">img`
+`</field></block><block type="screen_image_picker" id="*Pf][}ytF2$T^$vn@5-I" disabled="true" x="1960" y="120"><field name="img">img`
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
 f f b b d d f f b b d d f f d b 
@@ -540,7 +557,7 @@ b b b b b b b b b b b b b b . .
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`</field></block><block type="function_definition" id=";%nbq7M?RO6,H;X9f!oI" x="750" y="180"><mutation name="background" functionid=")mo%eU%$1ywmzW2l7IB{"/><field name="function_name">background</field><statement name="STACK"><block type="gamesettile" id="`:T9Mth,n6*6v2P)kGZX"><value name="index"><shadow type="colorindexpicker" id="l%Sp!L-btw9[HDlKd9D%"><field name="index">4</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="B!{rwR@D/qI/Mb9WL~dl"><field name="img">img`
+`</field></block><block type="function_definition" id="vU+7scrT@q+4cjhk}Z0b" x="1140" y="234"><mutation name="background" functionid="D06mAU-}Mj|^_$g7xPCM"/><field name="function_name">background</field><statement name="STACK"><block type="gamesettile" id="zcOeB:l|(/*E*#0h#=7*"><value name="index"><shadow type="colorindexpicker" id=".z~=Xf4Ig9-@CaB30Eu?"><field name="index">4</field></shadow></value><value name="img"><shadow type="tile_image_picker" id=":.Zh{Hm!+2WWfc=foY%F"><field name="img">img`
 d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 b 
 1 d d d d d d d d d d d d d d b 
 1 d d d d d d d d d d d d d d b 
@@ -557,7 +574,7 @@ d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 b
 1 d d d d d d d d d d d d d d b 
 1 d d d d d d d d d d d d d d b 
 b b b b b b b b b b b b b b b b 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="DRQ;a=Em?6vA!4:F7OZ;"><field name="on">false</field></shadow></value><next><block type="gamesettile" id="U4bw^`%0z~tu$yU#%C{E"><value name="index"><shadow type="colorindexpicker" id="GeL~Sh@n?tQX-;6Qd3oW"><field name="index">2</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="z{.9gUm5[AzAMn/yT|H$"><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="$W]3E$#O,MBsg,*SD0Fn"><field name="on">false</field></shadow></value><next><block type="gamesettile" id="=|DyqSB{eMuG)IEFmiAr"><value name="index"><shadow type="colorindexpicker" id="0K[kIeMxqj]=#)qC~c1p"><field name="index">2</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="x50iS_t)/eGKy4u4D3RR"><field name="img">img`
 . . c c c c c c c c c c c c c c 
 . b 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 3 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -574,7 +591,7 @@ c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="A24_TArIVw}}JnDc[/Sm"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="cyyz+wwwj~?P#{Sx|mJ+"><value name="index"><shadow type="colorindexpicker" id="frlh|xe`TLFSWJ$U-m;7"><field name="index">3</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="|42QXTvls{KecF5lE|s8"><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="sYBz]?T/gRZziGhj(=Qm"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="9@}#!/L_q$Qg54]h6dZU"><value name="index"><shadow type="colorindexpicker" id="Hz9QJcmd@.{5r:r8[ib0"><field name="index">3</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="5AMSq~7E)oK3q+hQ#0~8"><field name="img">img`
 c c c c c c c c c c c c c c . . 
 3 3 3 3 3 3 3 3 3 3 3 3 3 3 b . 
 1 1 1 1 1 1 1 1 1 1 1 1 3 3 3 c 
@@ -591,7 +608,7 @@ c c c c c c c c c c c c c c . .
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="W+_RmVJP4_^o)/djs0#b"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="F.Q/[:L,oJH+p^HN,?`U"><value name="index"><shadow type="colorindexpicker" id="@[o|$),1Vb%@1HZP/B+."><field name="index">5</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="4|nh3k:!$:J+/eD{,4n-"><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="G[^Knz7PDVJv=JDuH4q%"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="Mu6Z#[0hu!BRBw[7,o=p"><value name="index"><shadow type="colorindexpicker" id="(7]{?3LjG?yC|nBMR$gF"><field name="index">5</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="$hO^K]gIZz-a8-@T1c=["><field name="img">img`
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
@@ -608,7 +625,7 @@ c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="W{zE2qJTmNk?fjAkfE~C"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="8n^(m,bIB|!K)|`^;-S="><value name="index"><shadow type="colorindexpicker" id="]s9,?oTxz,),O_j62L{`"><field name="index">9</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="lp4uTz#8[c~}8,kFeCMW"><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="$0B2jTb}+j]htwFO=(=}"><field name="on">true</field></shadow></value><next><block type="gamesettile" id=":CC2-9e=e7i.Z!40$};y"><value name="index"><shadow type="colorindexpicker" id="Z[2iUeE.#_Ex9kbsI(rx"><field name="index">9</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="^}[%w{+st;xO%=G!#+Xu"><field name="img">img`
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
 c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
@@ -625,7 +642,7 @@ c 3 b b 3 3 b b b b 3 3 b b b b
 . . c b b b b b c . . . . . . . 
 . . c 3 3 3 3 3 c . . . . . . . 
 . . . c c c c c . . . . . . . . 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="*[8S2hG|EUsm7QkwU:{|"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="F#bbS|z$RLP*drw5D!|Y"><value name="index"><shadow type="colorindexpicker" id="70pv4tP3;O248|jGgF*c"><field name="index">7</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="/M9OAPk+D2iSecB*b$!="><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="4b5M9W#5?q,2W5^gAy5+"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="KUAwMW+[lLPqvUG(wWBX"><value name="index"><shadow type="colorindexpicker" id="1PMrf3HY;/:![!x*1V96"><field name="index">7</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="4H8Va9_4Wr]uc}I97Wu7"><field name="img">img`
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
@@ -642,7 +659,7 @@ c 3 b b 3 3 b b b b 3 3 b b b b
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="AH?]Lou?;Urhawt;{Yc["><field name="on">true</field></shadow></value><next><block type="gamesettile" id="2o(+FP7P/D+vX=#:P#AA"><value name="index"><shadow type="colorindexpicker" id="UGrFG]]p.[d1?UJaFa/]"><field name="index">11</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="^$3Vs:@re+pp{5w)s5ps"><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="C,]_E8|_sBRZ{BzZ1AW]"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="[IevWHsXu%b5YInTc(m:"><value name="index"><shadow type="colorindexpicker" id="C!hnYDNC92hp}inqD7Bh"><field name="index">11</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="lMsAe,!I|brX:AA|jVD="><field name="img">img`
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
 3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
@@ -659,7 +676,7 @@ c c c c c c c c c c c c c c . .
 . . . . . . . . c b b b b c . . 
 . . . . . . . . c 3 3 3 3 c . . 
 . . . . . . . . . c c c c . . . 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="Z6pLlB([x}zD0TQ1P=i`"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="`d3LwDIK-WlE)1M;KE{A"><value name="index"><shadow type="colorindexpicker" id="mdoKCSp2MTKH.UVD8GRy"><field name="index">8</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="F!?k-]W0oSAV1Se^dL[l"><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="Z)rp|I]a+=eFYMk;o#EG"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="seW?9M{_J4QUVZv3DaMj"><value name="index"><shadow type="colorindexpicker" id="mUJ[4}hpu[L]4g.?TEip"><field name="index">8</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="wggy2w/I10u6F9v/];Uh"><field name="img">img`
 d d d d d d d d d d d d d d . . 
 1 1 1 1 1 1 1 1 1 1 1 1 1 d . . 
 1 1 1 1 1 1 1 1 1 1 1 1 1 d d d 
@@ -676,7 +693,7 @@ d d d d d d d d d d d d d d . .
 b b b b b b b b b b b b b b 1 d 
 b b b b b b b b b b b b b b b d 
 d d d d d d d d d d d d d d b d 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id=",7r[*GcE(wbs^M[}fG3g"><field name="on">true</field></shadow></value><next><block type="gamesettile" id=")vAqqc.4WPE#c)VV*Qz+"><value name="index"><shadow type="colorindexpicker" id="~mq}%:IP3H66RDO6:A3X"><field name="index">10</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="xZ})tzvzJD|%Gj/-3RpK"><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="imAKsLR(U+5`O9JOPXED"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="+3]oR#-@a2luy}||jvR3"><value name="index"><shadow type="colorindexpicker" id="_g)Hd2eHVFSupE[_)`%L"><field name="index">10</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="Yfx!YJrE3{|TGNX@l{#h"><field name="img">img`
 d b d 1 1 1 1 1 1 1 1 1 1 1 1 1 
 d b d 1 1 1 1 1 1 1 1 1 1 1 1 1 
 f b f 1 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -693,7 +710,7 @@ f b f 1 1 1 1 1 1 1 1 1 1 1 1 1
 f b b b b b b b b b b b b b b b 
 f b f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="*^N?SxIhODExe~tc|LK_"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="~oNrd/Ey6.:oDRduxI5y"><value name="index"><shadow type="colorindexpicker" id="zvslA6FEp4?)l7x?Y1pW"><field name="index">12</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="`:i2m^ye8OLmb5*i!1Kb"><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="+^o8Z.#FN*Lh%^D#aSoh"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="JjK/-F_pmb^?k|1?m%Fd"><value name="index"><shadow type="colorindexpicker" id="q{FH_t$9ysShhN.QV94~"><field name="index">12</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="e9V}l:XC,=o3)XDt#zL1"><field name="img">img`
 1 1 1 1 1 1 1 1 1 1 1 1 1 d b d 
 1 1 1 1 1 1 1 1 1 1 1 1 1 d b d 
 1 1 1 1 1 1 1 1 1 1 1 1 1 d b f 
@@ -710,7 +727,7 @@ d d d d d d d d d d d d d d b f
 b b b b b b b b b b b b b b b f 
 f f f f f f f f f f f f f f b f 
 f f f f f f f f f f f f f f f f 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="Z1:wl}Af+6l8(m|T[|;R"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="{)i[$Wgc%mWd-sVu.o;m"><value name="index"><shadow type="colorindexpicker" id="M.~#K2dyGE81*U~h:Eip"><field name="index">6</field></shadow></value><value name="img"><shadow type="tile_image_picker" id=";0#X39+4wm*WL3tx9$J6"><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="j`BN_=,2m_Cpo.Z_-Ei-"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="x[$IFM9rzCNNz-*%W_l5"><value name="index"><shadow type="colorindexpicker" id="?$d%82*$38^yC@C{]n$-"><field name="index">6</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="Kbq.D+rtQuo|qu:ldlya"><field name="img">img`
 . . d d d d d d d d d d d d d d 
 . . d 1 1 1 1 1 1 1 1 1 1 1 1 1 
 d d d 1 1 1 1 1 1 1 1 1 1 1 1 1 
@@ -727,7 +744,7 @@ d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 d 1 b b b b b b b b b b b b b b 
 d b b b b b b b b b b b b b b b 
 d b d d d d d d d d d d d d d d 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="?|lW~8fd2zAzOp1.tm.T"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="(VH/+R{t9NO]Tm+L#k+C"><value name="index"><shadow type="colorindexpicker" id="tB@x-AvcQt+;Vc6r?!Qa"><field name="index">1</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="IfTBejsig+IBI==Id;;^"><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="((Vpf@WI!CXy+|u(^|o]"><field name="on">true</field></shadow></value><next><block type="gamesettile" id="K/eL%,kCQJ};shNi04.i"><value name="index"><shadow type="colorindexpicker" id="@~!eH%bq9#j@gSL3nQ,f"><field name="index">1</field></shadow></value><value name="img"><shadow type="tile_image_picker" id="hNOr8/d-ir6MNDAy4r}b"><field name="img">img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
@@ -744,160 +761,7 @@ d b d d d d d d d d d d d d d d
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="dj{N+Vp@s9phN,j0SUg#"><field name="on">true</field></shadow></value><next><block type="function_call" id="Qy[#EDO1vS)(,Z-y/krg"><mutation name="placeOven" functionid=".e]u1jLm5/ubTC6zWk,;"/><next><block type="function_call" id="+6+3Mv=/VXx^VG:0.wC@"><mutation name="placeKitchen" functionid="%xaP=.`PFBd3IowX-Ug5"/></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="function_definition" id="!tqhwTNlr{0`4IL=C@*2" x="1250" y="240"><mutation name="placeOven" functionid=".e]u1jLm5/ubTC6zWk,;"/><field name="function_name">placeOven</field><statement name="STACK"><block type="variables_set" id="q^m$VhpO~u}t{54-.p+4"><field name="VAR" id="$Et[QwOyHcl6;i,B_CDi">oven1</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="BQ.zOv,:/N40H(0,g~3G"><value name="img"><shadow type="screen_image_picker" id="4FR[+`Tk=rq.]q+8.Uzj"><field name="img">img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`</field></shadow><block type="screen_image_picker" id="SQU)}_W#7%C8|JEb1;Zp"><field name="img">img`
-. . c c c c c c c c c c c c c c 
-. . c b d d d d d d d d d d d d 
-c c c b d d d d d d d d d d d d 
-c b b b d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c b d d d d d d d d d d d d d d 
-c c b b b b b b b b b b b b b b 
-c c f f f f f f f f f f f f f f 
-c c f f f f f f f f f f f f f f 
-`</field></block></value><value name="kind"><shadow type="spritekind" id="L5tUjf,;=c[]Zmh_N9[d"><field name="MEMBER">oven</field></shadow></value></block></value><next><block type="mapplaceontile" id="PZA^pP`?,SiQjBnIXwhV"><value name="sprite"><block type="variables_get" id=";+s%90~SotC3T+)C(AAg"><field name="VAR" id="$Et[QwOyHcl6;i,B_CDi">oven1</field></block></value><value name="loc"><shadow type="mapgettile" id="P(-bwg:X-Xx=Ge8b#s]K"><value name="col"><shadow type="math_number" id=",jEr4qBAK;B=YSr4}/V5"><field name="NUM">15</field></shadow></value><value name="row"><shadow type="math_number" id="[+4=*QOM~.7MpcZ(*tO%"><field name="NUM">0</field></shadow></value></shadow></value><next><block type="variables_set" id="jq!A1WIL,{bB-g4(diUy"><field name="VAR" id="{3*8.-hnV8+u_Q6[#o/O">oven2</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="Zm8^NN-svVv!r[3drpAn"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`</field></shadow><block type="screen_image_picker" id="DKReC]75//S#_?Dk{8-#"><field name="img">img`
-c c c c c c c c c c c c c c . . 
-d d d d d d d d d d d d b c . . 
-d d d d d d d d d d d d b c c c 
-d d d d d d d d d d d d b b b c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d b c 
-b b b b b b b b b b b b b b c c 
-f f f f f f f f f f f f f f c c 
-f f f f f f f f f f f f f f c c 
-`</field></block></value><value name="kind"><shadow type="spritekind" id="Zyex/K%NwZ^2m;Y1UT1f"><field name="MEMBER">oven</field></shadow></value></block></value><next><block type="mapplaceontile" id=";k(JYTbHKQHqSV`3A]zS"><value name="sprite"><block type="variables_get" id="H7Ne|tf#cvwgh}6FdtNL"><field name="VAR" id="{3*8.-hnV8+u_Q6[#o/O">oven2</field></block></value><value name="loc"><shadow type="mapgettile" id=",*K1b+i0@.Jr72l,NX]M"><value name="col"><shadow type="math_number" id="5Q=Q!=]48[*$D;c(7h-8"><field name="NUM">16</field></shadow></value><value name="row"><shadow type="math_number" id="L+fhR`/B*bvU~]}1bFXp"><field name="NUM">0</field></shadow></value></shadow></value><next><block type="variables_set" id="N0%LXmSFJy@`O+C_hxW("><field name="VAR" id="2q8/@Lpc|r6UH#p*rl=`">oven3</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="[^||{+#9D1%XOM#`?CZn"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`</field></shadow><block type="screen_image_picker" id="Clmh:IQ8P7GK,;aNzt3)"><field name="img">img`
-c b f f d d b b f f d d b b f f 
-c b f f d d b b f f d d b b f f 
-f b f f b b b b f f b b b b f f 
-f b f f b b b b f f b b b b f f 
-f b f f f f f f f f f f f f f f 
-f b f f f f f f f f f f f f f f 
-f d d d d d d d d d d d d d d d 
-f d f f f f f f f f f f f f f f 
-f d f f f f f f f f f f f f f f 
-f d f f f f f f f f f f f f f f 
-f d f f f f f f f f f f f f f f 
-f d f f f f f f f f f f f f f f 
-f d f f f f f f f f f f f f f f 
-f d c c b b b b d d d d d d d d 
-f d f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-`</field></block></value><value name="kind"><shadow type="spritekind" id="9wX*el~]Y;N^=z}|S[N{"><field name="MEMBER">oven</field></shadow></value></block></value><next><block type="mapplaceontile" id="MAneW8Y~4bi6FE/rf(:o"><value name="sprite"><block type="variables_get" id="gboK=l.oGNI9!I4zy4.^"><field name="VAR" id="2q8/@Lpc|r6UH#p*rl=`">oven3</field></block></value><value name="loc"><shadow type="mapgettile" id="2|Z*Q[qQ}ucO8Vm,qBXs"><value name="col"><shadow type="math_number" id="KV(Utxq!`V/8XeJzcKjJ"><field name="NUM">15</field></shadow></value><value name="row"><shadow type="math_number" id="35r!$l,rRXH;6o(n%z?y"><field name="NUM">1</field></shadow></value></shadow></value><next><block type="variables_set" id=".NK[A.2nt3x$TC,b@kDC"><field name="VAR" id=")OTT0~;p}o-DC)AIi4HG">oven4</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="3.Gl|FkYThLE,Ro,/0!Z"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`</field></shadow><block type="screen_image_picker" id="0p*z#vuqm;18YhivMZn_"><field name="img">img`
-f f d d b b f f d d b b f f b c 
-f f d d b b f f d d b b f f b c 
-f f b b b b f f b b b b f f b f 
-f f b b b b f f b b b b f f b f 
-f f f f f f f f f f f f f f b f 
-f f f f f f f f f f f f f f b f 
-d d d d d d d d d d d d d d d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f d f 
-d d d d d d d d b b b b c c d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f f f 
-`</field></block></value><value name="kind"><shadow type="spritekind" id="0aIGSbZd?hFC34[(2|fd"><field name="MEMBER">oven</field></shadow></value></block></value><next><block type="mapplaceontile" id="ZMDC1#2`8*sW9zPdD0=r"><value name="sprite"><block type="variables_get" id="Rlm*dFe(U)(@bAW;rmBd"><field name="VAR" id=")OTT0~;p}o-DC)AIi4HG">oven4</field></block></value><value name="loc"><shadow type="mapgettile" id="z*SM_KL6O-)C$lu.3gYc"><value name="col"><shadow type="math_number" id="P7Q:|v@SfaoX#88H0QOC"><field name="NUM">16</field></shadow></value><value name="row"><shadow type="math_number" id=":RN+%zq4w^lI3:MZE95G"><field name="NUM">1</field></shadow></value></shadow></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="function_definition" id="XaaNmlOS1@o/{_zHFt6H" x="1810" y="220"><mutation name="placeKitchen" functionid="%xaP=.`PFBd3IowX-Ug5"/><field name="function_name">placeKitchen</field><statement name="STACK"><block type="variables_set" id=";L,*u{Ze8#{hEAGh4cnm"><field name="VAR" id=",~S|tlT|hD_d=pE(?JYh">kitchen1</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="(2W$VNv@3xO-XV$*D^=e"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`</field></shadow><block type="screen_image_picker" id="r7Cq]L.3RP^c68$U9,f$"><field name="img">img`
+`</field></shadow></value><value name="wall"><shadow type="toggleOnOff" id="v.j=%J?Z3}/j6z(vKtkj"><field name="on">true</field></shadow></value><next><block type="function_call" id="Eqwiep]%:eqOK*Xg]Yx."><mutation name="placeOven" functionid="zopNp,aW(_Y),iSrCd9U"/><next><block type="function_call" id="67if(-7c[(nemyiQY2_2"><mutation name="placeKitchen" functionid="zmShwM3+^bw[0AVKed?X"/></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="function_definition" id="isfO6cq})LLZU9]Wgw*s" x="1620" y="274"><mutation name="placeKitchen" functionid="zmShwM3+^bw[0AVKed?X"/><field name="function_name">placeKitchen</field><statement name="STACK"><block type="variables_set" id="vGd|w$^s)]ckin?ll!L$"><field name="VAR" id="fclsESXUCUKGM!zQQN([">kitchen1</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="v^M6mNI~QxB]sb8A6+T|"><value name="img"><shadow type="screen_image_picker" id="?YTUMRX2{^tk/TjH.X4s"><field name="img">img`
 . . b b b b b b b b b b b b b b 
 . b b b b b b b b b b b b b b b 
 . b b c d d d d d d d d d d d d 
@@ -914,24 +778,7 @@ b c d f f d 1 4 f f f f 4 1 d f
 b c d f f f d 1 4 4 4 4 1 d f f 
 b c d f f f f d 1 1 1 1 d f f f 
 b c d f f f f f d d d d f f f f 
-`</field></block></value><value name="kind"><shadow type="spritekind" id="Mn;udRcs.-%u^0xWOuQ("><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id="y4|*{7=I!RCW3bbJgJlL"><value name="sprite"><block type="variables_get" id="T(ESq;H*wP|.JV=nOhLt"><field name="VAR" id=",~S|tlT|hD_d=pE(?JYh">kitchen1</field></block></value><value name="loc"><shadow type="mapgettile" id="|xCQKIThS9~rblokp^1%"><value name="col"><shadow type="math_number" id="HXhvSP:)ED_I!tzzr16u"><field name="NUM">19</field></shadow></value><value name="row"><shadow type="math_number" id="XbH^1qs5+6Gpz#Qd!o/P"><field name="NUM">4</field></shadow></value></shadow></value><next><block type="variables_set" id="1|_hqX;8,WVA2Z13rQor"><field name="VAR" id="W3YFL(2Xg6`k4.5rTjW4">kitchen2</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="k}Cv^(12~a+o3R@zwOnK"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`</field></shadow><block type="screen_image_picker" id="+L]*No?vPQEh3Il?ie$8"><field name="img">img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="Q}o}7^h]`!rX7d-^ULq9"><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id="lTCQn#uVT3S*s5UjCrW]"><value name="sprite"><shadow type="variables_get" id="nC?B@zKw-3Q#GU+jx`o*"><field name="VAR" id="fclsESXUCUKGM!zQQN([">kitchen1</field></shadow></value><value name="loc"><shadow type="mapgettile" id="Xl]T|mySr~/Fk/uX:BC?"><value name="col"><shadow type="math_number" id="qfm7Q5fcFRPN(-d_x#+:"><field name="NUM">19</field></shadow></value><value name="row"><shadow type="math_number" id=",9`1rsd1xP[Cb0Vqcfx?"><field name="NUM">4</field></shadow></value></shadow></value><next><block type="variables_set" id="z}pi:cCORY;?-eiNa9y?"><field name="VAR" id="-`?PTKj7G}*D]M.*yXNy">kitchen2</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="Xt^D*nqr$SHEC=c^wV*5"><value name="img"><shadow type="screen_image_picker" id=";sDKD9x/S1rX?zw%m*!J"><field name="img">img`
 b b b b b b b b b b b b b b . . 
 b b b b b b b b b b b b b b b . 
 d d d d d d d d d d d d d b b . 
@@ -948,24 +795,7 @@ f f d 1 4 f f f f 4 1 d f f d b
 f f f d 1 4 4 4 4 1 d f f f d b 
 f f f f d 1 1 1 1 d f f f f d b 
 f f f f f d d d d f f f f f d b 
-`</field></block></value><value name="kind"><shadow type="spritekind" id="bg+43{usC|?@|iU7)FE6"><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id="/:4Cc9H$P`+)+hRSSFs4"><value name="sprite"><block type="variables_get" id="]0mQY6kM-UJ?LUPCFpJv"><field name="VAR" id="W3YFL(2Xg6`k4.5rTjW4">kitchen2</field></block></value><value name="loc"><shadow type="mapgettile" id="(DBpX3R%i_ukSB~-wZSP"><value name="col"><shadow type="math_number" id="tbLYE+=lJ-Iq]l5VyS%u"><field name="NUM">20</field></shadow></value><value name="row"><shadow type="math_number" id="!OA%RcavpO[e9F|[Blec"><field name="NUM">4</field></shadow></value></shadow></value><next><block type="variables_set" id="Ss2(G:#p=9%HJ(w[%N$A"><field name="VAR" id=")YmdiDgLD)#VgW]5#3n.">kitchen3</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="6{M%:*6%V|PCF23DeuL/"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`</field></shadow><block type="screen_image_picker" id="1p-L6g/Lbk5TJYT(=uyV"><field name="img">img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="^{q-:^l%[P`Q)/kJce^T"><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id="-eq%tqWU(Otj6%s8}ehO"><value name="sprite"><shadow type="variables_get" id="J1q[jcu)c*3nhC,dxl4p"><field name="VAR" id="-`?PTKj7G}*D]M.*yXNy">kitchen2</field></shadow></value><value name="loc"><shadow type="mapgettile" id="``DZ;ZwpT?BApOS/6H@c"><value name="col"><shadow type="math_number" id=",K^nqI(Ss@QZihT~kFoC"><field name="NUM">20</field></shadow></value><value name="row"><shadow type="math_number" id="d^lG117yj3|PXG3{l7eb"><field name="NUM">4</field></shadow></value></shadow></value><next><block type="variables_set" id="={,%kf(6ljRKJ+.XQ:_`"><field name="VAR" id="@Nv#TeCnRBssy:x)ZK1W">kitchen3</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="Z?*+iVp@)7YKWIH3CJnD"><value name="img"><shadow type="screen_image_picker" id="?c}g^=w(up9Qh=1RKLjv"><field name="img">img`
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
@@ -982,24 +812,7 @@ b c d f f f f f d d d d f f f f
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
-`</field></block></value><value name="kind"><shadow type="spritekind" id="4WgOp}CyjW;.vi7wq;YE"><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id="I%,:b3v!KMS(6xjQsf34"><value name="sprite"><block type="variables_get" id="(b-HfDy8Qji8w8Rz_0^."><field name="VAR" id=")YmdiDgLD)#VgW]5#3n.">kitchen3</field></block></value><value name="loc"><shadow type="mapgettile" id="]n}U{Jb)(u*5_k$s.iJ#"><value name="col"><shadow type="math_number" id="W}=Bp4L0C3V(PWTNp!IQ"><field name="NUM">19</field></shadow></value><value name="row"><shadow type="math_number" id=",Ky^HPKcSWN+{SX1p@-]"><field name="NUM">5</field></shadow></value></shadow></value><next><block type="variables_set" id="(#~9i#D{H_n?_=]It{;b"><field name="VAR" id="cgr{[W6!n]FE+#R#[|p`">kitchen4</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="4Z0zd0YQj{/FXHa7OM[g"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`</field></shadow><block type="screen_image_picker" id="SX6Vr$n+t,WD9YHT[Al{"><field name="img">img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="+;0o*gk~YdDNY1@dW(dR"><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id="Y}s]JNdm7lS,Ep[c=u0."><value name="sprite"><shadow type="variables_get" id="XF^~|%Q@@Pg^1z/9%d*x"><field name="VAR" id="@Nv#TeCnRBssy:x)ZK1W">kitchen3</field></shadow></value><value name="loc"><shadow type="mapgettile" id="4a9RguE`xkz0^dNi[D65"><value name="col"><shadow type="math_number" id="z?t`M1WT:,09a6bpIEGF"><field name="NUM">19</field></shadow></value><value name="row"><shadow type="math_number" id="M|v0TyyN.;7x5a,G6e[@"><field name="NUM">5</field></shadow></value></shadow></value><next><block type="variables_set" id="`~Z*DRwVZ8AX[t,S$)5z"><field name="VAR" id="3|Z.tS:9/5*H;vR;6XRW">kitchen4</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="D5;hXJ2#72Jpjpx4]LEC"><value name="img"><shadow type="screen_image_picker" id="KB4^tZ6U.32Ty7hxFRp,"><field name="img">img`
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
 b c d f f b b d d f f b b d d f 
@@ -1016,24 +829,7 @@ b b b c d d d d d d d d d d d d
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`</field></block></value><value name="kind"><shadow type="spritekind" id="AZJ1{+qeB=E}f:?k3oi!"><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id=".}`{@$FI%:No$aXlT-zE"><value name="sprite"><block type="variables_get" id="4KG,gQx!sDg*h_/UR|GM"><field name="VAR" id="cgr{[W6!n]FE+#R#[|p`">kitchen4</field></block></value><value name="loc"><shadow type="mapgettile" id="]7=H!@jf%!4EzT%X/5i*"><value name="col"><shadow type="math_number" id="`Qmpbb~;Hf9Y1{knvv}t"><field name="NUM">19</field></shadow></value><value name="row"><shadow type="math_number" id="6+5F2+pH#zc[|;M@9uXi"><field name="NUM">6</field></shadow></value></shadow></value><next><block type="variables_set" id="`fl888z(W*VlJQP$Nb4."><field name="VAR" id="Mz3L|fokR+E5n$]I/KVE">kitchen5</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="QzRsNCYet;lH=Jd|+R~S"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`</field></shadow><block type="screen_image_picker" id="W|:V;|ln2RAG8H|~/N89"><field name="img">img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="p9.Wy[?]?zeP]9GGK0n?"><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id=")Ej8C2![JnL!BH;Rl?Lq"><value name="sprite"><shadow type="variables_get" id="9ijUYP%s^H|XwtV5/9!("><field name="VAR" id="3|Z.tS:9/5*H;vR;6XRW">kitchen4</field></shadow></value><value name="loc"><shadow type="mapgettile" id="Q@k^)I%V(p{6`6g3~bWt"><value name="col"><shadow type="math_number" id="Q?7*O2LKLnsXw9^qH[[p"><field name="NUM">19</field></shadow></value><value name="row"><shadow type="math_number" id="re3I1sPqa:wzZT08d=cj"><field name="NUM">6</field></shadow></value></shadow></value><next><block type="variables_set" id=":OP4!!=Hjab+7$h-hRS}"><field name="VAR" id="MEx34$Q9jR8.h}@}R%9j">kitchen5</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="{;DMKUP!t?yPOhbzy*KV"><value name="img"><shadow type="screen_image_picker" id="!7;EsY,H]wqupW?y[]2F"><field name="img">img`
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
@@ -1050,24 +846,7 @@ f f f f f d d d d f f f f f d b
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
-`</field></block></value><value name="kind"><shadow type="spritekind" id="m~kx@=V`@}sZt#8hq[}L"><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id="Bt($Q;}p*O3R(:_3AIsl"><value name="sprite"><block type="variables_get" id="s)s?.C$ln9ZaZstfhv52"><field name="VAR" id="Mz3L|fokR+E5n$]I/KVE">kitchen5</field></block></value><value name="loc"><shadow type="mapgettile" id="A`3.N(w7p|QD$ymn)v9_"><value name="col"><shadow type="math_number" id="P9hCQm^z[tH,NIjxXPv6"><field name="NUM">20</field></shadow></value><value name="row"><shadow type="math_number" id=".DUm1vNri!yNz51i^mc}"><field name="NUM">5</field></shadow></value></shadow></value><next><block type="variables_set" id="ASl`@A9GK=cdIs$YJ.ir"><field name="VAR" id="%]fvERm@+_OIdZa`^@*y">kitchen6</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="[!fOxVvhD8Q*]fpF.8F7"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`</field></shadow><block type="screen_image_picker" id="g?#HZs|l/^O1)D)eG@l5"><field name="img">img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="oiGRoc^?]hj`hy!IJ!!8"><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id=":%{T(j0e@9YUVA+J-qM7"><value name="sprite"><shadow type="variables_get" id="|_#4$)Qe+9b[cKf@7[Ke"><field name="VAR" id="MEx34$Q9jR8.h}@}R%9j">kitchen5</field></shadow></value><value name="loc"><shadow type="mapgettile" id="]pbnPV1C8-`)p[{6hJcp"><value name="col"><shadow type="math_number" id="OxzCwJ.ms*nBu#xVd(?c"><field name="NUM">20</field></shadow></value><value name="row"><shadow type="math_number" id=",EcYhC~!?]y(vL^FT3tV"><field name="NUM">5</field></shadow></value></shadow></value><next><block type="variables_set" id="jlgOKkK:pT2C34,o=dH?"><field name="VAR" id="|(=l|$(43]dpS]%QtfA{">kitchen6</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="KjY[5wS-z.:UZL6J]p6]"><value name="img"><shadow type="screen_image_picker" id="p:fr#}CFq[RbYoUtg@$*"><field name="img">img`
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
 f f b b d d f f b b d d f f d b 
@@ -1084,7 +863,41 @@ b b b b b b b b b b b b b b . .
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
-`</field></block></value><value name="kind"><shadow type="spritekind" id="s%=[+8Clt|$,QQ=+f4^d"><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id="$8sVtyollQ~U6T!@AfEb"><value name="sprite"><block type="variables_get" id="QA]%a7l,nwih5(9L7D=1"><field name="VAR" id="%]fvERm@+_OIdZa`^@*y">kitchen6</field></block></value><value name="loc"><shadow type="mapgettile" id="{nPyw]%7j`3}2NNXe~d$"><value name="col"><shadow type="math_number" id="~!LBDi$BjFoT3b6480,~"><field name="NUM">20</field></shadow></value><value name="row"><shadow type="math_number" id="_q;OE5.@Tx4S62}5iAIF"><field name="NUM">6</field></shadow></value></shadow></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="function_definition" id="B9(|cqN*CX25/;cAnt-T" x="-330" y="450"><mutation name="walking_monkey" functionid="h[6FAS|89$8:uR(wnhz?"/><field name="function_name">walking_monkey</field><statement name="STACK"><block type="game_control_sprite" id="__;hGAIoL!S+e*Cp(17b"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><value name="sprite"><shadow type="variables_get" id="XUL,s}t3[6_2.}n@hgE_"><field name="VAR" id="Ff)KrU_Vo}i9`u{q,c]-">monkey</field></shadow></value></block></statement></block><block type="keyonevent" id="*B.Qp=pqsN3QJjN6R@xl" x="130" y="430"><field name="button">controller.left</field><field name="event">ControllerButtonEvent.Pressed</field><statement name="HANDLER"><block type="run_image_animation" id="f)b{PJa|lT0v(tiHM]I5"><value name="sprite"><block type="variables_get" id="sWl|{T%csT^h?Cu:Zb]I"><field name="VAR" id="Ff)KrU_Vo}i9`u{q,c]-">monkey</field></block></value><value name="frames"><block type="animation_editor" id="{zio@$}t,K,@CpXC!V/i"><field name="frames">[img`
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id=".eDGRVBO!GQRV)mdWlpq"><field name="MEMBER">kitchen</field></shadow></value></block></value><next><block type="mapplaceontile" id="ojca:_u/rfC_DE83|rM|"><value name="sprite"><shadow type="variables_get" id="+g+woe]@%;i?A1pTiKFf"><field name="VAR" id="|(=l|$(43]dpS]%QtfA{">kitchen6</field></shadow></value><value name="loc"><shadow type="mapgettile" id="rcI[U3xkXj9Yj;`l)i!v"><value name="col"><shadow type="math_number" id="k)[NIsh)wm*Yexk:Ba+@"><field name="NUM">20</field></shadow></value><value name="row"><shadow type="math_number" id="2W.j1H#xqa0teTw]g$Oe"><field name="NUM">6</field></shadow></value></shadow></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="ctrlgame_control_sprite" id="q=XSH+yE9cS+O;WK37Sr" disabled="true" x="570" y="350"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="0" _input_init="false"></mutation><field name="controller">controller.player2</field><value name="sprite"><block type="variables_get" id="oSt2/k7ouEPioKPe^~`l"><field name="VAR" id="5gyaWjY1=?giu]zivJU4">mySprite</field></block></value></block><block type="gameupdate" id="YrzRpcyJ/a:pjLfLAi~w" x="520" y="454"><statement name="HANDLER"><block type="spritesetimage" id="G5aR,I-YU-xUiH;LY11x"><value name="sprite"><block type="variables_get" id="ehgpcMt?`/7[@y9xtN9B"><field name="VAR" id="{beD8l*h@k50pKEB)4#v">monkey</field></block></value><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow><block type="screen_image_picker" id="0)ma,.n%TeD88$v~i|6Q"><field name="img">img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f . . . . . 
+. c d f d d f d e e f f . . . . 
+. c d f d d f d e e d d f . . . 
+c d e e d d d d e e b d c . . . 
+c d d d d c d d e e b d c . . . 
+c c c c c d d e e e f c . . . . 
+. f d d d d e e e f f . . . . . 
+. . f f f f f e e e e f . . . . 
+. . . . f f e e e e e e f . f f 
+. . . f e e f e e f e e f . e f 
+. . f e e f e e f e e e f . e f 
+. f b d f d b f b b f e f f e f 
+. f d d f d d f d d b e f f f f 
+. . f f f f f f f f f f f f f . 
+`</field></block></value><next><block type="controls_if" id="AzHtI0r5a#A$zNTe-ctv"><mutation else="1"/><value name="IF0"><shadow type="logic_boolean" id="4d)4ud/)%0gBZqr39VXp"><field name="BOOL">TRUE</field></shadow><block type="logic_compare" id="ox0+4S=fj~Ropw99jJu{"><field name="OP">LT</field><value name="A"><shadow type="math_number" id="#;Y|,b0A-5B!DQ2CF-!M"><field name="NUM">0</field></shadow><block type="Sprite_blockCombine_get" id="M|(BoO90;?Py}2[cBiKo"><field name="property">Sprite.vx</field><value name="mySprite"><block type="variables_get" id="`nlDMSq{xAaz7l(YVk9l"><field name="VAR" id="{beD8l*h@k50pKEB)4#v">monkey</field></block></value></block></value><value name="B"><shadow type="math_number" id="r8+mUGX~z)vR8s6cgkNl"><field name="NUM">0</field></shadow></value></block></value><statement name="DO0"><block type="run_image_animation" id="K8/1u3Ny8G*.SQAQK2W*"><value name="sprite"><shadow type="variables_get" id="UT}OqV2El[ljxJh(kjb]"><field name="VAR" id="{beD8l*h@k50pKEB)4#v">monkey</field></shadow></value><value name="frames"><shadow type="animation_editor" id="oeXI[TM*Jry}0_0S=$(!"><field name="frames">[img`
 . . . . f f f f f . . . . . . . 
 . . . f e e e e e f . . . . . . 
 . . f d d d d e e e f . . . . . 
@@ -1169,21 +982,106 @@ c c c c c d d e e e f c . . . .
 . f b d f d b f b b f e f f e f 
 . f d d f d d f d d b e f f f f 
 . . f f f f f f f f f f f f f . 
-`]</field></block></value><value name="frameInterval"><shadow type="timePicker" id="jnhUAr?V{v[iIXms{2]Z"><field name="ms">200</field></shadow></value><value name="loop"><shadow type="toggleOnOff" id="D1pPyGu3^O:wt`Zbf,o`"><field name="on">true</field></shadow></value></block></statement></block><block type="logic_operation" id="7F1~$aRNK-iVAJvNbe=[" disabled="true" x="-310" y="890"><field name="OP">OR</field><value name="A"><block type="logic_operation" id="J3`pKW8/N_I|iCQsUJ6%"><field name="OP">OR</field><value name="A"><block type="keyispressed" id=")*NTqNXXZFyEmo:yd]8W"><field name="button">controller.left</field></block></value><value name="B"><block type="keyispressed" id="B)/WWs.dTzdMO7$w`O,C"><field name="button">controller.up</field></block></value></block></value></block><block type="tile_image_picker" id="xYfBKSHc+@P~7!QwE5Wq" disabled="true" x="926" y="870"><field name="img">img`
-. . d d d d d d d d d d d d d d 
-. . d 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d d d 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 b b b b b b b b b b b b b b 
-d b b b b b b b b b b b b b b b 
-d b d d d d d d d d d d d d d d 
-`</field></block></xml>
+`]</field></shadow></value><value name="frameInterval"><shadow type="timePicker" id="?9wrqONIZJ{B8-ois8(_"><field name="ms">200</field></shadow></value><value name="loop"><shadow type="toggleOnOff" id="q=5Dh]BDcjz.:Qrh2dAB"><field name="on">true</field></shadow></value></block></statement><statement name="ELSE"><block type="spritesetimage" id="c_D9zRtrgQH4r4/#bsdc"><value name="sprite"><block type="variables_get" id="|Qq|i#-EB6`d/#jktOS-"><field name="VAR" id="{beD8l*h@k50pKEB)4#v">monkey</field></block></value><value name="img"><shadow type="screen_image_picker" id="L[I_2iei$_eG=)!xzlMj"><field name="img">img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow><block type="screen_image_picker" id="}N@_0QW6Ra:paD,c{q$,"><field name="img">img`
+. . . . f f f f f . . . . . . . 
+. . . f e e e e e f . . . . . . 
+. . f d d d d e e e f . . . . . 
+. c d f d d f d e e f f . . . . 
+. c d f d d f d e e d d f . . . 
+c d e e d d d d e e b d c . . . 
+c d d d d c d d e e b d c . . . 
+c c c c c d d e e e f c . . . . 
+. f d d d d e e e f f . . . . . 
+. . f f f f f e e e e f . . . . 
+. . . . f f e e e e e e f . f f 
+. . . f e e f e e f e e f . e f 
+. . f e e f e e f e e e f . e f 
+. f b d f d b f b b f e f f e f 
+. f d d f d d f d d b e f f f f 
+. . f f f f f f f f f f f f f . 
+`</field></block></value></block></statement></block></next></block></statement></block><block type="function_definition" id="~ZHKrnF`hqAJ-]NNhpw3" x="1640" y="1074"><mutation name="placeOven" functionid="zopNp,aW(_Y),iSrCd9U"/><field name="function_name">placeOven</field><statement name="STACK"><block type="variables_set" id="z(5utecwk)yNncnf/D17"><field name="VAR" id="Z$ZzHLqQg1EMP1p$n%0x">oven1</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id=".0DhrA:%Kr8R`9[N(-wE"><value name="img"><shadow type="screen_image_picker" id="#=~Yl?|?.w~g[3oYla-."><field name="img">img`
+. . c c c c c c c c c c c c c c 
+. . c b d d d d d d d d d d d d 
+c c c b d d d d d d d d d d d d 
+c b b b d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c d d d d d d d d d d d d d d d 
+c b d d d d d d d d d d d d d d 
+c c b b b b b b b b b b b b b b 
+c c f f f f f f f f f f f f f f 
+c c f f f f f f f f f f f f f f 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="Qk-V!:XjDG?6-33mv(PQ"><field name="MEMBER">oven</field></shadow></value></block></value><next><block type="mapplaceontile" id="QUaocO^u=RV5dsqBm*k|"><value name="sprite"><shadow type="variables_get" id="R.#h6wz%w(3A),g:)@0T"><field name="VAR" id="Z$ZzHLqQg1EMP1p$n%0x">oven1</field></shadow></value><value name="loc"><shadow type="mapgettile" id="cr*{!fF7qQ,cON#-o:tN"><value name="col"><shadow type="math_number" id=";1jw8n.lWo,B5,Niii/#"><field name="NUM">15</field></shadow></value><value name="row"><shadow type="math_number" id="=)C8xA{(4..ShIchc|Y2"><field name="NUM">0</field></shadow></value></shadow></value><next><block type="variables_set" id="}I%~75O%O,npra})5aC="><field name="VAR" id="/]+6fCG^M7i![/+]M]7`">oven2</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="Q$*xiw,@b~,mi8~!_(M]"><value name="img"><shadow type="screen_image_picker" id="A9ORzoV7T)nS)sOcnl@Q"><field name="img">img`
+c c c c c c c c c c c c c c . . 
+d d d d d d d d d d d d b c . . 
+d d d d d d d d d d d d b c c c 
+d d d d d d d d d d d d b b b c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d d c 
+d d d d d d d d d d d d d d b c 
+b b b b b b b b b b b b b b c c 
+f f f f f f f f f f f f f f c c 
+f f f f f f f f f f f f f f c c 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="X[u[s=S=.hH[uW;h6-xY"><field name="MEMBER">oven</field></shadow></value></block></value><next><block type="mapplaceontile" id="lb}7167}R:h6-.l%cp^O"><value name="sprite"><shadow type="variables_get" id="jW5A{@1P8:CJKJ~Us/T;"><field name="VAR" id="/]+6fCG^M7i![/+]M]7`">oven2</field></shadow></value><value name="loc"><shadow type="mapgettile" id="98%=qUq,H|VS#Hl!:mYR"><value name="col"><shadow type="math_number" id="|xtBN!Lz:.POc8.:%=21"><field name="NUM">16</field></shadow></value><value name="row"><shadow type="math_number" id="*DXbMh[@?(xpQ/u#uY[/"><field name="NUM">0</field></shadow></value></shadow></value><next><block type="variables_set" id="Qi=uR%u).hH%.{z5990t"><field name="VAR" id="A$#:40|!2i}r!``9iR$4">oven3</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="!IqC={71t^bJmh^dXPAl"><value name="img"><shadow type="screen_image_picker" id="5G**,-6FcHEMq0]9`Dzq"><field name="img">img`
+c b f f d d b b f f d d b b f f 
+c b f f d d b b f f d d b b f f 
+f b f f b b b b f f b b b b f f 
+f b f f b b b b f f b b b b f f 
+f b f f f f f f f f f f f f f f 
+f b f f f f f f f f f f f f f f 
+f d d d d d d d d d d d d d d d 
+f d f f f f f f f f f f f f f f 
+f d f f f f f f f f f f f f f f 
+f d f f f f f f f f f f f f f f 
+f d f f f f f f f f f f f f f f 
+f d f f f f f f f f f f f f f f 
+f d f f f f f f f f f f f f f f 
+f d c c b b b b d d d d d d d d 
+f d f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="ntlcQcL(d%fCJOa.0Y]H"><field name="MEMBER">oven</field></shadow></value></block></value><next><block type="mapplaceontile" id="xt~PWeAZ}7.wo/|wbend"><value name="sprite"><shadow type="variables_get" id="tz[Mf}J_tkllvg;e-jl!"><field name="VAR" id="A$#:40|!2i}r!``9iR$4">oven3</field></shadow></value><value name="loc"><shadow type="mapgettile" id="f}X0tQ$7;!jktyc[As@c"><value name="col"><shadow type="math_number" id="qKOHw:=K:b(e:mc;9):r"><field name="NUM">15</field></shadow></value><value name="row"><shadow type="math_number" id=".F/@-rIcwOx.d*p^;Ae~"><field name="NUM">1</field></shadow></value></shadow></value><next><block type="variables_set" id="o~jJ5)Y=7NadtX#`,Q*B"><field name="VAR" id="_=QQfux5M-:f9eQO)%2;">oven4</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="Hkf!?PI_$NeSt.U8x$g4"><value name="img"><shadow type="screen_image_picker" id="R$P./[rp/VcU.Qnh@~Uf"><field name="img">img`
+f f d d b b f f d d b b f f b c 
+f f d d b b f f d d b b f f b c 
+f f b b b b f f b b b b f f b f 
+f f b b b b f f b b b b f f b f 
+f f f f f f f f f f f f f f b f 
+f f f f f f f f f f f f f f b f 
+d d d d d d d d d d d d d d d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f d f 
+d d d d d d d d b b b b c c d f 
+f f f f f f f f f f f f f f d f 
+f f f f f f f f f f f f f f f f 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="iD4:2HOL@2b]7w~QLxOo"><field name="MEMBER">oven</field></shadow></value></block></value><next><block type="mapplaceontile" id=",$AabLR%8JcG]z{,Bb/*"><value name="sprite"><shadow type="variables_get" id="gGO,`~mipoP0Zm@]/qaI"><field name="VAR" id="_=QQfux5M-:f9eQO)%2;">oven4</field></shadow></value><value name="loc"><shadow type="mapgettile" id="pfk?]m}r)el+qKQ`Qp3Y"><value name="col"><shadow type="math_number" id="]pTmeL.!,Z_$vnMLOPo."><field name="NUM">16</field></shadow></value><value name="row"><shadow type="math_number" id="c4!vdog*VfLEvvv,Jvsb"><field name="NUM">1</field></shadow></value></shadow></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block></xml>
