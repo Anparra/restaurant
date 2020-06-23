@@ -442,6 +442,7 @@ b b b b b b b b b b b b b b . .
 `, SpriteKind.kitchen)
     tiles.placeOnTile(kitchen6, tiles.getTileLocation(20, 6))
 }
+let mySprite: Sprite = null
 let kitchen6: Sprite = null
 let kitchen5: Sprite = null
 let kitchen4: Sprite = null
@@ -636,6 +637,26 @@ c c c c c d d e e e f c . . . .
 . . f f f f f f f f f f f f f . 
 `)
     }
+})
+game.onUpdateInterval(500, function () {
+    mySprite = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
 })
 forever(function () {
     console.log("honk honk")
