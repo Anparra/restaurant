@@ -435,7 +435,7 @@ b c d f f f d 1 4 4 4 4 1 d f f
 b c d f f f f d 1 1 1 1 d f f f 
 b c d f f f f f d d d d f f f f 
 `, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen1, tiles.getTileLocation(19, 3))
+    tiles.placeOnTile(kitchen1, tiles.getTileLocation(19, 4))
     kitchen2 = sprites.create(img`
 b b b b b b b b b b b b b b . . 
 b b b b b b b b b b b b b b b . 
@@ -454,7 +454,7 @@ f f f d 1 4 4 4 4 1 d f f f d b
 f f f f d 1 1 1 1 d f f f f d b 
 f f f f f d d d d f f f f f d b 
 `, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen2, tiles.getTileLocation(20, 3))
+    tiles.placeOnTile(kitchen2, tiles.getTileLocation(20, 4))
     kitchen3 = sprites.create(img`
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
@@ -473,7 +473,7 @@ b c d f f f f f f f f f f f f f
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
 `, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen3, tiles.getTileLocation(19, 4))
+    tiles.placeOnTile(kitchen3, tiles.getTileLocation(19, 5))
     kitchen4 = sprites.create(img`
 b c d f f f f f f f f f f f f f 
 b c d f f f f f f f f f f f f f 
@@ -492,7 +492,7 @@ b b b c d d d d d d d d d d d d
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen4, tiles.getTileLocation(19, 5))
+    tiles.placeOnTile(kitchen4, tiles.getTileLocation(19, 6))
     kitchen5 = sprites.create(img`
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
@@ -511,7 +511,7 @@ f f f f f f f f f f f f f f d b
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
 `, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen5, tiles.getTileLocation(20, 4))
+    tiles.placeOnTile(kitchen5, tiles.getTileLocation(20, 5))
     kitchen6 = sprites.create(img`
 f f f f f f f f f f f f f f d b 
 f f f f f f f f f f f f f f d b 
@@ -530,7 +530,7 @@ b b b b b b b b b b b b b b . .
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen6, tiles.getTileLocation(20, 5))
+    tiles.placeOnTile(kitchen6, tiles.getTileLocation(20, 6))
 }
 function placeVeggies () {
     veggies1 = sprites.create(img`
@@ -673,56 +673,89 @@ let oven3: Sprite = null
 let oven2: Sprite = null
 let oven1: Sprite = null
 let monkey = sprites.create(img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f . . . . . 
-. c d f d d f d e e f f . . . . 
-. c d f d d f d e e d d f . . . 
-c d e e d d d d e e b d c . . . 
-c d d d d c d d e e b d c . . . 
-c c c c c d d e e e f c . . . . 
-. f d d d d e e e f f . . . . . 
-. . f f f f f e e e e f . . . . 
-. . . . f f e e e e e e f . f f 
-. . . f e e f e e f e e f . e f 
-. . f e e f e e f e e e f . e f 
-. f b d f d b f b b f e f f e f 
-. f d d f d d f d d b e f f f f 
-. . f f f f f f f f f f f f f . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . 
+. . . . . . . . . . . f e e e e e f . . . . . . . . . . . . . . 
+. . . . . . . . . . f d d d d e e e f . . . . . . . . . . . . . 
+. . . . . . . . . c d f d d f d e e f f . . . . . . . . . . . . 
+. . . . . . . . . c d f d d f d e e d d f . . . . . . . . . . . 
+. . . . . . . . c d e e d d d d e e b d c . . . . . . . . . . . 
+. . . . . . . . c d d d d c d d e e b d c . . . . . . . . . . . 
+. . . . . . . . c c c c c d d e e e f c . . . . . . . . . . . . 
+. . . . . . . . . f d d d d e e e f f . . . . . . . . . . . . . 
+. . . . . . . . . . f f f f f e e e e f . . . . . . . . . . . . 
+. . . . . . . . . . . . f f e e e e e e f . f f . . . . . . . . 
+. . . . . . . . . . . f e e f e e f e e f . e f . . . . . . . . 
+. . . . . . . . . . f e e f e e f e e e f . e f . . . . . . . . 
+. . . . . . . . . f b d f d b f b b f e f f e f . . . . . . . . 
+. . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
+. . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
 `, SpriteKind.Player)
 scene.cameraFollowSprite(monkey)
 scene.setTileMap(img`
 4 4 4 4 4 4 4 4 4 4 2 3 e 1 1 e 1 1 e 1 1 
 4 4 4 4 4 4 4 4 4 4 5 7 e 1 1 e 1 1 e 1 1 
 4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
-4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e 1 1 
+4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e e e 
 4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
 4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e e e 
+4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e 1 1 
 4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
 4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
 4 4 4 4 4 4 4 4 4 4 f f e e e e e e e 1 1 
 `)
 controller.moveSprite(monkey)
+tiles.placeOnTile(monkey, tiles.getTileLocation(12, 1))
 background()
 game.onUpdate(function () {
     monkey.setImage(img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f . . . . . 
-. c d f d d f d e e f f . . . . 
-. c d f d d f d e e d d f . . . 
-c d e e d d d d e e b d c . . . 
-c d d d d c d d e e b d c . . . 
-c c c c c d d e e e f c . . . . 
-. f d d d d e e e f f . . . . . 
-. . f f f f f e e e e f . . . . 
-. . . . f f e e e e e e f . f f 
-. . . f e e f e e f e e f . e f 
-. . f e e f e e f e e e f . e f 
-. f b d f d b f b b f e f f e f 
-. f d d f d d f d d b e f f f f 
-. . f f f f f f f f f f f f f . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . 
+. . . . . . . . . . . f e e e e e f . . . . . . . . . . . . . . 
+. . . . . . . . . . f d d d d e e e f . . . . . . . . . . . . . 
+. . . . . . . . . c d f d d f d e e f f . . . . . . . . . . . . 
+. . . . . . . . . c d f d d f d e e d d f . . . . . . . . . . . 
+. . . . . . . . c d e e d d d d e e b d c . . . . . . . . . . . 
+. . . . . . . . c d d d d c d d e e b d c . . . . . . . . . . . 
+. . . . . . . . c c c c c d d e e e f c . . . . . . . . . . . . 
+. . . . . . . . . f d d d d e e e f f . . . . . . . . . . . . . 
+. . . . . . . . . . f f f f f e e e e f . . . . . . . . . . . . 
+. . . . . . . . . . . . f f e e e e e e f . f f . . . . . . . . 
+. . . . . . . . . . . f e e f e e f e e f . e f . . . . . . . . 
+. . . . . . . . . . f e e f e e f e e e f . e f . . . . . . . . 
+. . . . . . . . . f b d f d b f b b f e f f e f . . . . . . . . 
+. . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
+. . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
 `)
     if (monkey.vx < 0) {
         animation.runImageAnimation(
@@ -818,22 +851,38 @@ c c c c c d d e e e f c . . . .
         )
     } else {
         monkey.setImage(img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f . . . . . 
-. c d f d d f d e e f f . . . . 
-. c d f d d f d e e d d f . . . 
-c d e e d d d d e e b d c . . . 
-c d d d d c d d e e b d c . . . 
-c c c c c d d e e e f c . . . . 
-. f d d d d e e e f f . . . . . 
-. . f f f f f e e e e f . . . . 
-. . . . f f e e e e e e f . f f 
-. . . f e e f e e f e e f . e f 
-. . f e e f e e f e e e f . e f 
-. f b d f d b f b b f e f f e f 
-. f d d f d d f d d b e f f f f 
-. . f f f f f f f f f f f f f . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . 
+. . . . . . . . . . . f e e e e e f . . . . . . . . . . . . . . 
+. . . . . . . . . . f d d d d e e e f . . . . . . . . . . . . . 
+. . . . . . . . . c d f d d f d e e f f . . . . . . . . . . . . 
+. . . . . . . . . c d f d d f d e e d d f . . . . . . . . . . . 
+. . . . . . . . c d e e d d d d e e b d c . . . . . . . . . . . 
+. . . . . . . . c d d d d c d d e e b d c . . . . . . . . . . . 
+. . . . . . . . c c c c c d d e e e f c . . . . . . . . . . . . 
+. . . . . . . . . f d d d d e e e f f . . . . . . . . . . . . . 
+. . . . . . . . . . f f f f f e e e e f . . . . . . . . . . . . 
+. . . . . . . . . . . . f f e e e e e e f . f f . . . . . . . . 
+. . . . . . . . . . . f e e f e e f e e f . e f . . . . . . . . 
+. . . . . . . . . . f e e f e e f e e e f . e f . . . . . . . . 
+. . . . . . . . . f b d f d b f b b f e f f e f . . . . . . . . 
+. . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
+. . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
 `)
     }
 })
