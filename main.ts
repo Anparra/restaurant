@@ -1,7 +1,8 @@
 enum ActionKind {
     Walking,
     Idle,
-    Jumping
+    Jumping,
+    waiting
 }
 namespace SpriteKind {
     export const oven = SpriteKind.create()
@@ -9,6 +10,9 @@ namespace SpriteKind {
     export const veggies = SpriteKind.create()
     export const fridge = SpriteKind.create()
     export const dough = SpriteKind.create()
+    export const time = SpriteKind.create()
+    export const sign = SpriteKind.create()
+    export const signOut = SpriteKind.create()
 }
 namespace myTiles {
     //% blockIdentity=images._tile
@@ -30,6 +34,210 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `
+}
+function clock () {
+    timer = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f f . . . . 
+. . . f f 1 1 1 f 1 1 1 f f . . 
+. . f 1 1 1 1 1 f 1 1 1 1 1 f . 
+. . f 1 1 1 1 1 f 1 1 1 1 1 f . 
+. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 e 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+. . . f f 1 1 1 1 1 1 1 f f . . 
+. . . . . f f f f f f f . . . . 
+`, SpriteKind.time)
+    timer.setPosition(monkey.x + 10, monkey.y + -15)
+    monkey.setVelocity(0, 0)
+    anim = animation.createAnimation(ActionKind.waiting, 1000)
+    animation.attachAnimation(timer, anim)
+    animation.runImageAnimation(
+    timer,
+    [img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f f . . . . 
+. . . f f 1 1 1 f 1 1 1 f f . . 
+. . f 1 1 1 1 1 f 1 1 1 1 1 f . 
+. . f 1 1 1 1 1 f 1 1 1 1 1 f . 
+. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 e 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+. . . f f 1 1 1 1 1 1 1 f f . . 
+. . . . . f f f f f f f . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f f . . . . 
+. . . f f 1 1 1 f 7 7 7 f f . . 
+. . f 1 1 1 1 1 f 7 7 7 7 f f . 
+. . f 1 1 1 1 1 f 7 7 7 f 1 f . 
+. f 1 1 1 1 1 1 f 7 7 f 1 1 1 f 
+. f 1 1 1 1 1 1 f 7 f 1 1 1 1 f 
+. f 1 1 1 1 1 1 f f 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 e 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+. . . f f 1 1 1 1 1 1 1 f f . . 
+. . . . . f f f f f f f . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f f . . . . 
+. . . f f 1 1 1 f 7 7 7 f f . . 
+. . f 1 1 1 1 1 f 7 7 7 7 f f . 
+. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 e f f f f f f f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+. . . f f 1 1 1 1 1 1 1 f f . . 
+. . . . . f f f f f f f . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f f . . . . 
+. . . f f 1 1 1 f 7 7 7 f f . . 
+. . f 1 1 1 1 1 f 7 7 7 7 f f . 
+. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 e 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 1 f 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 1 1 f 7 7 7 7 f 
+. f 1 1 1 1 1 1 1 1 1 f 7 7 7 f 
+. . f 1 1 1 1 1 1 1 1 1 f 7 f . 
+. . f 1 1 1 1 1 1 1 1 1 1 f f . 
+. . . f f 1 1 1 1 1 1 1 f f . . 
+. . . . . f f f f f f f . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f f . . . . 
+. . . f f 1 1 1 f 7 7 7 f f . . 
+. . f 1 1 1 1 1 f 7 7 7 7 f f . 
+. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 e 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+. . f 1 1 1 1 1 f 7 7 7 7 f f . 
+. . . f f 1 1 1 f 7 7 7 f f . . 
+. . . . . f f f f f f f . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f f . . . . 
+. . . f f 1 1 1 f 7 7 7 f f . . 
+. . f 1 1 1 1 1 f 7 7 7 7 f f . 
+. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 e 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 f 7 7 7 7 7 7 7 f 
+. f 1 1 1 1 f 7 7 7 7 7 7 7 7 f 
+. f 1 1 1 f 7 7 7 7 7 7 7 7 7 f 
+. . f 1 f 7 7 7 7 7 7 7 7 7 f . 
+. . f f 7 7 7 7 7 7 7 7 7 f f . 
+. . . f f 7 7 7 7 7 7 7 f f . . 
+. . . . . f f f f f f f . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f f . . . . 
+. . . f f 1 1 1 f 7 7 7 f f . . 
+. . f 1 1 1 1 1 f 7 7 7 7 f f . 
+. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+. f f f f f f f e 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+. . f 7 7 7 7 7 7 7 7 7 7 7 f . 
+. . f f 7 7 7 7 7 7 7 7 7 f f . 
+. . . f f 7 7 7 7 7 7 7 f f . . 
+. . . . . f f f f f f f . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f f . . . . 
+. . . f f 1 1 1 f 7 7 7 f f . . 
+. . f f 1 1 1 1 f 7 7 7 7 f f . 
+. . f 7 f 1 1 1 f 7 7 7 7 7 f . 
+. f 7 7 7 f 1 1 f 7 7 7 7 7 7 f 
+. f 7 7 7 7 f 1 f 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 f f 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 e 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+. . f 7 7 7 7 7 7 7 7 7 7 7 f . 
+. . f f 7 7 7 7 7 7 7 7 7 f f . 
+. . . f f 7 7 7 7 7 7 7 f f . . 
+. . . . . f f f f f f f . . . . 
+`,img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f f . . . . 
+. . . f f 7 7 7 f 7 7 7 f f . . 
+. . f f 7 7 7 7 f 7 7 7 7 f f . 
+. . f 7 7 7 7 7 f 7 7 7 7 7 f . 
+. f 7 7 7 7 7 7 f 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 f 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 f 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 e 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+. . f 7 7 7 7 7 7 7 7 7 7 7 f . 
+. . f f 7 7 7 7 7 7 7 7 7 f f . 
+. . . f f 7 7 7 7 7 7 7 f f . . 
+. . . . . f f f f f f f . . . . 
+`],
+    500,
+    false
+    )
+    pause(5000)
+    outSign = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f . . . . . 
+. . . . . f 7 7 7 7 f . . . . . 
+. . . . . f 7 7 7 7 f . . . . . 
+. . . . . f 7 7 7 7 f . . . . . 
+. . . . . f 7 7 7 7 f . . . . . 
+. . . . . f 7 7 7 7 f . . . . . 
+. . . . . f 7 7 7 7 f . . . . . 
+. . f f f f 7 7 7 7 f f f f . . 
+. . f 7 7 7 7 7 7 7 7 7 7 f . . 
+. . . f 7 7 7 7 7 7 7 7 f . . . 
+. . . . f 7 7 7 7 7 7 f . . . . 
+. . . . . f 7 7 7 7 f . . . . . 
+. . . . . . f 7 7 f . . . . . . 
+. . . . . . . f f . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.signOut)
+    outSign.setPosition(timer.x + 15, timer.y + 20)
+    timer.destroy()
 }
 function placeOven () {
     oven1 = sprites.create(img`
@@ -332,6 +540,24 @@ c c c c c c c c c c c c c c . .
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, true)
+    scene.setTile(8, img`
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+e e e e e e e e e e e e e e e e 
+`, false)
     placeOven()
     placeKitchen()
     placeVeggies()
@@ -648,6 +874,71 @@ f f f f f f f f f f f f f f . .
 `, SpriteKind.veggies)
     tiles.placeOnTile(veggies6, tiles.getTileLocation(20, 9))
 }
+function inSigns () {
+    inSignDough = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . f 2 2 2 2 2 f . . . . . 
+. . . f 2 2 2 2 2 2 2 f . . . . 
+. . f 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f f f f f 2 2 2 f f f f f . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    tiles.placeOnTile(inSignDough, tiles.getTileLocation(13, 2))
+    inSignOven = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . f 2 2 2 2 2 f . . . . . 
+. . . f 2 2 2 2 2 2 2 f . . . . 
+. . f 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f f f f f 2 2 2 f f f f f . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    tiles.placeOnTile(inSignOven, tiles.getTileLocation(16, 2))
+    inSignFridge = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . f 2 2 2 2 2 f . . . . . 
+. . . f 2 2 2 2 2 2 2 f . . . . 
+. . f 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f f f f f 2 2 2 f f f f f . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    tiles.placeOnTile(inSignFridge, tiles.getTileLocation(19, 2))
+}
+sprites.onOverlap(SpriteKind.Player, SpriteKind.sign, function (sprite, otherSprite) {
+    clock()
+})
+let inSignFridge: Sprite = null
+let inSignOven: Sprite = null
+let inSignDough: Sprite = null
 let veggies6: Sprite = null
 let veggies5: Sprite = null
 let veggies4: Sprite = null
@@ -672,7 +963,11 @@ let oven4: Sprite = null
 let oven3: Sprite = null
 let oven2: Sprite = null
 let oven1: Sprite = null
-let monkey = sprites.create(img`
+let outSign: Sprite = null
+let anim: animation.Animation = null
+let timer: Sprite = null
+let monkey: Sprite = null
+monkey = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -711,18 +1006,20 @@ scene.setTileMap(img`
 4 4 4 4 4 4 4 4 4 4 2 3 e 1 1 e 1 1 e 1 1 
 4 4 4 4 4 4 4 4 4 4 5 7 e 1 1 e 1 1 e 1 1 
 4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
-4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e e e 
+4 4 4 4 4 4 4 4 4 4 2 3 e 8 e e 8 e e 8 e 
 4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
+4 4 4 4 4 4 4 4 4 4 9 b e e e e e 8 e 1 1 
 4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e 1 1 
 4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
+4 4 4 4 4 4 4 4 4 4 9 b e e e e e 8 e 1 1 
 4 4 4 4 4 4 4 4 4 4 f f e e e e e e e 1 1 
 `)
-controller.moveSprite(monkey)
+controller.moveSprite(monkey, 100, 100)
 tiles.placeOnTile(monkey, tiles.getTileLocation(12, 1))
 background()
+inSigns()
 game.onUpdate(function () {
+    monkey.setFlag(SpriteFlag.ShowPhysics, true)
     monkey.setImage(img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
