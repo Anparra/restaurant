@@ -34,6 +34,25 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `
+    //% blockIdentity=images._tile
+    export const tile1 = img`
+f f f f f 9 f f f 9 f f f f f f 
+f f f 9 f f 9 f 9 f f 9 f f f f 
+f f f 9 f f f 9 f f f 9 f f f f 
+f 9 9 9 f f f 9 f f f 9 9 9 f f 
+f f f f 9 f f 9 f f 9 f f f f f 
+9 f f f f 9 f 9 f 9 f f f f f 9 
+f 9 f f f f 9 9 9 f f f f f 9 f 
+f f 9 9 9 9 9 9 9 9 9 9 9 9 f f 
+f 9 f f f f 9 9 9 f f f f f 9 f 
+9 f f f f 9 f 9 f 9 f f f f f 9 
+f f f f 9 f f 9 f f 9 f f f f f 
+f 9 9 9 f f f 9 f f f 9 9 9 f f 
+f f f 9 f f f 9 f f f 9 f f f f 
+f f f 9 f f f 9 f f f 9 f f f f 
+f f f f f f 9 f 9 f f f f f f f 
+f f f f f 9 f f f 9 f f f f f f 
+`
 }
 function clock () {
     timer = sprites.create(img`
@@ -934,8 +953,19 @@ function inSigns () {
     tiles.placeOnTile(inSignFridge, tiles.getTileLocation(19, 2))
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.sign, function (sprite, otherSprite) {
-    clock()
+    if (monkey.overlapsWith(inSignDough) || monkey.overlapsWith(inSignOven) || monkey.overlapsWith(inSignFridge)) {
+        clock()
+        pause(5000)
+        isOrderTaken = true
+        isDoughDone = true
+        isIngredientOut = true
+    }
 })
+let freezeY = 0
+let freezeX = 0
+let isIngredientOut = false
+let isDoughDone = false
+let isOrderTaken = false
 let inSignFridge: Sprite = null
 let inSignOven: Sprite = null
 let inSignDough: Sprite = null
@@ -1006,16 +1036,16 @@ scene.setTileMap(img`
 4 4 4 4 4 4 4 4 4 4 2 3 e 1 1 e 1 1 e 1 1 
 4 4 4 4 4 4 4 4 4 4 5 7 e 1 1 e 1 1 e 1 1 
 4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
-4 4 4 4 4 4 4 4 4 4 2 3 e 8 e e 8 e e 8 e 
+4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e e e 
 4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 9 b e e e e e 8 e 1 1 
+4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
 4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e 1 1 
 4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 9 b e e e e e 8 e 1 1 
+4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
 4 4 4 4 4 4 4 4 4 4 f f e e e e e e e 1 1 
 `)
 controller.moveSprite(monkey, 100, 100)
-tiles.placeOnTile(monkey, tiles.getTileLocation(12, 1))
+tiles.placeOnTile(monkey, tiles.getTileLocation(12, 2))
 background()
 inSigns()
 game.onUpdate(function () {
@@ -1143,8 +1173,8 @@ c c c c c d d e e e f c . . . .
 . f d d f d d f d d b e f f f f 
 . . f f f f f f f f f f f f f . 
 `],
-        200,
-        true
+        1000,
+        false
         )
     } else {
         monkey.setImage(img`
@@ -1181,5 +1211,15 @@ c c c c c d d e e e f c . . . .
 . . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
 . . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
 `)
+    }
+})
+forever(function () {
+    if (isOrderTaken || isDoughDone || isIngredientOut) {
+        monkey.setVelocity(50, 0)
+    } else {
+        monkey.setVelocity(0, 0)
+        freezeX = monkey.x
+        freezeY = monkey.y
+        monkey.setPosition(freezeX, freezeY)
     }
 })
