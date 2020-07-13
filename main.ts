@@ -5,11 +5,8 @@ enum ActionKind {
     waiting
 }
 namespace SpriteKind {
-    export const oven = SpriteKind.create()
     export const kitchen = SpriteKind.create()
     export const veggies = SpriteKind.create()
-    export const fridge = SpriteKind.create()
-    export const dough = SpriteKind.create()
     export const time = SpriteKind.create()
     export const sign = SpriteKind.create()
     export const signOut = SpriteKind.create()
@@ -262,162 +259,6 @@ function clock () {
     pause(5000)
     timer.destroy()
 }
-function placeOven () {
-    oven1 = sprites.create(img`
-. . c c c c c c c c c c c c c c 
-. . c b d d d d d d d d d d d d 
-c c c b d d d d d d d d d d d d 
-c b b b d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c d d d d d d d d d d d d d d d 
-c b d d d d d d d d d d d d d d 
-c c b b b b b b b b b b b b b b 
-c c f f f f f f f f f f f f f f 
-c c f f f f f f f f f f f f f f 
-`, SpriteKind.oven)
-    tiles.placeOnTile(oven1, tiles.getTileLocation(16, 0))
-    oven2 = sprites.create(img`
-c c c c c c c c c c c c c c . . 
-d d d d d d d d d d d d b c . . 
-d d d d d d d d d d d d b c c c 
-d d d d d d d d d d d d b b b c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d d c 
-d d d d d d d d d d d d d d b c 
-b b b b b b b b b b b b b b c c 
-f f f f f f f f f f f f f f c c 
-f f f f f f f f f f f f f f c c 
-`, SpriteKind.oven)
-    tiles.placeOnTile(oven2, tiles.getTileLocation(17, 0))
-    oven3 = sprites.create(img`
-c b f f d d b b f f d d b b f f 
-c b f f d d b b f f d d b b f f 
-f b f f b b b b f f b b b b f f 
-f b f f b b b b f f b b b b f f 
-f b f f f f f f f f f f f f f f 
-f b f f f f f f f f f f f f f f 
-f d d d d d d d d d d d d d d d 
-f d f f f f f f f f f f f f f f 
-f d f f f f f f f f f f f f f f 
-f d f f f f f f f f f f f f f f 
-f d f f f f f f f f f f f f f f 
-f d f f f f f f f f f f f f f f 
-f d f f f f f f f f f f f f f f 
-f d c c b b b b d d d d d d d d 
-f d f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-`, SpriteKind.oven)
-    tiles.placeOnTile(oven3, tiles.getTileLocation(16, 1))
-    oven4 = sprites.create(img`
-f f d d b b f f d d b b f f b c 
-f f d d b b f f d d b b f f b c 
-f f b b b b f f b b b b f f b f 
-f f b b b b f f b b b b f f b f 
-f f f f f f f f f f f f f f b f 
-f f f f f f f f f f f f f f b f 
-d d d d d d d d d d d d d d d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f d f 
-d d d d d d d d b b b b c c d f 
-f f f f f f f f f f f f f f d f 
-f f f f f f f f f f f f f f f f 
-`, SpriteKind.oven)
-    tiles.placeOnTile(oven4, tiles.getTileLocation(17, 1))
-}
-function placeFridge () {
-    fridge1 = sprites.create(img`
-. . d d d d d d d d d d d d d d 
-. . d 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d d d 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d 1 b b b b b b b b b b b b b b 
-d b b b b b b b b b b b b b b b 
-d b d d d d d d d d d d d d d d 
-`, SpriteKind.fridge)
-    tiles.placeOnTile(fridge1, tiles.getTileLocation(19, 0))
-    fridge2 = sprites.create(img`
-d d d d d d d d d d d d d d . . 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d . . 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d d d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 d 
-b b b b b b b b b b b b b b 1 d 
-b b b b b b b b b b b b b b b d 
-d d d d d d d d d d d d d d b d 
-`, SpriteKind.fridge)
-    tiles.placeOnTile(fridge2, tiles.getTileLocation(20, 0))
-    fridge3 = sprites.create(img`
-d b d 1 1 1 1 1 1 1 1 1 1 1 1 1 
-d b d 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f b f 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f b f 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f b f 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f b b b b b b b b b b b b b b b 
-f b d d d d d d d d d d d d d d 
-f b d 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f b d 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f b f 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f b f 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f b f 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f b f 1 1 1 1 1 1 1 1 1 1 1 1 1 
-f b b b b b b b b b b b b b b b 
-f b f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-`, SpriteKind.fridge)
-    tiles.placeOnTile(fridge3, tiles.getTileLocation(19, 1))
-    fridge4 = sprites.create(img`
-1 1 1 1 1 1 1 1 1 1 1 1 1 d b d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d b d 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d b f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d b f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d b f 
-b b b b b b b b b b b b b b b f 
-d d d d d d d d d d d d d d b f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d b f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d b f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d b f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d b f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d b f 
-1 1 1 1 1 1 1 1 1 1 1 1 1 d b f 
-b b b b b b b b b b b b b b b f 
-f f f f f f f f f f f f f f b f 
-f f f f f f f f f f f f f f f f 
-`, SpriteKind.fridge)
-    tiles.placeOnTile(fridge4, tiles.getTileLocation(20, 1))
-}
 function ingredientsOut () {
     monkey.say("Need to refill the toppings...", 1000)
     tiles.placeOnTile(inSignFridge, tiles.getTileLocation(19, 2))
@@ -633,94 +474,16 @@ e e e e e e e e e e e e e e e e
 e e e e e e e e e e e e e e e e 
 e e e e e e e e e e e e e e e e 
 `, false)
-    placeOven()
     placeKitchen()
     placeVeggies()
-    placeFridge()
-    placeDough()
+    dough.zone1_dough()
+    oven.zone2_oven()
+    fridge.zone3_fridge()
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     isOrderTaken = true
     haveOrder()
 })
-function placeDough () {
-    dough1 = sprites.create(img`
-. . f f f f f f f f f f f f f f 
-. b f c c c c c c c c c c c c c 
-f f f c d d d d d d d d d d d d 
-f c c c d c c c c c c c c c c c 
-f c c d d c c c c c c c c c c c 
-f c c d c c c c c c f f f f c c 
-f c c d c c c c c c f e e f c c 
-f c c d c c c c c c f e e f c c 
-f c c d c c c c c c f e e f c c 
-f c c d c c c c c f e e e e f c 
-f c c d c c c c f e e e e e e f 
-f c c d c c c c f e e e e e e f 
-f c c d c c c c f e e e e e e f 
-f c c d c c c c f e e e e e e f 
-f c c d c c c c f e e e e e e f 
-f c c d c c c c c f e e e e f c 
-`, SpriteKind.dough)
-    tiles.placeOnTile(dough1, tiles.getTileLocation(13, 0))
-    dough2 = sprites.create(img`
-f f f f f f f f f f f f f f . . 
-c c c c c c c c c c c c c f b . 
-d d d d d d d d d d d d c f f f 
-c c c c c c c c c c c d c c c f 
-c c c c c 1 c c c c c d d c c f 
-c c 1 c c c c c c c c c d c c f 
-c c c c c c c 1 c c c c d c c f 
-c 1 1 d d c c c c c c c d c c f 
-1 1 1 1 1 d c c c c c c d c c f 
-1 1 1 1 1 d d c c 1 c c d c c f 
-1 1 1 1 1 1 1 1 c c c c d c c f 
-1 1 1 1 1 1 1 1 c c c c d c c f 
-1 1 1 1 1 1 1 1 c 1 c c d c c f 
-d d d 1 1 1 1 c c c c c d c c f 
-1 d d 1 1 1 c c c c c c d c c f 
-c 1 d 1 1 c c c c c c c d c c f 
-`, SpriteKind.dough)
-    tiles.placeOnTile(dough2, tiles.getTileLocation(14, 0))
-    dough3 = sprites.create(img`
-f c c d c c c c c c f e e f c c 
-f c c d c c c c c c f e e f c c 
-f c c d c c c c c c f e e f c c 
-f c c d d c c c c c f f f f c c 
-f c c c d d d d d d d d d d d d 
-f b c c c c c c c c c c c c c c 
-f b b c c c c c c c c c c c c c 
-f b b b c c c c c c c c c c c c 
-f b b b b b b b b b b b b b b b 
-f c b b b b b b b b b b b b b b 
-f c b b c c b b b b c c b b b b 
-. f f b f f b c c b f f b c c c 
-. . f f f f f f f f f f f f f f 
-. . f b b b b b f . . . . . . . 
-. . f c c c c c f . . . . . . . 
-. . . f f f f f . . . . . . . . 
-`, SpriteKind.dough)
-    tiles.placeOnTile(dough3, tiles.getTileLocation(13, 1))
-    dough4 = sprites.create(img`
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c d d d c c f 
-d d d d d d d d d d d c c c c f 
-c c c c c c c c c c c c c c c f 
-c c c c c c c c c c c c c c b f 
-c c c c c c c c c c c c c b b f 
-b b b b b b b b b b b b b b b f 
-b b b b b b b b b b b b b b c f 
-b b b b c c b b b b c c b b c f 
-c c c b f f b c c b f f b f f . 
-f f f f f f f f f f f f f f . . 
-. . . . . . . . f b b b b f . . 
-. . . . . . . . f c c c c f . . 
-. . . . . . . . . f f f f . . . 
-`, SpriteKind.dough)
-    tiles.placeOnTile(dough4, tiles.getTileLocation(14, 1))
-}
 function placeKitchen () {
     kitchen1 = sprites.create(img`
 . . b b b b b b b b b b b b b b 
@@ -1039,19 +802,7 @@ let kitchen4: Sprite = null
 let kitchen3: Sprite = null
 let kitchen2: Sprite = null
 let kitchen1: Sprite = null
-let dough4: Sprite = null
-let dough3: Sprite = null
-let dough2: Sprite = null
-let dough1: Sprite = null
 let isPizzaDone = false
-let fridge4: Sprite = null
-let fridge3: Sprite = null
-let fridge2: Sprite = null
-let fridge1: Sprite = null
-let oven4: Sprite = null
-let oven3: Sprite = null
-let oven2: Sprite = null
-let oven1: Sprite = null
 let anim: animation.Animation = null
 let timer: Sprite = null
 let isOrderTaken = false
