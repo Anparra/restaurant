@@ -5,8 +5,6 @@ enum ActionKind {
     waiting
 }
 namespace SpriteKind {
-    export const kitchen = SpriteKind.create()
-    export const veggies = SpriteKind.create()
     export const time = SpriteKind.create()
     export const sign = SpriteKind.create()
     export const signOut = SpriteKind.create()
@@ -474,132 +472,16 @@ e e e e e e e e e e e e e e e e
 e e e e e e e e e e e e e e e e 
 e e e e e e e e e e e e e e e e 
 `, false)
-    placeKitchen()
-    placeVeggies()
     dough.zone1_dough()
     oven.zone2_oven()
     fridge.zone3_fridge()
+    kitchen.zone4_kitchen()
+    veggies.zone5_veggies()
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     isOrderTaken = true
     haveOrder()
 })
-function placeKitchen () {
-    kitchen1 = sprites.create(img`
-. . b b b b b b b b b b b b b b 
-. b b b b b b b b b b b b b b b 
-. b b c d d d d d d d d d d d d 
-b b c d d f f f f f f f f f f f 
-b c d d f f f f f f f f f f f f 
-b c d f f f f f f f f f f f f f 
-b c d f f f f f f f f f f f f f 
-b c d f f f f f d d d d f f f f 
-b c d f f f f d 1 1 1 1 d f f f 
-b c d f f f d 1 4 4 4 4 1 d f f 
-b c d f f d 1 4 f f f f 4 1 d f 
-b c d f f d 1 4 f f f f 4 1 d f 
-b c d f f d 1 4 f f f f 4 1 d f 
-b c d f f f d 1 4 4 4 4 1 d f f 
-b c d f f f f d 1 1 1 1 d f f f 
-b c d f f f f f d d d d f f f f 
-`, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen1, tiles.getTileLocation(19, 4))
-    kitchen2 = sprites.create(img`
-b b b b b b b b b b b b b b . . 
-b b b b b b b b b b b b b b b . 
-d d d d d d d d d d d d d b b . 
-f f f f f f f f f f f f d d b b 
-f f f f f f f f f f f f f d d b 
-f f f f f f f f f f f f f f d b 
-f f f f f f f f f f f f f f d b 
-f f f f f d d d d f f f f f d b 
-f f f f d 1 1 1 1 d f f f f d b 
-f f f d 1 4 4 4 4 1 d f f f d b 
-f f d 1 4 f f f f 4 1 d f f d b 
-f f d 1 4 f f f f 4 1 d f f d b 
-f f d 1 4 f f f f 4 1 d f f d b 
-f f f d 1 4 4 4 4 1 d f f f d b 
-f f f f d 1 1 1 1 d f f f f d b 
-f f f f f d d d d f f f f f d b 
-`, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen2, tiles.getTileLocation(20, 4))
-    kitchen3 = sprites.create(img`
-b c d f f f f f f f f f f f f f 
-b c d f f f f f f f f f f f f f 
-b c d f f f f f f f f f f f f f 
-b c d f f f f f f f f f f f f f 
-b c d f f f f f d d d d f f f f 
-b c d f f f f d 1 1 1 1 d f f f 
-b c d f f f d 1 4 4 4 4 1 d f f 
-b c d f f d 1 4 f f f f 4 1 d f 
-b c d f f d 1 4 f f f f 4 1 d f 
-b c d f f d 1 4 f f f f 4 1 d f 
-b c d f f f d 1 4 4 4 4 1 d f f 
-b c d f f f f d 1 1 1 1 d f f f 
-b c d f f f f f d d d d f f f f 
-b c d f f f f f f f f f f f f f 
-b c d f f f f f f f f f f f f f 
-b c d f f f f f f f f f f f f f 
-`, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen3, tiles.getTileLocation(19, 5))
-    kitchen4 = sprites.create(img`
-b c d f f f f f f f f f f f f f 
-b c d f f f f f f f f f f f f f 
-b c d f f b b d d f f b b d d f 
-b c d f f b b d d f f b b d d f 
-b c d f f b b b b f f b b b b f 
-b c d f f b b b b f f b b b b f 
-b c d f f f f f f f f f f f f f 
-b c d f f f f f f f f f f f f f 
-b c d d f f f f f f f f f f f f 
-b b c d d f f f f f f f f f f f 
-b b b c d d d d d d d d d d d d 
-. b b b b b b b b b b b b b b b 
-. . b b b b b b b b b b b b b b 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen4, tiles.getTileLocation(19, 6))
-    kitchen5 = sprites.create(img`
-f f f f f f f f f f f f f f d b 
-f f f f f f f f f f f f f f d b 
-f f f f f f f f f f f f f f d b 
-f f f f f f f f f f f f f f d b 
-f f f f f d d d d f f f f f d b 
-f f f f d 1 1 1 1 d f f f f d b 
-f f f d 1 4 4 4 4 1 d f f f d b 
-f f d 1 4 f f f f 4 1 d f f d b 
-f f d 1 4 f f f f 4 1 d f f d b 
-f f d 1 4 f f f f 4 1 d f f d b 
-f f f d 1 4 4 4 4 1 d f f f d b 
-f f f f d 1 1 1 1 d f f f f d b 
-f f f f f d d d d f f f f f d b 
-f f f f f f f f f f f f f f d b 
-f f f f f f f f f f f f f f d b 
-f f f f f f f f f f f f f f d b 
-`, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen5, tiles.getTileLocation(20, 5))
-    kitchen6 = sprites.create(img`
-f f f f f f f f f f f f f f d b 
-f f f f f f f f f f f f f f d b 
-f f b b d d f f b b d d f f d b 
-f f b b d d f f b b d d f f d b 
-f f b b b b f f b b b b f f d b 
-f f b b b b f f b b b b f f d b 
-f f f f f f f f f f f f f f d b 
-f f f f f f f f f f f f f f d b 
-f f f f f f f f f f f f f d d b 
-f f f f f f f f f f f f d d b b 
-d d d d d d d d d d d d d b b b 
-b b b b b b b b b b b b b b b . 
-b b b b b b b b b b b b b b . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.kitchen)
-    tiles.placeOnTile(kitchen6, tiles.getTileLocation(20, 6))
-}
 function workAtStation () {
     getCoords()
     monkey.destroy()
@@ -666,142 +548,14 @@ function doughDone () {
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.sign)
 }
-function placeVeggies () {
-    veggies1 = sprites.create(img`
-. . f f f f f f f f f f f f f f 
-. d c c c c c c c c c c c c c c 
-f c c c d d d d d d d d d d d d 
-f c c d d c c c c c c c c c c c 
-f c c d c c c c c c c c c c c c 
-f c c d c c c c c c c c c c c c 
-f c c d c c c c c c c c c c c c 
-f c c d c c c c c c c f f f f c 
-f c c d c c c c c c c f f f f c 
-f c c d c c c c c c c f f f f c 
-f c c d c c c c c c c f f f f c 
-f c c d c c c c c c c f f f f c 
-f c c d c c c c c c c f f f f c 
-f c c d c c c c c c c d d d d c 
-f c c d c c c c c c c d d d d c 
-f c c d c c c c c c c c d d d c 
-`, SpriteKind.veggies)
-    tiles.placeOnTile(veggies1, tiles.getTileLocation(19, 7))
-    veggies2 = sprites.create(img`
-f f f f f f f f f f f f f f . . 
-c c c c c c c c c c c c c c d . 
-d d d d d d d d d d d d c c c f 
-c c c c c c c c c c c d d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-1 1 1 1 1 1 1 1 1 c c c d c c f 
-1 1 1 1 1 1 1 1 1 c c c d c c f 
-1 1 b b b b 1 1 1 c c c d c c f 
-1 b b d d b b 1 1 c c c d c c f 
-1 b d d f f b 1 1 c c c d c c f 
-1 1 1 c c 1 1 1 1 c c c d c c f 
-1 1 1 c c 1 1 1 1 c c c d c c f 
-1 1 1 1 1 1 1 1 1 c c c d c c f 
-1 1 1 1 1 1 1 1 1 c c c d c c f 
-`, SpriteKind.veggies)
-    tiles.placeOnTile(veggies2, tiles.getTileLocation(20, 7))
-    veggies3 = sprites.create(img`
-f c c d c c c c c c c c d d d c 
-f c c d c c c c c c c c d d d c 
-f c c d c c c c c c c c c d d c 
-f c c d c c c c c 2 2 2 c d d c 
-f c c d c c c c 2 2 2 2 2 c d c 
-f c c d c c c 2 2 4 4 2 2 2 d c 
-f c c d c c c 2 4 2 2 2 2 2 c c 
-f c c d c c c 2 4 2 2 2 2 2 c c 
-f c c d c c c 2 2 2 2 2 2 2 c c 
-f c c d c c c c 2 2 7 2 2 c c c 
-f c c d c c c c c 2 7 2 c c c c 
-f c c d c c c c c c 7 c c c c c 
-f c c d c c c c c c c c c c c c 
-f c c d c c c c c c c c c c c c 
-f c c d c c c c c c c c c c c c 
-f c c d c c c c c c c c c c c c 
-`, SpriteKind.veggies)
-    tiles.placeOnTile(veggies3, tiles.getTileLocation(19, 8))
-    veggies4 = sprites.create(img`
-1 1 2 2 2 1 1 1 1 c c c d c c f 
-1 2 4 2 4 2 1 1 1 c c c d c c f 
-2 4 4 2 4 4 2 1 1 c c c d c c f 
-2 2 2 2 2 2 2 1 1 c c c d c c f 
-2 4 4 4 4 4 2 1 1 c c c d c c f 
-1 2 4 5 5 2 1 1 1 c c c d c c f 
-1 1 2 2 2 1 1 1 1 c c c d c c f 
-1 1 1 1 1 1 1 1 1 c c c d c c f 
-1 1 1 1 1 1 1 1 1 c c c d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-`, SpriteKind.veggies)
-    tiles.placeOnTile(veggies4, tiles.getTileLocation(20, 8))
-    veggies5 = sprites.create(img`
-f c c d c c c 7 7 7 7 1 1 1 1 1 
-f c c d c c c c c c c c c c c c 
-f c c d c c c c c c c c c c c c 
-f c c d d c c c c c c c c c c c 
-f c c c d d d d d d d d d d d d 
-f b c c c c c c c c c c c c c c 
-f b b c c c c c c c c c c c c c 
-f b b b c c c c c c c c c c c c 
-f b b b b b b b b b b b b b b b 
-f c b b b b b b b b b b b b b b 
-f c b b c c b b b b c c b b b b 
-. f f b f f b c c b f f b c c c 
-. . f f f f f f f f f f f f f f 
-. . f b b b b b f . . . . . . . 
-. . f c c c c c f . . . . . . . 
-. . . f f f f f . . . . . . . . 
-`, SpriteKind.veggies)
-    tiles.placeOnTile(veggies5, tiles.getTileLocation(19, 9))
-    veggies6 = sprites.create(img`
-1 1 1 1 c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c c c d c c f 
-c c c c c c c c c c d d d c c f 
-d d d d d d d d d d d c c c c f 
-c c c c c c c c c c c c c c c f 
-c c c c c c c c c c c c c c b f 
-c c c c c c c c c c c c c b b f 
-b b b b b b b b b b b b b b b f 
-b b b b b b b b b b b b b b c f 
-b b b b c c b b b b c c b b c f 
-c c c b f f b c c b f f b f f . 
-f f f f f f f f f f f f f f . . 
-. . . . . . . . f b b b b f . . 
-. . . . . . . . f c c c c f . . 
-. . . . . . . . . f f f f . . . 
-`, SpriteKind.veggies)
-    tiles.placeOnTile(veggies6, tiles.getTileLocation(20, 9))
-}
 function getCoords () {
     freezeX = monkey.x
     freezeY = monkey.y
 }
 let isIngredientOut = false
 let isDoughDone = false
-let veggies6: Sprite = null
-let veggies5: Sprite = null
-let veggies4: Sprite = null
-let veggies3: Sprite = null
-let veggies2: Sprite = null
-let veggies1: Sprite = null
 let freezeY = 0
 let freezeX = 0
-let kitchen6: Sprite = null
-let kitchen5: Sprite = null
-let kitchen4: Sprite = null
-let kitchen3: Sprite = null
-let kitchen2: Sprite = null
-let kitchen1: Sprite = null
 let isPizzaDone = false
 let anim: animation.Animation = null
 let timer: Sprite = null

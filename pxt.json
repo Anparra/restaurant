@@ -7,7 +7,9 @@
         "animation": "*",
         "zone1_dough": "pub:91182-24865-18207-99729",
         "zone2_oven": "pub:57512-79628-40440-85572",
-        "zone3_fridge": "pub:30912-81000-08278-74061"
+        "zone3_fridge": "pub:30912-81000-08278-74061",
+        "zone4_kitchen": "pub:21964-39713-85245-90049",
+        "zone5_veggies": "pub:64170-58554-44503-94870"
     },
     "description": "",
     "files": [
