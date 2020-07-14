@@ -475,8 +475,8 @@ e e e e e e e e e e e e e e e e
     dough.zone1_dough()
     oven.zone2_oven()
     fridge.zone3_fridge()
-    kitchen.zone4_kitchen()
-    veggies.zone5_veggies()
+    veggies.zone4_veggies()
+    kitchen.zone5_kitchen()
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     isOrderTaken = true
