@@ -239,6 +239,42 @@ function clock () {
     pause(5000)
     timer.destroy()
 }
+function placeOven (zone: number) {
+    if (zone == 1) {
+        oven.zone1_oven()
+        tiles.placeOnTile(inSignOven, tiles.getTileLocation(13, 2))
+    } else if (zone == 2) {
+        oven.zone2_oven()
+        tiles.placeOnTile(inSignOven, tiles.getTileLocation(16, 2))
+    } else if (zone == 3) {
+        fridge.zone3_fridge()
+        tiles.placeOnTile(inSignOven, tiles.getTileLocation(19, 2))
+    } else if (zone == 4) {
+    	
+    } else if (zone == 5) {
+    	
+    }
+    inSignOven.setFlag(SpriteFlag.Ghost, true)
+    inSignOven.setFlag(SpriteFlag.Invisible, true)
+}
+function placeFridge (zone: number) {
+    if (zone == 1) {
+        fridge.zone1_fridge()
+        tiles.placeOnTile(inSignFridge, tiles.getTileLocation(13, 2))
+    } else if (zone == 2) {
+        fridge.zone2_fridge()
+        tiles.placeOnTile(inSignFridge, tiles.getTileLocation(16, 2))
+    } else if (zone == 3) {
+        fridge.zone3_fridge()
+        tiles.placeOnTile(inSignFridge, tiles.getTileLocation(19, 2))
+    } else if (zone == 4) {
+    	
+    } else if (zone == 5) {
+    	
+    }
+    inSignFridge.setFlag(SpriteFlag.Ghost, true)
+    inSignFridge.setFlag(SpriteFlag.Invisible, true)
+}
 function ingredientsOut () {
     monkey.say("Need to refill the toppings...", 1000)
     inSignOven.setFlag(SpriteFlag.Ghost, true)
@@ -421,37 +457,22 @@ e e e e e e e e e e e e e e e e
 e e e e e e e e e e e e e e e e 
 e e e e e e e e e e e e e e e e 
 `, false)
-    dough.zone1_dough()
-    oven.zone2_oven()
-    fridge.zone3_fridge()
     veggies.zone4_veggies()
     kitchen.zone5_kitchen()
-}
-function placeInSignOven (zone: number) {
-    if (zone == 1) {
-        tiles.placeOnTile(inSignOven, tiles.getTileLocation(13, 2))
-    } else if (zone == 2) {
-        tiles.placeOnTile(inSignOven, tiles.getTileLocation(16, 2))
-    } else if (zone == 3) {
-        tiles.placeOnTile(inSignOven, tiles.getTileLocation(19, 2))
-    } else if (zone == 4) {
-    	
-    } else if (zone == 5) {
-    	
-    }
-    inSignOven.setFlag(SpriteFlag.Ghost, true)
-    inSignOven.setFlag(SpriteFlag.Invisible, true)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     isOrderTaken = true
     haveOrder()
 })
-function placeInSignDough (zone: number) {
+function placeDough (zone: number) {
     if (zone == 1) {
+        dough.zone1_dough()
         tiles.placeOnTile(inSignDough, tiles.getTileLocation(13, 2))
     } else if (zone == 2) {
+        dough.zone2_dough()
         tiles.placeOnTile(inSignDough, tiles.getTileLocation(16, 2))
     } else if (zone == 3) {
+        dough.zone3_dough()
         tiles.placeOnTile(inSignDough, tiles.getTileLocation(19, 2))
     } else if (zone == 4) {
     	
@@ -511,21 +532,6 @@ function doughDone () {
     inSignOven.setFlag(SpriteFlag.Ghost, false)
     inSignOven.setFlag(SpriteFlag.Invisible, false)
 }
-function placeInSignFridge (zone: number) {
-    if (zone == 1) {
-        tiles.placeOnTile(inSignFridge, tiles.getTileLocation(13, 2))
-    } else if (zone == 2) {
-        tiles.placeOnTile(inSignFridge, tiles.getTileLocation(16, 2))
-    } else if (zone == 3) {
-        tiles.placeOnTile(inSignFridge, tiles.getTileLocation(19, 2))
-    } else if (zone == 4) {
-    	
-    } else if (zone == 5) {
-    	
-    }
-    inSignFridge.setFlag(SpriteFlag.Ghost, true)
-    inSignFridge.setFlag(SpriteFlag.Invisible, true)
-}
 function getCoords () {
     freezeX = monkey.x
     freezeY = monkey.y
@@ -542,8 +548,8 @@ let inSignFridge: Sprite = null
 let inSignOven: Sprite = null
 let inSignDough: Sprite = null
 let monkey: Sprite = null
-let Dough_Zone = 1
-let Oven_Zone = 2
+let Dough_Zone = 2
+let Oven_Zone = 1
 let Fridge_Zone = 3
 monkey = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -650,9 +656,9 @@ inSignFridge = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.sign)
 isOrderTaken = true
-placeInSignDough(Dough_Zone)
-placeInSignOven(Oven_Zone)
-placeInSignFridge(Fridge_Zone)
+placeDough(Dough_Zone)
+placeOven(Oven_Zone)
+placeFridge(Fridge_Zone)
 haveOrder()
 game.onUpdate(function () {
     monkey.setFlag(SpriteFlag.ShowPhysics, true)
