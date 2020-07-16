@@ -51,26 +51,8 @@ f f f f f 9 f f f 9 f f f f f f
 }
 function haveOrder () {
     monkey.say("Time to prep the pizza!", 1000)
-    tiles.placeOnTile(inSignDough, tiles.getTileLocation(13, 2))
-    inSignFridge.destroy()
-    inSignFridge = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+    inSignDough.setFlag(SpriteFlag.Ghost, false)
+    inSignDough.setFlag(SpriteFlag.Invisible, false)
 }
 function clock () {
     timer = sprites.create(img`
@@ -259,48 +241,15 @@ function clock () {
 }
 function ingredientsOut () {
     monkey.say("Need to refill the toppings...", 1000)
-    tiles.placeOnTile(inSignFridge, tiles.getTileLocation(19, 2))
-    inSignOven.destroy()
-    inSignOven = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+    inSignOven.setFlag(SpriteFlag.Ghost, true)
+    inSignOven.setFlag(SpriteFlag.Invisible, true)
+    inSignFridge.setFlag(SpriteFlag.Ghost, false)
+    inSignFridge.setFlag(SpriteFlag.Invisible, false)
 }
 function readyForCustomer () {
     monkey.say("Alright, let's deliver this pizza!", 1000)
-    inSignFridge.destroy()
-    inSignFridge = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+    inSignFridge.setFlag(SpriteFlag.Ghost, true)
+    inSignFridge.setFlag(SpriteFlag.Invisible, true)
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (isPizzaDone) {
@@ -478,10 +427,40 @@ e e e e e e e e e e e e e e e e
     veggies.zone4_veggies()
     kitchen.zone5_kitchen()
 }
+function placeInSignOven (zone: number) {
+    if (zone == 1) {
+        tiles.placeOnTile(inSignOven, tiles.getTileLocation(13, 2))
+    } else if (zone == 2) {
+        tiles.placeOnTile(inSignOven, tiles.getTileLocation(16, 2))
+    } else if (zone == 3) {
+        tiles.placeOnTile(inSignOven, tiles.getTileLocation(19, 2))
+    } else if (zone == 4) {
+    	
+    } else if (zone == 5) {
+    	
+    }
+    inSignOven.setFlag(SpriteFlag.Ghost, true)
+    inSignOven.setFlag(SpriteFlag.Invisible, true)
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     isOrderTaken = true
     haveOrder()
 })
+function placeInSignDough (zone: number) {
+    if (zone == 1) {
+        tiles.placeOnTile(inSignDough, tiles.getTileLocation(13, 2))
+    } else if (zone == 2) {
+        tiles.placeOnTile(inSignDough, tiles.getTileLocation(16, 2))
+    } else if (zone == 3) {
+        tiles.placeOnTile(inSignDough, tiles.getTileLocation(19, 2))
+    } else if (zone == 4) {
+    	
+    } else if (zone == 5) {
+    	
+    }
+    inSignDough.setFlag(SpriteFlag.Ghost, true)
+    inSignDough.setFlag(SpriteFlag.Invisible, true)
+}
 function workAtStation () {
     getCoords()
     monkey.destroy()
@@ -527,26 +506,25 @@ function workAtStation () {
 }
 function doughDone () {
     monkey.say("Let's get this in the oven.", 1000)
-    tiles.placeOnTile(inSignOven, tiles.getTileLocation(16, 2))
-    inSignDough.destroy()
-    inSignDough = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+    inSignDough.setFlag(SpriteFlag.Ghost, true)
+    inSignDough.setFlag(SpriteFlag.Invisible, true)
+    inSignOven.setFlag(SpriteFlag.Ghost, false)
+    inSignOven.setFlag(SpriteFlag.Invisible, false)
+}
+function placeInSignFridge (zone: number) {
+    if (zone == 1) {
+        tiles.placeOnTile(inSignFridge, tiles.getTileLocation(13, 2))
+    } else if (zone == 2) {
+        tiles.placeOnTile(inSignFridge, tiles.getTileLocation(16, 2))
+    } else if (zone == 3) {
+        tiles.placeOnTile(inSignFridge, tiles.getTileLocation(19, 2))
+    } else if (zone == 4) {
+    	
+    } else if (zone == 5) {
+    	
+    }
+    inSignFridge.setFlag(SpriteFlag.Ghost, true)
+    inSignFridge.setFlag(SpriteFlag.Invisible, true)
 }
 function getCoords () {
     freezeX = monkey.x
@@ -564,6 +542,9 @@ let inSignFridge: Sprite = null
 let inSignOven: Sprite = null
 let inSignDough: Sprite = null
 let monkey: Sprite = null
+let Dough_Zone = 1
+let Oven_Zone = 2
+let Fridge_Zone = 3
 monkey = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -669,6 +650,9 @@ inSignFridge = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.sign)
 isOrderTaken = true
+placeInSignDough(Dough_Zone)
+placeInSignOven(Oven_Zone)
+placeInSignFridge(Fridge_Zone)
 haveOrder()
 game.onUpdate(function () {
     monkey.setFlag(SpriteFlag.ShowPhysics, true)
