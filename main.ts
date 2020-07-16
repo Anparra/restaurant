@@ -240,6 +240,45 @@ function clock (timeWaiting: number) {
     timer.destroy()
 }
 function placeOven (zone: number) {
+    if (zone <= 3) {
+        inSignOven = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . f 2 2 2 2 2 f . . . . . 
+. . . f 2 2 2 2 2 2 2 f . . . . 
+. . f 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f f f f f 2 2 2 f f f f f . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    } else {
+        inSignOven = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 2 2 f . . . . . 
+. f f f f f f 2 2 2 2 f . . . . 
+. f 2 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f 2 2 2 2 2 2 2 2 2 2 f . . . 
+. f f f f f f 2 2 2 2 f . . . . 
+. . . . . . f 2 2 2 f . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    }
     if (zone == 1) {
         oven.zone1_oven()
         tiles.placeOnTile(inSignOven, tiles.getTileLocation(13, 2))
@@ -250,14 +289,53 @@ function placeOven (zone: number) {
         oven.zone3_oven()
         tiles.placeOnTile(inSignOven, tiles.getTileLocation(19, 2))
     } else if (zone == 4) {
-    	
+        tiles.placeOnTile(inSignOven, tiles.getTileLocation(18, 5))
     } else if (zone == 5) {
-    	
+        tiles.placeOnTile(inSignOven, tiles.getTileLocation(18, 8))
     }
     inSignOven.setFlag(SpriteFlag.Ghost, true)
     inSignOven.setFlag(SpriteFlag.Invisible, true)
 }
 function placeFridge (zone: number) {
+    if (zone <= 3) {
+        inSignFridge = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . f 2 2 2 2 2 f . . . . . 
+. . . f 2 2 2 2 2 2 2 f . . . . 
+. . f 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f f f f f 2 2 2 f f f f f . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    } else {
+        inSignFridge = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 2 2 f . . . . . 
+. f f f f f f 2 2 2 2 f . . . . 
+. f 2 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f 2 2 2 2 2 2 2 2 2 2 f . . . 
+. f f f f f f 2 2 2 2 f . . . . 
+. . . . . . f 2 2 2 f . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    }
     if (zone == 1) {
         fridge.zone1_fridge()
         tiles.placeOnTile(inSignFridge, tiles.getTileLocation(13, 2))
@@ -268,9 +346,9 @@ function placeFridge (zone: number) {
         fridge.zone3_fridge()
         tiles.placeOnTile(inSignFridge, tiles.getTileLocation(19, 2))
     } else if (zone == 4) {
-    	
+        tiles.placeOnTile(inSignFridge, tiles.getTileLocation(18, 5))
     } else if (zone == 5) {
-    	
+        tiles.placeOnTile(inSignFridge, tiles.getTileLocation(18, 8))
     }
     inSignFridge.setFlag(SpriteFlag.Ghost, true)
     inSignFridge.setFlag(SpriteFlag.Invisible, true)
@@ -284,8 +362,8 @@ function ingredientsOut () {
 }
 function readyForCustomer () {
     monkey.say("Alright, let's deliver this pizza!", 1000)
-    inSignFridge.setFlag(SpriteFlag.Ghost, true)
-    inSignFridge.setFlag(SpriteFlag.Invisible, true)
+    inSignKitchen.setFlag(SpriteFlag.Ghost, true)
+    inSignKitchen.setFlag(SpriteFlag.Invisible, true)
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (isPizzaDone) {
@@ -457,14 +535,51 @@ e e e e e e e e e e e e e e e e
 e e e e e e e e e e e e e e e e 
 e e e e e e e e e e e e e e e e 
 `, false)
-    veggies.zone4_veggies()
-    kitchen.zone5_kitchen()
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     isOrderTaken = true
     haveOrder()
 })
 function placeDough (zone: number) {
+    if (zone <= 3) {
+        inSignDough = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . f 2 2 2 2 2 f . . . . . 
+. . . f 2 2 2 2 2 2 2 f . . . . 
+. . f 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f f f f f 2 2 2 f f f f f . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    } else {
+        inSignDough = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 2 2 f . . . . . 
+. f f f f f f 2 2 2 2 f . . . . 
+. f 2 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f 2 2 2 2 2 2 2 2 2 2 f . . . 
+. f f f f f f 2 2 2 2 f . . . . 
+. . . . . . f 2 2 2 f . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    }
     if (zone == 1) {
         dough.zone1_dough()
         tiles.placeOnTile(inSignDough, tiles.getTileLocation(13, 2))
@@ -475,12 +590,68 @@ function placeDough (zone: number) {
         dough.zone3_dough()
         tiles.placeOnTile(inSignDough, tiles.getTileLocation(19, 2))
     } else if (zone == 4) {
-    	
+        tiles.placeOnTile(inSignDough, tiles.getTileLocation(18, 5))
     } else if (zone == 5) {
-    	
+        tiles.placeOnTile(inSignDough, tiles.getTileLocation(18, 8))
     }
     inSignDough.setFlag(SpriteFlag.Ghost, true)
     inSignDough.setFlag(SpriteFlag.Invisible, true)
+}
+function placeKitchen (zone: number) {
+    if (zone <= 3) {
+        inSignKitchen = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . f 2 2 2 2 2 f . . . . . 
+. . . f 2 2 2 2 2 2 2 f . . . . 
+. . f 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f f f f f 2 2 2 f f f f f . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    } else {
+        inSignKitchen = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 2 2 f . . . . . 
+. f f f f f f 2 2 2 2 f . . . . 
+. f 2 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f 2 2 2 2 2 2 2 2 2 2 f . . . 
+. f f f f f f 2 2 2 2 f . . . . 
+. . . . . . f 2 2 2 f . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    }
+    if (zone == 1) {
+        tiles.placeOnTile(inSignKitchen, tiles.getTileLocation(13, 2))
+    } else if (zone == 2) {
+        tiles.placeOnTile(inSignKitchen, tiles.getTileLocation(16, 2))
+    } else if (zone == 3) {
+        tiles.placeOnTile(inSignKitchen, tiles.getTileLocation(19, 2))
+    } else if (zone == 4) {
+        kitchen.zone4_kitchen()
+        tiles.placeOnTile(inSignKitchen, tiles.getTileLocation(18, 5))
+    } else if (zone == 5) {
+        kitchen.zone5_kitchen()
+        tiles.placeOnTile(inSignKitchen, tiles.getTileLocation(18, 8))
+    }
+    inSignKitchen.setFlag(SpriteFlag.Ghost, true)
+    inSignKitchen.setFlag(SpriteFlag.Invisible, true)
 }
 function workAtStation (timeWorking: number) {
     getCoords()
@@ -532,25 +703,100 @@ function doughDone () {
     inSignOven.setFlag(SpriteFlag.Ghost, false)
     inSignOven.setFlag(SpriteFlag.Invisible, false)
 }
+function placeVeggies (zone: number) {
+    if (zone <= 3) {
+        inSignVeggies = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . f 2 2 2 2 2 f . . . . . 
+. . . f 2 2 2 2 2 2 2 f . . . . 
+. . f 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f f f f f 2 2 2 f f f f f . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f 2 2 2 f . . . . . . 
+. . . . . f f f f f . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    } else {
+        inSignVeggies = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 2 2 f . . . . . 
+. f f f f f f 2 2 2 2 f . . . . 
+. f 2 2 2 2 2 2 2 2 2 2 f . . . 
+. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+. f 2 2 2 2 2 2 2 2 2 2 f . . . 
+. f f f f f f 2 2 2 2 f . . . . 
+. . . . . . f 2 2 2 f . . . . . 
+. . . . . . f 2 2 f . . . . . . 
+. . . . . . f 2 f . . . . . . . 
+. . . . . . f f . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.sign)
+    }
+    if (zone == 1) {
+        tiles.placeOnTile(inSignVeggies, tiles.getTileLocation(13, 2))
+    } else if (zone == 2) {
+        tiles.placeOnTile(inSignVeggies, tiles.getTileLocation(16, 2))
+    } else if (zone == 3) {
+        tiles.placeOnTile(inSignVeggies, tiles.getTileLocation(19, 2))
+    } else if (zone == 4) {
+        veggies.zone4_veggies()
+        tiles.placeOnTile(inSignVeggies, tiles.getTileLocation(18, 5))
+    } else if (zone == 5) {
+        veggies.zone5_veggies()
+        tiles.placeOnTile(inSignVeggies, tiles.getTileLocation(18, 8))
+    }
+    inSignVeggies.setFlag(SpriteFlag.Ghost, true)
+    inSignVeggies.setFlag(SpriteFlag.Invisible, true)
+}
+function veggiesReady () {
+    monkey.say("Time for the finishing touches", 1000)
+    inSignFridge.setFlag(SpriteFlag.Ghost, true)
+    inSignFridge.setFlag(SpriteFlag.Invisible, true)
+    inSignVeggies.setFlag(SpriteFlag.Ghost, false)
+    inSignVeggies.setFlag(SpriteFlag.Invisible, false)
+}
 function getCoords () {
     freezeX = monkey.x
     freezeY = monkey.y
 }
+function kitchenReady () {
+    inSignVeggies.setFlag(SpriteFlag.Ghost, true)
+    inSignVeggies.setFlag(SpriteFlag.Invisible, true)
+    inSignKitchen.setFlag(SpriteFlag.Ghost, false)
+    inSignKitchen.setFlag(SpriteFlag.Invisible, false)
+}
+let isKitchenReady = false
+let areVeggiesReady = false
 let isIngredientOut = false
 let isDoughDone = false
+let inSignVeggies: Sprite = null
 let freezeY = 0
 let freezeX = 0
 let isPizzaDone = false
-let anim: animation.Animation = null
-let timer: Sprite = null
-let isOrderTaken = false
+let inSignKitchen: Sprite = null
 let inSignFridge: Sprite = null
 let inSignOven: Sprite = null
+let anim: animation.Animation = null
+let timer: Sprite = null
 let inSignDough: Sprite = null
+let isOrderTaken = false
 let monkey: Sprite = null
 let Dough_Zone = 2
 let Oven_Zone = 1
 let Fridge_Zone = 3
+let Veggies_Zone = 4
+let Kitchen_Zone = 5
 monkey = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -600,65 +846,13 @@ scene.setTileMap(img`
 `)
 controller.moveSprite(monkey, 100, 100)
 tiles.placeOnTile(monkey, tiles.getTileLocation(12, 2))
-background()
-inSignDough = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
-inSignOven = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
-inSignFridge = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
 isOrderTaken = true
+background()
 placeDough(Dough_Zone)
 placeOven(Oven_Zone)
 placeFridge(Fridge_Zone)
+placeVeggies(Veggies_Zone)
+placeKitchen(Kitchen_Zone)
 haveOrder()
 game.onUpdate(function () {
     monkey.setFlag(SpriteFlag.ShowPhysics, true)
@@ -840,8 +1034,20 @@ forever(function () {
     }
     if (monkey.overlapsWith(inSignFridge) && isIngredientOut) {
         isIngredientOut = false
+        areVeggiesReady = true
+        workAtStation(5000)
+        veggiesReady()
+    }
+    if (monkey.overlapsWith(inSignVeggies) && areVeggiesReady) {
+        areVeggiesReady = false
+        isKitchenReady = true
+        workAtStation(5000)
+        kitchenReady()
+    }
+    if (monkey.overlapsWith(inSignKitchen) && isKitchenReady) {
+        isKitchenReady = false
         isPizzaDone = true
-        workAtStation(1000)
+        workAtStation(5000)
         readyForCustomer()
     }
 })
