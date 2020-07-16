@@ -54,7 +54,7 @@ function haveOrder () {
     inSignDough.setFlag(SpriteFlag.Ghost, false)
     inSignDough.setFlag(SpriteFlag.Invisible, false)
 }
-function clock () {
+function clock (timeWaiting: number) {
     timer = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . f f f f f f f . . . . 
@@ -233,10 +233,10 @@ function clock () {
 . . . f f 7 7 7 7 7 7 7 f f . . 
 . . . . . f f f f f f f . . . . 
 `],
-    500,
+    timeWaiting / 10,
     false
     )
-    pause(5000)
+    pause(timeWaiting)
     timer.destroy()
 }
 function placeOven (zone: number) {
@@ -247,7 +247,7 @@ function placeOven (zone: number) {
         oven.zone2_oven()
         tiles.placeOnTile(inSignOven, tiles.getTileLocation(16, 2))
     } else if (zone == 3) {
-        fridge.zone3_fridge()
+        oven.zone3_oven()
         tiles.placeOnTile(inSignOven, tiles.getTileLocation(19, 2))
     } else if (zone == 4) {
     	
@@ -482,7 +482,7 @@ function placeDough (zone: number) {
     inSignDough.setFlag(SpriteFlag.Ghost, true)
     inSignDough.setFlag(SpriteFlag.Invisible, true)
 }
-function workAtStation () {
+function workAtStation (timeWorking: number) {
     getCoords()
     monkey.destroy()
     monkey = sprites.create(img`
@@ -521,7 +521,7 @@ function workAtStation () {
 `, SpriteKind.Player)
     monkey.setVelocity(0, 0)
     monkey.setPosition(freezeX, freezeY)
-    clock()
+    clock(timeWorking)
     controller.moveSprite(monkey, 100, 100)
     scene.cameraFollowSprite(monkey)
 }
@@ -829,19 +829,19 @@ forever(function () {
     if (monkey.overlapsWith(inSignDough) && isOrderTaken) {
         isOrderTaken = false
         isDoughDone = true
-        workAtStation()
+        workAtStation(5000)
         doughDone()
     }
     if (monkey.overlapsWith(inSignOven) && isDoughDone) {
         isDoughDone = false
         isIngredientOut = true
-        workAtStation()
+        workAtStation(5000)
         ingredientsOut()
     }
     if (monkey.overlapsWith(inSignFridge) && isIngredientOut) {
         isIngredientOut = false
         isPizzaDone = true
-        workAtStation()
+        workAtStation(1000)
         readyForCustomer()
     }
 })
