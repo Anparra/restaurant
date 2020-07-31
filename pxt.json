@@ -1,5 +1,6 @@
 {
-    "name": "Restaurant",
+    "name": "Restaurant #2",
+    "description": "",
     "dependencies": {
         "device": "*",
         "Color Fading": "github:jwunderl/pxt-color#v0.1.3",
@@ -11,14 +12,22 @@
         "zones_veggies": "pub:78726-09143-35007-27068",
         "zones_kitchen": "pub:82840-70317-05537-00706"
     },
-    "description": "",
     "files": [
         "main.blocks",
         "main.ts",
-        "README.md"
+        "README.md",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
     ],
-    "preferredEditor": "blocksprj",
     "testFiles": [
         "test.ts"
-    ]
+    ],
+    "targetVersions": {
+        "target": "1.0.16",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj"
 }
