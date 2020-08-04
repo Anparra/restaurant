@@ -9,70 +9,37 @@ namespace SpriteKind {
     export const sign = SpriteKind.create()
     export const signOut = SpriteKind.create()
 }
-namespace myTiles {
-    //% blockIdentity=images._tile
-    export const tile0 = img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`
-    //% blockIdentity=images._tile
-    export const tile1 = img`
-f f f f f 9 f f f 9 f f f f f f 
-f f f 9 f f 9 f 9 f f 9 f f f f 
-f f f 9 f f f 9 f f f 9 f f f f 
-f 9 9 9 f f f 9 f f f 9 9 9 f f 
-f f f f 9 f f 9 f f 9 f f f f f 
-9 f f f f 9 f 9 f 9 f f f f f 9 
-f 9 f f f f 9 9 9 f f f f f 9 f 
-f f 9 9 9 9 9 9 9 9 9 9 9 9 f f 
-f 9 f f f f 9 9 9 f f f f f 9 f 
-9 f f f f 9 f 9 f 9 f f f f f 9 
-f f f f 9 f f 9 f f 9 f f f f f 
-f 9 9 9 f f f 9 f f f 9 9 9 f f 
-f f f 9 f f f 9 f f f 9 f f f f 
-f f f 9 f f f 9 f f f 9 f f f f 
-f f f f f f 9 f 9 f f f f f f f 
-f f f f f 9 f f f 9 f f f f f f 
-`
-}
 function haveOrder () {
     monkey.say("Time to prep the pizza!", 1000)
     inSignDough.setFlag(SpriteFlag.Ghost, false)
     inSignDough.setFlag(SpriteFlag.Invisible, false)
 }
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (isPizzaDone) {
+        isPizzaDone = false
+        isOrderTaken = true
+        haveOrder()
+    }
+})
 function clock (timeWaiting: number) {
     timer = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f f . . . . 
-. . . f f 1 1 1 f 1 1 1 f f . . 
-. . f 1 1 1 1 1 f 1 1 1 1 1 f . 
-. . f 1 1 1 1 1 f 1 1 1 1 1 f . 
-. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 e 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
-. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
-. . . f f 1 1 1 1 1 1 1 f f . . 
-. . . . . f f f f f f f . . . . 
-`, SpriteKind.time)
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . f f 1 1 1 f 1 1 1 f f . . 
+        . . f 1 1 1 1 1 f 1 1 1 1 1 f . 
+        . . f 1 1 1 1 1 f 1 1 1 1 1 f . 
+        . f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 e 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+        . . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+        . . . f f 1 1 1 1 1 1 1 f f . . 
+        . . . . . f f f f f f f . . . . 
+        `, SpriteKind.time)
     timer.setPosition(monkey.x + 10, monkey.y + -15)
     monkey.setVelocity(0, 0)
     anim = animation.createAnimation(ActionKind.waiting, 1000)
@@ -80,159 +47,159 @@ function clock (timeWaiting: number) {
     animation.runImageAnimation(
     timer,
     [img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f f . . . . 
-. . . f f 1 1 1 f 1 1 1 f f . . 
-. . f 1 1 1 1 1 f 1 1 1 1 1 f . 
-. . f 1 1 1 1 1 f 1 1 1 1 1 f . 
-. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 e 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
-. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
-. . . f f 1 1 1 1 1 1 1 f f . . 
-. . . . . f f f f f f f . . . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f f . . . . 
-. . . f f 1 1 1 f 7 7 7 f f . . 
-. . f 1 1 1 1 1 f 7 7 7 7 f f . 
-. . f 1 1 1 1 1 f 7 7 7 f 1 f . 
-. f 1 1 1 1 1 1 f 7 7 f 1 1 1 f 
-. f 1 1 1 1 1 1 f 7 f 1 1 1 1 f 
-. f 1 1 1 1 1 1 f f 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 e 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
-. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
-. . . f f 1 1 1 1 1 1 1 f f . . 
-. . . . . f f f f f f f . . . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f f . . . . 
-. . . f f 1 1 1 f 7 7 7 f f . . 
-. . f 1 1 1 1 1 f 7 7 7 7 f f . 
-. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 e f f f f f f f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
-. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
-. . f 1 1 1 1 1 1 1 1 1 1 1 f . 
-. . . f f 1 1 1 1 1 1 1 f f . . 
-. . . . . f f f f f f f . . . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f f . . . . 
-. . . f f 1 1 1 f 7 7 7 f f . . 
-. . f 1 1 1 1 1 f 7 7 7 7 f f . 
-. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 e 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 1 f 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 1 1 f 7 7 7 7 f 
-. f 1 1 1 1 1 1 1 1 1 f 7 7 7 f 
-. . f 1 1 1 1 1 1 1 1 1 f 7 f . 
-. . f 1 1 1 1 1 1 1 1 1 1 f f . 
-. . . f f 1 1 1 1 1 1 1 f f . . 
-. . . . . f f f f f f f . . . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f f . . . . 
-. . . f f 1 1 1 f 7 7 7 f f . . 
-. . f 1 1 1 1 1 f 7 7 7 7 f f . 
-. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 e 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
-. . f 1 1 1 1 1 f 7 7 7 7 f f . 
-. . . f f 1 1 1 f 7 7 7 f f . . 
-. . . . . f f f f f f f . . . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f f . . . . 
-. . . f f 1 1 1 f 7 7 7 f f . . 
-. . f 1 1 1 1 1 f 7 7 7 7 f f . 
-. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 e 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 f 7 7 7 7 7 7 7 f 
-. f 1 1 1 1 f 7 7 7 7 7 7 7 7 f 
-. f 1 1 1 f 7 7 7 7 7 7 7 7 7 f 
-. . f 1 f 7 7 7 7 7 7 7 7 7 f . 
-. . f f 7 7 7 7 7 7 7 7 7 f f . 
-. . . f f 7 7 7 7 7 7 7 f f . . 
-. . . . . f f f f f f f . . . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f f . . . . 
-. . . f f 1 1 1 f 7 7 7 f f . . 
-. . f 1 1 1 1 1 f 7 7 7 7 f f . 
-. . f 1 1 1 1 1 f 7 7 7 7 7 f . 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
-. f f f f f f f e 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-. . f 7 7 7 7 7 7 7 7 7 7 7 f . 
-. . f f 7 7 7 7 7 7 7 7 7 f f . 
-. . . f f 7 7 7 7 7 7 7 f f . . 
-. . . . . f f f f f f f . . . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f f . . . . 
-. . . f f 1 1 1 f 7 7 7 f f . . 
-. . f f 1 1 1 1 f 7 7 7 7 f f . 
-. . f 7 f 1 1 1 f 7 7 7 7 7 f . 
-. f 7 7 7 f 1 1 f 7 7 7 7 7 7 f 
-. f 7 7 7 7 f 1 f 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 f f 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 e 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-. . f 7 7 7 7 7 7 7 7 7 7 7 f . 
-. . f f 7 7 7 7 7 7 7 7 7 f f . 
-. . . f f 7 7 7 7 7 7 7 f f . . 
-. . . . . f f f f f f f . . . . 
-`,img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f f . . . . 
-. . . f f 7 7 7 f 7 7 7 f f . . 
-. . f f 7 7 7 7 f 7 7 7 7 f f . 
-. . f 7 7 7 7 7 f 7 7 7 7 7 f . 
-. f 7 7 7 7 7 7 f 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 f 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 f 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 e 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-. f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
-. . f 7 7 7 7 7 7 7 7 7 7 7 f . 
-. . f f 7 7 7 7 7 7 7 7 7 f f . 
-. . . f f 7 7 7 7 7 7 7 f f . . 
-. . . . . f f f f f f f . . . . 
-`],
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . f f 1 1 1 f 1 1 1 f f . . 
+        . . f 1 1 1 1 1 f 1 1 1 1 1 f . 
+        . . f 1 1 1 1 1 f 1 1 1 1 1 f . 
+        . f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 f 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 e 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+        . . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+        . . . f f 1 1 1 1 1 1 1 f f . . 
+        . . . . . f f f f f f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . f f 1 1 1 f 7 7 7 f f . . 
+        . . f 1 1 1 1 1 f 7 7 7 7 f f . 
+        . . f 1 1 1 1 1 f 7 7 7 f 1 f . 
+        . f 1 1 1 1 1 1 f 7 7 f 1 1 1 f 
+        . f 1 1 1 1 1 1 f 7 f 1 1 1 1 f 
+        . f 1 1 1 1 1 1 f f 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 e 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+        . . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+        . . . f f 1 1 1 1 1 1 1 f f . . 
+        . . . . . f f f f f f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . f f 1 1 1 f 7 7 7 f f . . 
+        . . f 1 1 1 1 1 f 7 7 7 7 f f . 
+        . . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 e f f f f f f f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . f 1 1 1 1 1 1 1 1 1 1 1 1 1 f 
+        . . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+        . . f 1 1 1 1 1 1 1 1 1 1 1 f . 
+        . . . f f 1 1 1 1 1 1 1 f f . . 
+        . . . . . f f f f f f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . f f 1 1 1 f 7 7 7 f f . . 
+        . . f 1 1 1 1 1 f 7 7 7 7 f f . 
+        . . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 e 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 1 f 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 1 1 f 7 7 7 7 f 
+        . f 1 1 1 1 1 1 1 1 1 f 7 7 7 f 
+        . . f 1 1 1 1 1 1 1 1 1 f 7 f . 
+        . . f 1 1 1 1 1 1 1 1 1 1 f f . 
+        . . . f f 1 1 1 1 1 1 1 f f . . 
+        . . . . . f f f f f f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . f f 1 1 1 f 7 7 7 f f . . 
+        . . f 1 1 1 1 1 f 7 7 7 7 f f . 
+        . . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 e 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+        . . f 1 1 1 1 1 f 7 7 7 7 f f . 
+        . . . f f 1 1 1 f 7 7 7 f f . . 
+        . . . . . f f f f f f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . f f 1 1 1 f 7 7 7 f f . . 
+        . . f 1 1 1 1 1 f 7 7 7 7 f f . 
+        . . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 e 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 f 7 7 7 7 7 7 7 f 
+        . f 1 1 1 1 f 7 7 7 7 7 7 7 7 f 
+        . f 1 1 1 f 7 7 7 7 7 7 7 7 7 f 
+        . . f 1 f 7 7 7 7 7 7 7 7 7 f . 
+        . . f f 7 7 7 7 7 7 7 7 7 f f . 
+        . . . f f 7 7 7 7 7 7 7 f f . . 
+        . . . . . f f f f f f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . f f 1 1 1 f 7 7 7 f f . . 
+        . . f 1 1 1 1 1 f 7 7 7 7 f f . 
+        . . f 1 1 1 1 1 f 7 7 7 7 7 f . 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f 1 1 1 1 1 1 f 7 7 7 7 7 7 f 
+        . f f f f f f f e 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+        . . f 7 7 7 7 7 7 7 7 7 7 7 f . 
+        . . f f 7 7 7 7 7 7 7 7 7 f f . 
+        . . . f f 7 7 7 7 7 7 7 f f . . 
+        . . . . . f f f f f f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . f f 1 1 1 f 7 7 7 f f . . 
+        . . f f 1 1 1 1 f 7 7 7 7 f f . 
+        . . f 7 f 1 1 1 f 7 7 7 7 7 f . 
+        . f 7 7 7 f 1 1 f 7 7 7 7 7 7 f 
+        . f 7 7 7 7 f 1 f 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 f f 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 e 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+        . . f 7 7 7 7 7 7 7 7 7 7 7 f . 
+        . . f f 7 7 7 7 7 7 7 7 7 f f . 
+        . . . f f 7 7 7 7 7 7 7 f f . . 
+        . . . . . f f f f f f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . f f 7 7 7 f 7 7 7 f f . . 
+        . . f f 7 7 7 7 f 7 7 7 7 f f . 
+        . . f 7 7 7 7 7 f 7 7 7 7 7 f . 
+        . f 7 7 7 7 7 7 f 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 f 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 f 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 e 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+        . f 7 7 7 7 7 7 7 7 7 7 7 7 7 f 
+        . . f 7 7 7 7 7 7 7 7 7 7 7 f . 
+        . . f f 7 7 7 7 7 7 7 7 7 f f . 
+        . . . f f 7 7 7 7 7 7 7 f f . . 
+        . . . . . f f f f f f f . . . . 
+        `],
     timeWaiting / 10,
     false
     )
@@ -242,42 +209,42 @@ function clock (timeWaiting: number) {
 function placeOven (zone: number) {
     if (zone <= 3) {
         inSignOven = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . f . . . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . f 2 2 2 2 2 f . . . . . 
+            . . . f 2 2 2 2 2 2 2 f . . . . 
+            . . f 2 2 2 2 2 2 2 2 2 f . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+            . f f f f f 2 2 2 f f f f f . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f f f f f . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.sign)
     } else {
         inSignOven = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . f f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 2 2 f . . . . . 
-. f f f f f f 2 2 2 2 f . . . . 
-. f 2 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f 2 2 2 2 2 2 2 2 2 2 f . . . 
-. f f f f f f 2 2 2 2 f . . . . 
-. . . . . . f 2 2 2 f . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . . f f . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . . f 2 2 f . . . . . . 
+            . . . . . . f 2 2 2 f . . . . . 
+            . f f f f f f 2 2 2 2 f . . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 f . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+            . f 2 2 2 2 2 2 2 2 2 2 f . . . 
+            . f f f f f f 2 2 2 2 f . . . . 
+            . . . . . . f 2 2 2 f . . . . . 
+            . . . . . . f 2 2 f . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.sign)
     }
     if (zone == 1) {
         oven.zone1_oven()
@@ -289,8 +256,10 @@ function placeOven (zone: number) {
         oven.zone3_oven()
         tiles.placeOnTile(inSignOven, tiles.getTileLocation(19, 2))
     } else if (zone == 4) {
+        oven.zone4_oven()
         tiles.placeOnTile(inSignOven, tiles.getTileLocation(18, 5))
     } else if (zone == 5) {
+        oven.zone5_oven()
         tiles.placeOnTile(inSignOven, tiles.getTileLocation(18, 8))
     }
     inSignOven.setFlag(SpriteFlag.Ghost, true)
@@ -299,42 +268,42 @@ function placeOven (zone: number) {
 function placeFridge (zone: number) {
     if (zone <= 3) {
         inSignFridge = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . f . . . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . f 2 2 2 2 2 f . . . . . 
+            . . . f 2 2 2 2 2 2 2 f . . . . 
+            . . f 2 2 2 2 2 2 2 2 2 f . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+            . f f f f f 2 2 2 f f f f f . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f f f f f . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.sign)
     } else {
         inSignFridge = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . f f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 2 2 f . . . . . 
-. f f f f f f 2 2 2 2 f . . . . 
-. f 2 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f 2 2 2 2 2 2 2 2 2 2 f . . . 
-. f f f f f f 2 2 2 2 f . . . . 
-. . . . . . f 2 2 2 f . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . . f f . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . . f 2 2 f . . . . . . 
+            . . . . . . f 2 2 2 f . . . . . 
+            . f f f f f f 2 2 2 2 f . . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 f . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+            . f 2 2 2 2 2 2 2 2 2 2 f . . . 
+            . f f f f f f 2 2 2 2 f . . . . 
+            . . . . . . f 2 2 2 f . . . . . 
+            . . . . . . f 2 2 f . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.sign)
     }
     if (zone == 1) {
         fridge.zone1_fridge()
@@ -346,13 +315,19 @@ function placeFridge (zone: number) {
         fridge.zone3_fridge()
         tiles.placeOnTile(inSignFridge, tiles.getTileLocation(19, 2))
     } else if (zone == 4) {
+        fridge.zone4_fridge()
         tiles.placeOnTile(inSignFridge, tiles.getTileLocation(18, 5))
     } else if (zone == 5) {
+        fridge.zone5_fridge()
         tiles.placeOnTile(inSignFridge, tiles.getTileLocation(18, 8))
     }
     inSignFridge.setFlag(SpriteFlag.Ghost, true)
     inSignFridge.setFlag(SpriteFlag.Invisible, true)
 }
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    isOrderTaken = true
+    haveOrder()
+})
 function ingredientsOut () {
     monkey.say("Need to refill the toppings...", 1000)
     inSignOven.setFlag(SpriteFlag.Ghost, true)
@@ -365,220 +340,209 @@ function readyForCustomer () {
     inSignKitchen.setFlag(SpriteFlag.Ghost, true)
     inSignKitchen.setFlag(SpriteFlag.Invisible, true)
 }
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (isPizzaDone) {
-        isPizzaDone = false
-        isOrderTaken = true
-        haveOrder()
-    }
-})
 function background () {
     scene.setTile(4, img`
-d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-1 d d d d d d d d d d d d d d b 
-b b b b b b b b b b b b b b b b 
-`, false)
+        d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        1 d d d d d d d d d d d d d d b 
+        b b b b b b b b b b b b b b b b 
+        `, false)
     scene.setTile(2, img`
-. . c c c c c c c c c c c c c c 
-. b 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 3 1 1 1 1 1 1 1 1 1 1 1 1 
-c 3 3 1 1 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-`, true)
+        . . c c c c c c c c c c c c c c 
+        . b 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 3 1 1 1 1 1 1 1 1 1 1 1 1 
+        c 3 3 1 1 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        `, true)
     scene.setTile(3, img`
-c c c c c c c c c c c c c c . . 
-3 3 3 3 3 3 3 3 3 3 3 3 3 3 b . 
-1 1 1 1 1 1 1 1 1 1 1 1 3 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 1 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-`, true)
+        c c c c c c c c c c c c c c . . 
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 b . 
+        1 1 1 1 1 1 1 1 1 1 1 1 3 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 1 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        `, true)
     scene.setTile(5, img`
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-`, true)
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        `, true)
     scene.setTile(9, img`
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 1 1 3 3 3 3 3 3 3 3 3 3 3 
-c 3 3 3 1 1 1 1 1 1 1 1 1 1 1 1 
-c b 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
-c b b 3 3 3 3 3 3 3 3 3 3 3 3 3 
-c b b b 3 3 3 3 3 3 3 3 3 3 3 3 
-c b b b b b b b b b b b b b b b 
-c 3 b b b b b b b b b b b b b b 
-c 3 b b 3 3 b b b b 3 3 b b b b 
-. c c b c c b 3 3 b c c b 3 3 3 
-. . c c c c c c c c c c c c c c 
-. . c b b b b b c . . . . . . . 
-. . c 3 3 3 3 3 c . . . . . . . 
-. . . c c c c c . . . . . . . . 
-`, true)
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 3 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 1 1 3 3 3 3 3 3 3 3 3 3 3 
+        c 3 3 3 1 1 1 1 1 1 1 1 1 1 1 1 
+        c b 3 3 3 3 3 3 3 3 3 3 3 3 3 3 
+        c b b 3 3 3 3 3 3 3 3 3 3 3 3 3 
+        c b b b 3 3 3 3 3 3 3 3 3 3 3 3 
+        c b b b b b b b b b b b b b b b 
+        c 3 b b b b b b b b b b b b b b 
+        c 3 b b 3 3 b b b b 3 3 b b b b 
+        . c c b c c b 3 3 b c c b 3 3 3 
+        . . c c c c c c c c c c c c c c 
+        . . c b b b b b c . . . . . . . 
+        . . c 3 3 3 3 3 c . . . . . . . 
+        . . . c c c c c . . . . . . . . 
+        `, true)
     scene.setTile(7, img`
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-`, true)
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        `, true)
     scene.setTile(11, img`
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
-3 3 3 3 3 3 3 3 3 3 1 1 1 3 3 c 
-1 1 1 1 1 1 1 1 1 1 1 3 3 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 c 
-3 3 3 3 3 3 3 3 3 3 3 3 3 3 b c 
-3 3 3 3 3 3 3 3 3 3 3 3 3 b b c 
-b b b b b b b b b b b b b b b c 
-b b b b b b b b b b b b b b 3 c 
-b b b b 3 3 b b b b 3 3 b b 3 c 
-3 3 3 b c c b 3 3 b c c b c c . 
-c c c c c c c c c c c c c c . . 
-. . . . . . . . c b b b b c . . 
-. . . . . . . . c 3 3 3 3 c . . 
-. . . . . . . . . c c c c . . . 
-`, true)
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 1 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 1 1 1 3 3 c 
+        1 1 1 1 1 1 1 1 1 1 1 3 3 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 c 
+        3 3 3 3 3 3 3 3 3 3 3 3 3 3 b c 
+        3 3 3 3 3 3 3 3 3 3 3 3 3 b b c 
+        b b b b b b b b b b b b b b b c 
+        b b b b b b b b b b b b b b 3 c 
+        b b b b 3 3 b b b b 3 3 b b 3 c 
+        3 3 3 b c c b 3 3 b c c b c c . 
+        c c c c c c c c c c c c c c . . 
+        . . . . . . . . c b b b b c . . 
+        . . . . . . . . c 3 3 3 3 c . . 
+        . . . . . . . . . c c c c . . . 
+        `, true)
     scene.setTile(1, img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, true)
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
     scene.setTile(8, img`
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-e e e e e e e e e e e e e e e e 
-`, false)
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        e e e e e e e e e e e e e e e e 
+        `, false)
 }
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    isOrderTaken = true
-    haveOrder()
-})
 function placeDough (zone: number) {
     if (zone <= 3) {
         inSignDough = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . f . . . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . f 2 2 2 2 2 f . . . . . 
+            . . . f 2 2 2 2 2 2 2 f . . . . 
+            . . f 2 2 2 2 2 2 2 2 2 f . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+            . f f f f f 2 2 2 f f f f f . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f f f f f . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.sign)
     } else {
         inSignDough = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . f f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 2 2 f . . . . . 
-. f f f f f f 2 2 2 2 f . . . . 
-. f 2 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f 2 2 2 2 2 2 2 2 2 2 f . . . 
-. f f f f f f 2 2 2 2 f . . . . 
-. . . . . . f 2 2 2 f . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . . f f . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . . f 2 2 f . . . . . . 
+            . . . . . . f 2 2 2 f . . . . . 
+            . f f f f f f 2 2 2 2 f . . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 f . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+            . f 2 2 2 2 2 2 2 2 2 2 f . . . 
+            . f f f f f f 2 2 2 2 f . . . . 
+            . . . . . . f 2 2 2 f . . . . . 
+            . . . . . . f 2 2 f . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.sign)
     }
     if (zone == 1) {
         dough.zone1_dough()
@@ -590,8 +554,10 @@ function placeDough (zone: number) {
         dough.zone3_dough()
         tiles.placeOnTile(inSignDough, tiles.getTileLocation(19, 2))
     } else if (zone == 4) {
+        dough.zone4_dough()
         tiles.placeOnTile(inSignDough, tiles.getTileLocation(18, 5))
     } else if (zone == 5) {
+        dough.zone5_dough()
         tiles.placeOnTile(inSignDough, tiles.getTileLocation(18, 8))
     }
     inSignDough.setFlag(SpriteFlag.Ghost, true)
@@ -600,42 +566,42 @@ function placeDough (zone: number) {
 function placeKitchen (zone: number) {
     if (zone <= 3) {
         inSignKitchen = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . f . . . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . f 2 2 2 2 2 f . . . . . 
+            . . . f 2 2 2 2 2 2 2 f . . . . 
+            . . f 2 2 2 2 2 2 2 2 2 f . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+            . f f f f f 2 2 2 f f f f f . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f f f f f . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.sign)
     } else {
         inSignKitchen = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . f f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 2 2 f . . . . . 
-. f f f f f f 2 2 2 2 f . . . . 
-. f 2 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f 2 2 2 2 2 2 2 2 2 2 f . . . 
-. f f f f f f 2 2 2 2 f . . . . 
-. . . . . . f 2 2 2 f . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . . f f . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . . f 2 2 f . . . . . . 
+            . . . . . . f 2 2 2 f . . . . . 
+            . f f f f f f 2 2 2 2 f . . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 f . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+            . f 2 2 2 2 2 2 2 2 2 2 f . . . 
+            . f f f f f f 2 2 2 2 f . . . . 
+            . . . . . . f 2 2 2 f . . . . . 
+            . . . . . . f 2 2 f . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.sign)
     }
     if (zone == 1) {
         tiles.placeOnTile(inSignKitchen, tiles.getTileLocation(13, 2))
@@ -657,39 +623,39 @@ function workAtStation (timeWorking: number) {
     getCoords()
     monkey.destroy()
     monkey = sprites.create(img`
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . 
-. . . . . . . . . . . f e e e e e f . . . . . . . . . . . . . . 
-. . . . . . . . . . f d d d d e e e f . . . . . . . . . . . . . 
-. . . . . . . . . c d f d d f d e e f f . . . . . . . . . . . . 
-. . . . . . . . . c d f d d f d e e d d f . . . . . . . . . . . 
-. . . . . . . . c d e e d d d d e e b d c . . . . . . . . . . . 
-. . . . . . . . c d d d d c d d e e b d c . . . . . . . . . . . 
-. . . . . . . . c c c c c d d e e e f c . . . . . . . . . . . . 
-. . . . . . . . . f d d d d e e e f f . . . . . . . . . . . . . 
-. . . . . . . . . . f f f f f e e e e f . . . . . . . . . . . . 
-. . . . . . . . . . . . f f e e e e e e f . f f . . . . . . . . 
-. . . . . . . . . . . f e e f e e f e e f . e f . . . . . . . . 
-. . . . . . . . . . f e e f e e f e e e f . e f . . . . . . . . 
-. . . . . . . . . f b d f d b f b b f e f f e f . . . . . . . . 
-. . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
-. . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
-`, SpriteKind.Player)
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . f e e e e e f . . . . . . . . . . . . . . 
+        . . . . . . . . . . f d d d d e e e f . . . . . . . . . . . . . 
+        . . . . . . . . . c d f d d f d e e f f . . . . . . . . . . . . 
+        . . . . . . . . . c d f d d f d e e d d f . . . . . . . . . . . 
+        . . . . . . . . c d e e d d d d e e b d c . . . . . . . . . . . 
+        . . . . . . . . c d d d d c d d e e b d c . . . . . . . . . . . 
+        . . . . . . . . c c c c c d d e e e f c . . . . . . . . . . . . 
+        . . . . . . . . . f d d d d e e e f f . . . . . . . . . . . . . 
+        . . . . . . . . . . f f f f f e e e e f . . . . . . . . . . . . 
+        . . . . . . . . . . . . f f e e e e e e f . f f . . . . . . . . 
+        . . . . . . . . . . . f e e f e e f e e f . e f . . . . . . . . 
+        . . . . . . . . . . f e e f e e f e e e f . e f . . . . . . . . 
+        . . . . . . . . . f b d f d b f b b f e f f e f . . . . . . . . 
+        . . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
+        . . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
+        `, SpriteKind.Player)
     monkey.setVelocity(0, 0)
     monkey.setPosition(freezeX, freezeY)
     clock(timeWorking)
@@ -706,42 +672,42 @@ function doughDone () {
 function placeVeggies (zone: number) {
     if (zone <= 3) {
         inSignVeggies = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . f 2 2 2 2 2 f . . . . . 
-. . . f 2 2 2 2 2 2 2 f . . . . 
-. . f 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f f f f f 2 2 2 f f f f f . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f 2 2 2 f . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . f . . . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . f 2 2 2 2 2 f . . . . . 
+            . . . f 2 2 2 2 2 2 2 f . . . . 
+            . . f 2 2 2 2 2 2 2 2 2 f . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+            . f f f f f 2 2 2 f f f f f . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f 2 2 2 f . . . . . . 
+            . . . . . f f f f f . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.sign)
     } else {
         inSignVeggies = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . f f . . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 2 2 f . . . . . 
-. f f f f f f 2 2 2 2 f . . . . 
-. f 2 2 2 2 2 2 2 2 2 2 f . . . 
-. f 2 2 2 2 2 2 2 2 2 2 2 f . . 
-. f 2 2 2 2 2 2 2 2 2 2 f . . . 
-. f f f f f f 2 2 2 2 f . . . . 
-. . . . . . f 2 2 2 f . . . . . 
-. . . . . . f 2 2 f . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . . f f . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.sign)
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . . f 2 2 f . . . . . . 
+            . . . . . . f 2 2 2 f . . . . . 
+            . f f f f f f 2 2 2 2 f . . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 f . . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 f . . 
+            . f 2 2 2 2 2 2 2 2 2 2 f . . . 
+            . f f f f f f 2 2 2 2 f . . . . 
+            . . . . . . f 2 2 2 f . . . . . 
+            . . . . . . f 2 2 f . . . . . . 
+            . . . . . . f 2 f . . . . . . . 
+            . . . . . . f f . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.sign)
     }
     if (zone == 1) {
         tiles.placeOnTile(inSignVeggies, tiles.getTileLocation(13, 2))
@@ -783,67 +749,67 @@ let isDoughDone = false
 let inSignVeggies: Sprite = null
 let freezeY = 0
 let freezeX = 0
-let isPizzaDone = false
 let inSignKitchen: Sprite = null
 let inSignFridge: Sprite = null
 let inSignOven: Sprite = null
 let anim: animation.Animation = null
 let timer: Sprite = null
+let isPizzaDone = false
 let inSignDough: Sprite = null
 let isOrderTaken = false
 let monkey: Sprite = null
-let Dough_Zone = 2
-let Oven_Zone = 1
+let Dough_Zone = 1
+let Oven_Zone = 2
 let Fridge_Zone = 3
 let Veggies_Zone = 4
 let Kitchen_Zone = 5
 monkey = sprites.create(img`
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . 
-. . . . . . . . . . . f e e e e e f . . . . . . . . . . . . . . 
-. . . . . . . . . . f d d d d e e e f . . . . . . . . . . . . . 
-. . . . . . . . . c d f d d f d e e f f . . . . . . . . . . . . 
-. . . . . . . . . c d f d d f d e e d d f . . . . . . . . . . . 
-. . . . . . . . c d e e d d d d e e b d c . . . . . . . . . . . 
-. . . . . . . . c d d d d c d d e e b d c . . . . . . . . . . . 
-. . . . . . . . c c c c c d d e e e f c . . . . . . . . . . . . 
-. . . . . . . . . f d d d d e e e f f . . . . . . . . . . . . . 
-. . . . . . . . . . f f f f f e e e e f . . . . . . . . . . . . 
-. . . . . . . . . . . . f f e e e e e e f . f f . . . . . . . . 
-. . . . . . . . . . . f e e f e e f e e f . e f . . . . . . . . 
-. . . . . . . . . . f e e f e e f e e e f . e f . . . . . . . . 
-. . . . . . . . . f b d f d b f b b f e f f e f . . . . . . . . 
-. . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
-. . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
-`, SpriteKind.Player)
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . f e e e e e f . . . . . . . . . . . . . . 
+    . . . . . . . . . . f d d d d e e e f . . . . . . . . . . . . . 
+    . . . . . . . . . c d f d d f d e e f f . . . . . . . . . . . . 
+    . . . . . . . . . c d f d d f d e e d d f . . . . . . . . . . . 
+    . . . . . . . . c d e e d d d d e e b d c . . . . . . . . . . . 
+    . . . . . . . . c d d d d c d d e e b d c . . . . . . . . . . . 
+    . . . . . . . . c c c c c d d e e e f c . . . . . . . . . . . . 
+    . . . . . . . . . f d d d d e e e f f . . . . . . . . . . . . . 
+    . . . . . . . . . . f f f f f e e e e f . . . . . . . . . . . . 
+    . . . . . . . . . . . . f f e e e e e e f . f f . . . . . . . . 
+    . . . . . . . . . . . f e e f e e f e e f . e f . . . . . . . . 
+    . . . . . . . . . . f e e f e e f e e e f . e f . . . . . . . . 
+    . . . . . . . . . f b d f d b f b b f e f f e f . . . . . . . . 
+    . . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
+    . . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
+    `, SpriteKind.Player)
 scene.cameraFollowSprite(monkey)
 scene.setTileMap(img`
-4 4 4 4 4 4 4 4 4 4 2 3 e 1 1 e 1 1 e 1 1 
-4 4 4 4 4 4 4 4 4 4 5 7 e 1 1 e 1 1 e 1 1 
-4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
-4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e e e 
-4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
-4 4 4 4 4 4 4 4 4 4 f f e e e e e e e 1 1 
-`)
+    4 4 4 4 4 4 4 4 4 4 2 3 e 1 1 1 1 1 1 1 1 
+    4 4 4 4 4 4 4 4 4 4 5 7 e 1 1 1 1 1 1 1 1 
+    4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e e e 
+    4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e e e 
+    4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
+    4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
+    4 4 4 4 4 4 4 4 4 4 2 3 e e e e e e e 1 1 
+    4 4 4 4 4 4 4 4 4 4 5 7 e e e e e e e 1 1 
+    4 4 4 4 4 4 4 4 4 4 9 b e e e e e e e 1 1 
+    4 4 4 4 4 4 4 4 4 4 f f e e e e e e e 1 1 
+    `)
 controller.moveSprite(monkey, 100, 100)
 tiles.placeOnTile(monkey, tiles.getTileLocation(12, 2))
 isOrderTaken = true
@@ -857,166 +823,166 @@ haveOrder()
 game.onUpdate(function () {
     monkey.setFlag(SpriteFlag.ShowPhysics, true)
     monkey.setImage(img`
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . 
-. . . . . . . . . . . f e e e e e f . . . . . . . . . . . . . . 
-. . . . . . . . . . f d d d d e e e f . . . . . . . . . . . . . 
-. . . . . . . . . c d f d d f d e e f f . . . . . . . . . . . . 
-. . . . . . . . . c d f d d f d e e d d f . . . . . . . . . . . 
-. . . . . . . . c d e e d d d d e e b d c . . . . . . . . . . . 
-. . . . . . . . c d d d d c d d e e b d c . . . . . . . . . . . 
-. . . . . . . . c c c c c d d e e e f c . . . . . . . . . . . . 
-. . . . . . . . . f d d d d e e e f f . . . . . . . . . . . . . 
-. . . . . . . . . . f f f f f e e e e f . . . . . . . . . . . . 
-. . . . . . . . . . . . f f e e e e e e f . f f . . . . . . . . 
-. . . . . . . . . . . f e e f e e f e e f . e f . . . . . . . . 
-. . . . . . . . . . f e e f e e f e e e f . e f . . . . . . . . 
-. . . . . . . . . f b d f d b f b b f e f f e f . . . . . . . . 
-. . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
-. . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
-`)
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . f e e e e e f . . . . . . . . . . . . . . 
+        . . . . . . . . . . f d d d d e e e f . . . . . . . . . . . . . 
+        . . . . . . . . . c d f d d f d e e f f . . . . . . . . . . . . 
+        . . . . . . . . . c d f d d f d e e d d f . . . . . . . . . . . 
+        . . . . . . . . c d e e d d d d e e b d c . . . . . . . . . . . 
+        . . . . . . . . c d d d d c d d e e b d c . . . . . . . . . . . 
+        . . . . . . . . c c c c c d d e e e f c . . . . . . . . . . . . 
+        . . . . . . . . . f d d d d e e e f f . . . . . . . . . . . . . 
+        . . . . . . . . . . f f f f f e e e e f . . . . . . . . . . . . 
+        . . . . . . . . . . . . f f e e e e e e f . f f . . . . . . . . 
+        . . . . . . . . . . . f e e f e e f e e f . e f . . . . . . . . 
+        . . . . . . . . . . f e e f e e f e e e f . e f . . . . . . . . 
+        . . . . . . . . . f b d f d b f b b f e f f e f . . . . . . . . 
+        . . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
+        . . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
+        `)
     if (monkey.vx < 0) {
         animation.runImageAnimation(
         monkey,
         [img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f . . . . . 
-. c d f d d f d e e f f . . . . 
-. c d f d d f d e e d d f . . . 
-c d e e d d d d e e b d c . . . 
-c d d d d c d d e e b d c . f f 
-c c c c c d d d e e f c . f e f 
-. f d d d d d e e f f . . f e f 
-. . f f f f f e e e e f . f e f 
-. . . . f e e e e e e e f f e f 
-. . . f e f f e f e e e e f f . 
-. . . f e f f e f e e e e f . . 
-. . . f d b f d b f f e f . . . 
-. . . f d d c d d b b d f . . . 
-. . . . f f f f f f f f f . . . 
-`,img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f . . . . . 
-. c d f d d f d e e f . . . . . 
-. c d f d d f d e e f f . . . . 
-c d e e d d d d e e d d f . . . 
-c d d d d c d d e e b d c . . . 
-c c c c c d d e e e b d c . f f 
-. f d d d d e e e f f c . f e f 
-. f f f f f f e e e e f . f e f 
-. f f f f e e e e e e e f f e f 
-f d d f d d f e f e e e e f f . 
-f d b f d b f e f e e e e f . . 
-f f f f f f f f f f f f e f . . 
-. . . . . . . . . f c d d f . . 
-. . . . . . . . . . f f f f . . 
-`,img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f f . . . . 
-. c d d d d d d e e d d f . . . 
-. c d f d d f d e e b d c . . . 
-c d d f d d f d e e b d c . f f 
-c d e e d d d d e e f c . f e f 
-c d d d d c d e e e f . . f e f 
-. f c c c d e e e f f . . f e f 
-. . f f f f f e e e e f . f e f 
-. . . . f e e e e e e e f f f . 
-. . f f e f e e f e e e e f . . 
-. f e f f e e f f f e e e f . . 
-f d d b d d c f f f f f f b f . 
-f d d c d d d f . . f c d d f . 
-. f f f f f f f . . . f f f . . 
-`,img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f f f . . . . 
-. . f d d d e e e e d d f . . . 
-. c d d d d d e e e b d c . . . 
-. c d d d d d d e e b d c . . . 
-c d d f d d f d e e f c . f f . 
-c d d f d d f d e e f . . f e f 
-c d e e d d d d e e f . . f e f 
-. f d d d c d e e f f . . f e f 
-. . f f f d e e e e e f . f e f 
-. . . . f e e e e e e e f f f . 
-. . . . f f e e e e e b f f . . 
-. . . f e f f e e c d d f f . . 
-. . f d d b d d c f f f . . . . 
-. . f d d c d d d f f . . . . . 
-. . . f f f f f f f . . . . . . 
-`,img`
-. . . . f f f f f . . . . . . . 
-. . . f e e e e e f . . . . . . 
-. . f d d d d e e e f . . . . . 
-. c d f d d f d e e f f . . . . 
-. c d f d d f d e e d d f . . . 
-c d e e d d d d e e b d c . . . 
-c d d d d c d d e e b d c . . . 
-c c c c c d d e e e f c . . . . 
-. f d d d d e e e f f . . . . . 
-. . f f f f f e e e e f . . . . 
-. . . . f f e e e e e e f . f f 
-. . . f e e f e e f e e f . e f 
-. . f e e f e e f e e e f . e f 
-. f b d f d b f b b f e f f e f 
-. f d d f d d f d d b e f f f f 
-. . f f f f f f f f f f f f f . 
-`],
+            . . . . f f f f f . . . . . . . 
+            . . . f e e e e e f . . . . . . 
+            . . f d d d d e e e f . . . . . 
+            . c d f d d f d e e f f . . . . 
+            . c d f d d f d e e d d f . . . 
+            c d e e d d d d e e b d c . . . 
+            c d d d d c d d e e b d c . f f 
+            c c c c c d d d e e f c . f e f 
+            . f d d d d d e e f f . . f e f 
+            . . f f f f f e e e e f . f e f 
+            . . . . f e e e e e e e f f e f 
+            . . . f e f f e f e e e e f f . 
+            . . . f e f f e f e e e e f . . 
+            . . . f d b f d b f f e f . . . 
+            . . . f d d c d d b b d f . . . 
+            . . . . f f f f f f f f f . . . 
+            `,img`
+            . . . . f f f f f . . . . . . . 
+            . . . f e e e e e f . . . . . . 
+            . . f d d d d e e e f . . . . . 
+            . c d f d d f d e e f . . . . . 
+            . c d f d d f d e e f f . . . . 
+            c d e e d d d d e e d d f . . . 
+            c d d d d c d d e e b d c . . . 
+            c c c c c d d e e e b d c . f f 
+            . f d d d d e e e f f c . f e f 
+            . f f f f f f e e e e f . f e f 
+            . f f f f e e e e e e e f f e f 
+            f d d f d d f e f e e e e f f . 
+            f d b f d b f e f e e e e f . . 
+            f f f f f f f f f f f f e f . . 
+            . . . . . . . . . f c d d f . . 
+            . . . . . . . . . . f f f f . . 
+            `,img`
+            . . . . f f f f f . . . . . . . 
+            . . . f e e e e e f . . . . . . 
+            . . f d d d d e e e f f . . . . 
+            . c d d d d d d e e d d f . . . 
+            . c d f d d f d e e b d c . . . 
+            c d d f d d f d e e b d c . f f 
+            c d e e d d d d e e f c . f e f 
+            c d d d d c d e e e f . . f e f 
+            . f c c c d e e e f f . . f e f 
+            . . f f f f f e e e e f . f e f 
+            . . . . f e e e e e e e f f f . 
+            . . f f e f e e f e e e e f . . 
+            . f e f f e e f f f e e e f . . 
+            f d d b d d c f f f f f f b f . 
+            f d d c d d d f . . f c d d f . 
+            . f f f f f f f . . . f f f . . 
+            `,img`
+            . . . . f f f f f . . . . . . . 
+            . . . f e e e e e f f f . . . . 
+            . . f d d d e e e e d d f . . . 
+            . c d d d d d e e e b d c . . . 
+            . c d d d d d d e e b d c . . . 
+            c d d f d d f d e e f c . f f . 
+            c d d f d d f d e e f . . f e f 
+            c d e e d d d d e e f . . f e f 
+            . f d d d c d e e f f . . f e f 
+            . . f f f d e e e e e f . f e f 
+            . . . . f e e e e e e e f f f . 
+            . . . . f f e e e e e b f f . . 
+            . . . f e f f e e c d d f f . . 
+            . . f d d b d d c f f f . . . . 
+            . . f d d c d d d f f . . . . . 
+            . . . f f f f f f f . . . . . . 
+            `,img`
+            . . . . f f f f f . . . . . . . 
+            . . . f e e e e e f . . . . . . 
+            . . f d d d d e e e f . . . . . 
+            . c d f d d f d e e f f . . . . 
+            . c d f d d f d e e d d f . . . 
+            c d e e d d d d e e b d c . . . 
+            c d d d d c d d e e b d c . . . 
+            c c c c c d d e e e f c . . . . 
+            . f d d d d e e e f f . . . . . 
+            . . f f f f f e e e e f . . . . 
+            . . . . f f e e e e e e f . f f 
+            . . . f e e f e e f e e f . e f 
+            . . f e e f e e f e e e f . e f 
+            . f b d f d b f b b f e f f e f 
+            . f d d f d d f d d b e f f f f 
+            . . f f f f f f f f f f f f f . 
+            `],
         1000,
         false
         )
     } else {
         monkey.setImage(img`
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . 
-. . . . . . . . . . . f e e e e e f . . . . . . . . . . . . . . 
-. . . . . . . . . . f d d d d e e e f . . . . . . . . . . . . . 
-. . . . . . . . . c d f d d f d e e f f . . . . . . . . . . . . 
-. . . . . . . . . c d f d d f d e e d d f . . . . . . . . . . . 
-. . . . . . . . c d e e d d d d e e b d c . . . . . . . . . . . 
-. . . . . . . . c d d d d c d d e e b d c . . . . . . . . . . . 
-. . . . . . . . c c c c c d d e e e f c . . . . . . . . . . . . 
-. . . . . . . . . f d d d d e e e f f . . . . . . . . . . . . . 
-. . . . . . . . . . f f f f f e e e e f . . . . . . . . . . . . 
-. . . . . . . . . . . . f f e e e e e e f . f f . . . . . . . . 
-. . . . . . . . . . . f e e f e e f e e f . e f . . . . . . . . 
-. . . . . . . . . . f e e f e e f e e e f . e f . . . . . . . . 
-. . . . . . . . . f b d f d b f b b f e f f e f . . . . . . . . 
-. . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
-. . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
-`)
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . f e e e e e f . . . . . . . . . . . . . . 
+            . . . . . . . . . . f d d d d e e e f . . . . . . . . . . . . . 
+            . . . . . . . . . c d f d d f d e e f f . . . . . . . . . . . . 
+            . . . . . . . . . c d f d d f d e e d d f . . . . . . . . . . . 
+            . . . . . . . . c d e e d d d d e e b d c . . . . . . . . . . . 
+            . . . . . . . . c d d d d c d d e e b d c . . . . . . . . . . . 
+            . . . . . . . . c c c c c d d e e e f c . . . . . . . . . . . . 
+            . . . . . . . . . f d d d d e e e f f . . . . . . . . . . . . . 
+            . . . . . . . . . . f f f f f e e e e f . . . . . . . . . . . . 
+            . . . . . . . . . . . . f f e e e e e e f . f f . . . . . . . . 
+            . . . . . . . . . . . f e e f e e f e e f . e f . . . . . . . . 
+            . . . . . . . . . . f e e f e e f e e e f . e f . . . . . . . . 
+            . . . . . . . . . f b d f d b f b b f e f f e f . . . . . . . . 
+            . . . . . . . . . f d d f d d f d d b e f f f f . . . . . . . . 
+            . . . . . . . . . . f f f f f f f f f f f f f . . . . . . . . . 
+            `)
     }
 })
 forever(function () {
