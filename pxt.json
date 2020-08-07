@@ -6,11 +6,11 @@
         "Color Fading": "github:jwunderl/pxt-color#v0.1.3",
         "color-coded-tilemap": "*",
         "animation": "*",
-        "zones_oven": "pub:46567-96882-63867-46783",
-        "zones_dough": "pub:03742-07464-97385-20832",
-        "zones_fridge": "pub:75098-85062-54054-45646",
         "zones_veggies": "pub:78726-09143-35007-27068",
-        "zones_kitchen": "pub:82840-70317-05537-00706"
+        "zones_kitchen": "pub:82840-70317-05537-00706",
+        "zones_dough": "pub:24660-38614-74641-91325",
+        "zones_oven": "pub:31038-96348-36692-55564",
+        "zones_fridge": "pub:00829-64866-01576-59910"
     },
     "files": [
         "main.blocks",

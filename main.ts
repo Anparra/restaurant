@@ -725,8 +725,8 @@ function placeVeggies (zone: number) {
     inSignVeggies.setFlag(SpriteFlag.Invisible, true)
 }
 function ZonesAndTimers () {
-    Dough_Zone = 2
-    Oven_Zone = 1
+    Dough_Zone = 1
+    Oven_Zone = 2
     Fridge_Zone = 3
     Veggies_Zone = 4
     Kitchen_Zone = 5
