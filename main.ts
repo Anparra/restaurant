@@ -261,8 +261,10 @@ function placeOven (zone: number) {
         oven.zone3_oven()
         tiles.placeOnTile(inSignOven, tiles.getTileLocation(19, 2))
     } else if (zone == 4) {
+        oven.zone4_oven()
         tiles.placeOnTile(inSignOven, tiles.getTileLocation(18, 5))
     } else if (zone == 5) {
+        oven.zone5_oven()
         tiles.placeOnTile(inSignOven, tiles.getTileLocation(18, 8))
     }
     inSignOven.setFlag(SpriteFlag.Ghost, true)
@@ -318,8 +320,10 @@ function placeFridge (zone: number) {
         fridge.zone3_fridge()
         tiles.placeOnTile(inSignFridge, tiles.getTileLocation(19, 2))
     } else if (zone == 4) {
+        fridge.zone4_fridge()
         tiles.placeOnTile(inSignFridge, tiles.getTileLocation(18, 5))
     } else if (zone == 5) {
+        fridge.zone5_fridge()
         tiles.placeOnTile(inSignFridge, tiles.getTileLocation(18, 8))
     }
     inSignFridge.setFlag(SpriteFlag.Ghost, true)
@@ -555,8 +559,10 @@ function placeDough (zone: number) {
         dough.zone3_dough()
         tiles.placeOnTile(inSignDough, tiles.getTileLocation(19, 2))
     } else if (zone == 4) {
+        dough.zone4_dough()
         tiles.placeOnTile(inSignDough, tiles.getTileLocation(18, 5))
     } else if (zone == 5) {
+        dough.zone5_dough()
         tiles.placeOnTile(inSignDough, tiles.getTileLocation(18, 8))
     }
     inSignDough.setFlag(SpriteFlag.Ghost, true)
@@ -725,9 +731,9 @@ function placeVeggies (zone: number) {
     inSignVeggies.setFlag(SpriteFlag.Invisible, true)
 }
 function ZonesAndTimers () {
-    Dough_Zone = 1
+    Dough_Zone = 3
     Oven_Zone = 2
-    Fridge_Zone = 3
+    Fridge_Zone = 1
     Veggies_Zone = 4
     Kitchen_Zone = 5
     Dough_Timer = 5000
