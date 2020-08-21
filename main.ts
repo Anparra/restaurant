@@ -844,7 +844,6 @@ placeVeggies(Veggies_Zone)
 placeKitchen(Kitchen_Zone)
 haveOrder()
 game.onUpdate(function () {
-    monkey.setFlag(SpriteFlag.ShowPhysics, true)
     monkey.setImage(img`
         . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
